@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/features/external_projection/runtime/partitioning.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 2 - Data and Evidence Fabric
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: factor materialization, source ownership, leakage gates, and feature-store publishing.
 
 Implementation highlights visible from the public architecture:

@@ -6,6 +6,7 @@ one or more private modules whose names would reveal research lines, strategy
 posture, vendor details, execution posture, or unpublished results.
 
 Redacted capability area: research_line_a
+Research OS layer: Layer 4 - Research Applications
 Capability: Feature and label fabric
 Public-safe role: Feature/label contract for a private research line.
 

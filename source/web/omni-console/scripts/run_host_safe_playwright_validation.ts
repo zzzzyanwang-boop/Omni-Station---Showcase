@@ -4,7 +4,7 @@
  * Original private path: web/omni-console/scripts/run_host_safe_playwright_validation.ts
  * Original source content is intentionally omitted.
  *
- * Architecture layer: Layer 5 - Console Surface
+ * Architecture layer: Layer 5 - Research Governance & Operations
  * Public-safe role: run host safe playwright validation module boundary within the OmniStation research architecture.
  *
  * Implementation highlights visible from the public architecture:

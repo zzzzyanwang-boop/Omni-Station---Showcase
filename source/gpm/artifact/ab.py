@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/artifact/ab.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 1 - Data / Compute / Artifact Infrastructure
 Public-safe role: manifest-bound artifact serialization, hash policy, and durable IO conventions.
 
 Implementation highlights visible from the public architecture:

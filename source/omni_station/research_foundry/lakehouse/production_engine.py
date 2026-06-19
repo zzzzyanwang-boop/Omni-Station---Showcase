@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/lakehouse/production_engine.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: production engine module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

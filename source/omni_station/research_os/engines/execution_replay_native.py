@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/engines/execution_replay_native.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: native-kernel interfaces and engine contracts for metrics, replay, and accounting.
 
 Implementation highlights visible from the public architecture:

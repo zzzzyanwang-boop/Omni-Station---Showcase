@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/external_factor_governance/role_taxonomy.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
 
 Implementation highlights visible from the public architecture:

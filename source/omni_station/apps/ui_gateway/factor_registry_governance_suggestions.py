@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/apps/ui_gateway/factor_registry_governance_suggestions.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 5 - UI Gateway and Read Models
+Architecture layer: Layer 5 - Research Governance & Operations
 Public-safe role: factor registry governance suggestions module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

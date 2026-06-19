@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/factor_evidence/secondary_audit.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role: factor identity, incrementality, risk adjustment, and secondary audit contracts.
 
 Implementation highlights visible from the public architecture:

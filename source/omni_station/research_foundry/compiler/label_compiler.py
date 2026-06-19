@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/compiler/label_compiler.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: feature, label, sidecar, and trainable-matrix compilation boundaries.
 
 Implementation highlights visible from the public architecture:

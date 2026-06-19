@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/decision_utility/score_to_action.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: decision-utility translation and score resolution controls.
 
 Implementation highlights visible from the public architecture:

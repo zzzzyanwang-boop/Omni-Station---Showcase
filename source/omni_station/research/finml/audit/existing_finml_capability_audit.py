@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/finml/audit/existing_finml_capability_audit.py
 Original source content is intentionally omitted.
 
-Architecture layer: Cross-layer Support
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: leakage, forbidden-feature, and evidence admissibility checks.
 
 Implementation highlights visible from the public architecture:

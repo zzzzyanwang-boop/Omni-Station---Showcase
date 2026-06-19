@@ -6,6 +6,7 @@ one or more private modules whose names would reveal research lines, strategy
 posture, vendor details, execution posture, or unpublished results.
 
 Redacted capability area: research_line_b
+Research OS layer: Layer 4 - Research Applications
 Capability: Risk-adjusted evidence
 Public-safe role: Risk-sidecar and neutralization control for private line.
 

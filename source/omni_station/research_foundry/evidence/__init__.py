@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/evidence/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role: proof graph, invalidation graph, evidence packets, and decision-grade guards.
 
 Implementation highlights visible from the public architecture:

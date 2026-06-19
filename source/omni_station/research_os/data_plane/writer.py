@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/data_plane/writer.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 1 - Data / Compute / Artifact Infrastructure
 Public-safe role: manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
 
 Implementation highlights visible from the public architecture:

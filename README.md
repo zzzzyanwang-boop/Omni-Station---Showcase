@@ -6,23 +6,23 @@ This repository is intentionally not runnable. The files under `source/` keep or
 
 Sensitive areas are represented separately under `redacted_capabilities/` with sanitized names. This proves coverage of private research lines, strategy/economic evidence, execution safety, order-management boundaries, vendor/data boundaries, and native/performance work without disclosing filenames that would reveal private research assets.
 
-## Five-Layer Architecture
+## Research OS Five-Layer Architecture
 
-OmniStation is presented through five public-safe layers:
+OmniStation is presented through the Research OS layer model from the full-system design baseline:
 
-1. Research Control Plane: work orders, contracts, task scope, evidence DAGs, and operator-visible state.
-2. Data and Evidence Fabric: source manifests, feature/label artifacts, schema hashes, content hashes, lineage, and cache policy.
-3. Research Engine Layer: factor profiling, ML training, risk sidecars, replay/evaluation, and performance-sensitive kernels.
-4. Validation and Governance Layer: leakage checks, fold policies, risk attribution, execution-cost gates, review gates, and closure cases.
-5. Productization Boundary Layer: UI/read models, reports, promotion packets, inference eligibility, and live-capable boundary controls.
+1. Layer 5 - Research Governance & Operations: WorkOrders, route authority, owners, stages, blockers, allowed next actions, freeze/stop/waiver/retirement decisions, and Research Mission Control.
+2. Layer 4 - Research Applications: Idea Intake, Mechanism Memo, Data & Panel Contract, Feature / Factor Foundry, Discovery, Review & Freeze, Confirmation, Decision Score, Economic Replay, Portfolio Utility, Closure, Memory, and Quarantine apps.
+3. Layer 3 - Evidence / Contract / DAG Kernel: ResearchContractCompiler, EvidenceEnvelope, EvidenceDAG, ArtifactManifestStore, RouteAuthorityRegistry, TrialBudgetLedger, DiscoverySeal, ConfirmatorySpec, and ClosureArbitration.
+4. Layer 2 - Provider / Model / Runtime Engines: FeatureProvider, ExternalFactorProvider, SignalStateProvider, EconomicStateProvider, LabelOracle, ModelZoo, Calibration/OOD, DecisionRuntime, ExecutionReplayEngine, and PortfolioEngine.
+5. Layer 1 - Data / Compute / Artifact Infrastructure: market-data inputs, Parquet/Arrow/manifests, cache, partitioning, atomic writes, station runners, progress events, local compute, native kernels, and GPU-ready training surfaces.
 
 ## What This Shows
 
 - The source-shaped architecture of the private system, including actual public-safe module paths and file names.
 - Redacted capability structures for sensitive research, execution, order-management, vendor/data, and performance surfaces.
 - A capability matrix mapping system abilities to public-safe real files and redacted placeholders.
-- A layered research operating model for moving from work orders to evidence, gates, and review cases.
-- Separation between research orchestration, engines, contracts, artifacts, and promotion gates.
+- A layered Research OS model for moving from WorkOrders to applications, compiled contracts, engines, artifacts, review gates, closure, and memory.
+- Separation between governance, research applications, evidence kernel, runtime engines, and physical infrastructure.
 - Fail-closed posture for incomplete evidence, unsupported claims, and live-execution boundaries.
 - Reproducibility concepts: manifest-bound artifacts, evidence envelopes, lineage, and explicit review results.
 - Pseudocode and fake examples that illustrate implementation shape without exposing real trading logic or data.
@@ -55,7 +55,7 @@ examples/              Toy work orders, manifests, and gate reports
 
 ## Source-Shaped Skeleton
 
-The `source/` tree is the core of this showcase. It mirrors selected real paths such as Research OS contracts, data-plane boundaries, research engines, evidence/gate modules, validation and governance layers, performance/materialization components, UI read models, and test contracts.
+The `source/` tree is the core of this showcase. It mirrors selected real paths such as Research OS governance, application contracts, evidence kernel modules, provider/runtime engines, data-plane infrastructure, UI/read-model surfaces, and test contracts.
 
 Each placeholder file contains:
 
@@ -70,7 +70,7 @@ It deliberately excludes data, runtime outputs, private configs, task files, log
 
 ## Redacted Capabilities
 
-The `redacted_capabilities/` tree covers sensitive areas where the real filename itself would disclose too much. The files use sanitized names such as `research_line_a`, `execution_boundary`, `order_management_boundary`, and `performance_native_paths`.
+The `redacted_capabilities/` tree covers sensitive areas where the real filename itself would disclose too much. The files use sanitized names such as `research_line_a`, `runtime_engine_boundary`, `order_management_boundary`, and `native_compute_infrastructure`.
 
 This layer shows that the private system includes candidate lifecycles, feature/label contracts, OOF/CPCV validation, model governance, risk/replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces without exposing private strategy names or implementation.
 

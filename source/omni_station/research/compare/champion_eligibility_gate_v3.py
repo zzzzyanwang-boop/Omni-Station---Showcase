@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/compare/champion_eligibility_gate_v3.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 4 - Challenger Comparison
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: challenger/default comparison and champion eligibility gates.
 
 Implementation highlights visible from the public architecture:

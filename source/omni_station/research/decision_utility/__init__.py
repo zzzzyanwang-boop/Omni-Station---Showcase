@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/decision_utility/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Cross-layer Support
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: decision-utility translation and score resolution controls.
 
 Implementation highlights visible from the public architecture:

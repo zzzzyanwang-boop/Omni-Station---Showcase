@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/expr/engine_planner.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: engine planner module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

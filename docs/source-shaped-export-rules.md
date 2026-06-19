@@ -4,8 +4,8 @@ The showcase export is whitelist-based. It preserves a public-safe subset of the
 
 ## Included
 
-- Research OS contracts, data-plane interfaces, semantic kernel, engine contracts, and conformance checks.
-- Research foundry modules for evidence, adversarial validation, decision runtime, economics, external-factor governance, and general orchestration.
+- Research OS governance/operations, application contracts, evidence kernel, data-plane interfaces, engine contracts, and conformance checks.
+- Research foundry modules for applications, evidence, adversarial validation, decision runtime, economics, external-factor governance, and general orchestration.
 - Feature, training, validation, performance, model-governance, and promotion-boundary modules that communicate architecture rather than private edge details.
 - UI gateway and console read-model contracts that show operator-facing architecture.
 - Tests that demonstrate fail-closed boundaries, leakage controls, evidence contracts, and promotion guards.
@@ -25,6 +25,7 @@ When a private module is important for proving capability coverage but the origi
 The placeholder may describe:
 
 - capability area,
+- official Research OS layer when applicable,
 - public-safe role,
 - architecture-level highlights,
 - sanitized input/output contract,

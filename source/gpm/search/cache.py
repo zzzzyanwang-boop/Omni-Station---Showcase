@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/search/cache.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: genetic programming / expression search policy, objectives, cache, and rejection ledger.
 
 Implementation highlights visible from the public architecture:

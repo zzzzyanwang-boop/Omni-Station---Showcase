@@ -6,6 +6,7 @@ one or more private modules whose names would reveal research lines, strategy
 posture, vendor details, execution posture, or unpublished results.
 
 Redacted capability area: research_line_a
+Research OS layer: Layer 4 - Research Applications
 Capability: OOF and fold-local validation
 Public-safe role: Out-of-fold validation path for a private research line.
 

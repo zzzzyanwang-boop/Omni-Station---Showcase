@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/backtest/engine.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: offline replay and backtest abstractions used before promotion review.
 
 Implementation highlights visible from the public architecture:

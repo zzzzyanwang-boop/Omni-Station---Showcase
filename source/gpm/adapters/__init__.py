@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/adapters/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: adapter boundary between legacy engines, public contracts, and normalized evidence packets.
 
 Implementation highlights visible from the public architecture:

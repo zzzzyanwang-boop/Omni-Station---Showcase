@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/economics/portfolio_utility.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: cost, capacity, fill, utility, and replay economics engines.
 
 Implementation highlights visible from the public architecture:

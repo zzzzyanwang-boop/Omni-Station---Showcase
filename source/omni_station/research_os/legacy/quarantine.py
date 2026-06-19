@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/legacy/quarantine.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role: legacy route quarantine and fail-closed bridge policy.
 
 Implementation highlights visible from the public architecture:

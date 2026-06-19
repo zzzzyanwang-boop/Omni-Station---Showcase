@@ -1,14 +1,15 @@
 flowchart TB
-  L1["Layer 1: Research Control Plane"]
-  L2["Layer 2: Data and Evidence Fabric"]
-  L3["Layer 3: Research Engine Layer"]
-  L4["Layer 4: Validation and Governance Layer"]
-  L5["Layer 5: Productization Boundary Layer"]
+  L5["Layer 5: Research Governance & Operations"]
+  L4["Layer 4: Research Applications"]
+  L3["Layer 3: Evidence / Contract / DAG Kernel"]
+  L2["Layer 2: Provider / Model / Runtime Engines"]
+  L1["Layer 1: Data / Compute / Artifact Infrastructure"]
 
-  L1 -->|"work orders, contracts, evidence DAG"| L2
-  L2 -->|"manifest-bound input bundle"| L3
-  L3 -->|"artifact manifests and evidence envelopes"| L2
-  L2 -->|"evidence bundle and claim scope"| L4
-  L4 -->|"review gate and closure case"| L5
-  L5 -. "separate promotion boundary" .-> L1
+  L5 -->|"ResearchWorkOrder, route charter, owner, allowed next action"| L4
+  L4 -->|"application-scoped research intent and required evidence path"| L3
+  L3 -->|"compiled contract, EvidenceDAG, manifest requirements, trial budget"| L2
+  L2 -->|"bounded engine request and physical artifact requirements"| L1
+  L1 -->|"manifest-bound artifacts, hashes, lineage, progress evidence"| L3
+  L3 -->|"EvidenceEnvelope, ReviewGate, freeze/closure state"| L5
 
+  L5 -. "Research Mission Control observes every stage" .-> L3

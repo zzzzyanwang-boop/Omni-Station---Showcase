@@ -4,7 +4,7 @@
  * Original private path: web/omni-console/src/generated/ui-gateway/index.ts
  * Original source content is intentionally omitted.
  *
- * Architecture layer: Layer 5 - Console Surface
+ * Architecture layer: Layer 5 - Research Governance & Operations
  * Public-safe role: index module boundary within the OmniStation research architecture.
  *
  * Implementation highlights visible from the public architecture:

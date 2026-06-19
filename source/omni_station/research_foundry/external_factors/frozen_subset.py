@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/external_factors/frozen_subset.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: external factor semantic joins, frozen subsets, and production proof boundaries.
 
 Implementation highlights visible from the public architecture:

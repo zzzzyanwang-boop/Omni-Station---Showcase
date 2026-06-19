@@ -4,7 +4,7 @@
  * Original private path: web/omni-console/src/components/pages/ui003-latency-dashboard.tsx
  * Original source content is intentionally omitted.
  *
- * Architecture layer: Layer 5 - Console Surface
+ * Architecture layer: Layer 5 - Research Governance & Operations
  * Public-safe role: ui003-latency-dashboard module boundary within the OmniStation research architecture.
  *
  * Implementation highlights visible from the public architecture:

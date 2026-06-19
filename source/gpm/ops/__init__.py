@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/ops/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 1 - Data / Compute / Artifact Infrastructure
 Public-safe role: operator-facing research operations and deterministic run control.
 
 Implementation highlights visible from the public architecture:

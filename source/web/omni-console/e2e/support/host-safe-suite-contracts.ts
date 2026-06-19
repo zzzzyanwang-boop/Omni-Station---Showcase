@@ -4,7 +4,7 @@
  * Original private path: web/omni-console/e2e/support/host-safe-suite-contracts.ts
  * Original source content is intentionally omitted.
  *
- * Architecture layer: Layer 5 - Console Surface
+ * Architecture layer: Layer 5 - Research Governance & Operations
  * Public-safe role: host-safe-suite-contracts module boundary within the OmniStation research architecture.
  *
  * Implementation highlights visible from the public architecture:

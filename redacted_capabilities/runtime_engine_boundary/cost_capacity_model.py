@@ -5,22 +5,23 @@ This file does not preserve a private filename. It is a sanitized stand-in for
 one or more private modules whose names would reveal research lines, strategy
 posture, vendor details, execution posture, or unpublished results.
 
-Redacted capability area: ui_ops_surface
-Capability: Proof graph UI
-Public-safe role: Proof graph operations console contract.
+Redacted capability area: runtime_engine_boundary
+Research OS layer: Layer 2 - Provider / Model / Runtime Engines
+Capability: Cost and capacity
+Public-safe role: Cost and capacity model interface.
 
 Implementation highlights visible from the public architecture:
-- evidence dependency graph.
-- invalidation surface.
-- operator remediation path.
+- capacity-aware gating.
+- impact/cost evidence hooks.
+- blocked economic pass without costs.
 
 Public contract shape:
 - Inputs: sanitized work order, evidence manifest, model artifact reference, replay bundle, or UI read-model request.
 - Outputs: sanitized gate decision, evidence packet, review packet, replay summary, or operator-facing state projection.
 
 Removed from this public placeholder:
-- internal evidence ids.
-- queue state.
-- private artifact links.
+- capacity coefficients.
+- slippage parameters.
+- instrument liquidity assumptions.
 - production source code, exact formulas, thresholds, raw data, credentials, local paths, and real run identifiers.
 """

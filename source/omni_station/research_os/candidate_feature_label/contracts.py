@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/candidate_feature_label/contracts.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role: candidate, feature, and label contract surface for Research OS runs.
 
 Implementation highlights visible from the public architecture:

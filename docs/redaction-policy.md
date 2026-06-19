@@ -22,8 +22,8 @@ Use a sanitized filename when the real path would reveal private research direct
 Examples:
 
 - `redacted_capabilities/research_line_a/oof_validation.py`
-- `redacted_capabilities/execution_boundary/order_management_boundary.py`
-- `redacted_capabilities/performance_native_paths/native_candidate_materialization.py`
+- `redacted_capabilities/runtime_engine_boundary/order_management_boundary.py`
+- `redacted_capabilities/native_compute_infrastructure/native_candidate_materialization.py`
 
 These placeholders show what the system does without preserving a sensitive private filename.
 

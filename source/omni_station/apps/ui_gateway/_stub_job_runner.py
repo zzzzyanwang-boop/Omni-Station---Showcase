@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/apps/ui_gateway/_stub_job_runner.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 5 - UI Gateway and Read Models
+Architecture layer: Layer 5 - Research Governance & Operations
 Public-safe role:  stub job runner module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

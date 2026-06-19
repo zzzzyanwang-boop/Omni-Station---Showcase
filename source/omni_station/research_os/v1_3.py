@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/v1_3.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role: v1 3 module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

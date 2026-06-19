@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/experiment/production_readiness.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: experiment runner, replay lifecycle, report, and production-readiness workflow.
 
 Implementation highlights visible from the public architecture:

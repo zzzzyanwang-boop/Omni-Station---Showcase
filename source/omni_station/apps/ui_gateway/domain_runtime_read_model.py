@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/apps/ui_gateway/domain_runtime_read_model.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 5 - UI Gateway and Read Models
+Architecture layer: Layer 5 - Research Governance & Operations
 Public-safe role: domain runtime read model module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

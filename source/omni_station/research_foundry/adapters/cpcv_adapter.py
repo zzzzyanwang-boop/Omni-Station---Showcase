@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_foundry/adapters/cpcv_adapter.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Research Engine and Evidence Foundry
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role: adapter boundary between legacy engines, public contracts, and normalized evidence packets.
 
 Implementation highlights visible from the public architecture:

@@ -1,104 +1,171 @@
-# Five-Layer Architecture
+# Research OS Five-Layer Architecture
 
-This document is the public-safe architecture map for OmniStation. It describes ownership boundaries, data flow, and gate flow without exposing production source code, private datasets, alpha formulas, credentials, or runtime state.
+This document is the public-safe architecture map for OmniStation. It follows the internal Research OS full-system design baseline. It does not expose production source code, private datasets, alpha formulas, credentials, local paths, run state, or unpublished results.
 
-## Layer 1: Research Control Plane
+The design is a top-down Research Operating System, not a bottom-up script collection. Research begins with governance and WorkOrders, flows through applications and evidence contracts, calls engines, and lands on data/compute/artifact infrastructure.
 
-Purpose: turn a research question into a bounded, reviewable unit of work.
+```text
+Layer 5 - Research Governance & Operations
+Layer 4 - Research Applications
+Layer 3 - Evidence / Contract / DAG Kernel
+Layer 2 - Provider / Model / Runtime Engines
+Layer 1 - Data / Compute / Artifact Infrastructure
+```
 
-Responsibilities:
+## Layer 5: Research Governance & Operations
 
-- declare work order identity, scope, non-goals, and acceptance signal
-- bind the work order to a research contract
-- build the evidence DAG before execution
-- reject missing owner, missing contract, loose artifact discovery, and unbounded runs
-- expose operator-readable status without exposing private runtime details
+Purpose: define how research is initiated, owned, reviewed, frozen, continued, stopped, waived, retired, and remembered.
+
+It answers:
+
+- who can open a research route
+- who owns the route and review gates
+- what stage the route is in
+- what next action is allowed
+- what evidence is diagnostic versus confirmatory
+- what is blocked, quarantined, frozen, waived, or retired
+
+Representative objects:
+
+- `ResearchWorkOrder`
+- `ResearchRouteCharter`
+- `ResearchQuestion`
+- `MechanismHypothesis`
+- `ExperimentMandate`
+- `EvidencePlan`
+- `ReviewGate`
+- `FreezeDecision`
+- `StopContinueDecision`
+- `WaiverRequest`
+- `RetirementDecision`
+- `ResearchMemoryEntry`
 
 Representative public artifacts:
 
-- `examples/toy_work_order.yaml`
+- `source/omni_station/research_os/governance/operations.py`
+- `source/omni_station/apps/ui_gateway/proof_graph_ops_page.py`
+- `redacted_capabilities/governance_operations_surface/evidence_console_read_model.py`
+
+## Layer 4: Research Applications
+
+Purpose: provide the research applications a researcher actually uses. These are not low-level stations. They are OS-level apps that own workflows and call lower layers.
+
+Application families:
+
+- Idea Intake Desk
+- Mechanism Memo Studio
+- Data & Panel Contract Studio
+- Feature / Factor Foundry
+- SignalState Lab
+- Model Zoo Workbench
+- Discovery Factory
+- Review & Freeze Board
+- Confirmation Lab
+- Decision Score Lab
+- Economic Replay Lab
+- Portfolio Utility Lab
+- Closure Committee
+- Research Memory Library
+- Legacy Quarantine Console
+
+Representative public artifacts:
+
+- `source/omni_station/research_os/applications/contracts.py`
+- `source/omni_station/research_foundry/compiler/feature_compiler.py`
+- `source/omni_station/research_to_live/candidate_freeze_readiness_gate.py`
+- `redacted_capabilities/research_line_a/promotion_packet.py`
+
+## Layer 3: Evidence / Contract / DAG Kernel
+
+Purpose: define the system law. This layer decides what is executable, what remains diagnostic, what can enter OOF, what can enter economic replay, and what can close.
+
+Kernel objects:
+
+- `ResearchContractCompiler`
+- `EvidenceEnvelope`
+- `EvidenceDAG`
+- `ArtifactManifestStore`
+- `RouteAuthorityRegistry`
+- `TrialBudgetLedger`
+- `DiscoverySeal`
+- `ConfirmatorySpec`
+- `ClosureArbitration`
+
+Representative public artifacts:
+
+- `source/omni_station/research_os/kernel/spine.py`
+- `source/omni_station/research_os/semantic_kernel/gates.py`
+- `source/omni_station/research_foundry/evidence/proof_graph.py`
 - `pseudocode/research_run_orchestrator.md`
 
-## Layer 2: Data and Evidence Fabric
+## Layer 2: Provider / Model / Runtime Engines
 
-Purpose: make every input and output manifest-bound and reproducible.
-
-Responsibilities:
-
-- represent sources with source manifests
-- represent feature, label, model, risk, replay, and report outputs as evidence artifacts
-- preserve schema hashes, content hashes, row counts, sample scope, and lineage
-- prefer columnar, partitionable artifact concepts for row-level research data
-- fail closed on stale caches, missing manifests, mixed artifact formats, or untracked inputs
-
-Representative public artifacts:
-
-- `examples/toy_source_manifest.json`
-- `examples/toy_evidence_manifest.json`
-- `pseudocode/manifest_store.md`
-
-## Layer 3: Research Engine Layer
-
-Purpose: run bounded research computation behind explicit contracts.
+Purpose: provide reusable capability services behind Research OS contracts. These are engines and providers, not the top-level research flow.
 
 Engine families:
 
-- alpha and factor profiling
-- feature and label materialization
-- ML training and OOF evidence generation
-- sequence tensor and market-data model preparation
-- risk sidecar generation
-- deterministic replay and execution-cost evaluation
-- performance-sensitive materialization kernels
+- FeatureProvider
+- ExternalFactorProvider
+- SignalStateProvider
+- EconomicStateProvider
+- LabelOracle
+- ModelZoo
+- Calibration / OOD
+- DecisionRuntime
+- ExecutionReplayEngine
+- PortfolioEngine
 
 Representative public artifacts:
 
-- `examples/toy_factor_profile.json`
-- `examples/toy_ml_training_manifest.json`
-- `pseudocode/factor_evidence_engine.md`
-- `pseudocode/ml_validation_gate.md`
+- `source/omni_station/research_os/engines/research_core_native.py`
+- `source/omni_station/research/features/external_projection/runtime/materialization.py`
+- `source/gpm/expr/hybrid_executor.py`
+- `redacted_capabilities/evidence_contract_dag_kernel/out_of_fold_prediction_store.py`
 
-## Layer 4: Validation and Governance Layer
+## Layer 1: Data / Compute / Artifact Infrastructure
 
-Purpose: decide what can be claimed from the evidence.
+Purpose: own the physical infrastructure: data layout, compute substrate, artifact storage, cache lifecycle, atomic writes, progress events, and local/native/GPU execution surfaces.
 
-Gate families:
+Infrastructure areas:
 
-- source and point-in-time lineage gates
-- leakage, purged-fold, embargo, and fold-local selection gates
-- risk attribution and factor-identity gates
-- replay determinism and execution-cost gates
-- metric, calibration, and model-registry gates
-- review gate and closure-case gate
-
-The layer blocks unsupported claims even when a diagnostic artifact exists.
-
-Representative public artifacts:
-
-- `examples/toy_gate_result.json`
-- `examples/toy_risk_identity_ledger.json`
-- `examples/toy_offline_evaluation_report.json`
-- `pseudocode/replay_cost_gate.md`
-
-## Layer 5: Productization Boundary Layer
-
-Purpose: prevent offline research output from directly becoming production behavior.
-
-Responsibilities:
-
-- expose read models, reports, and review packets
-- separate offline evidence from paper/live/broker/OMS posture
-- require promotion packets before any runtime-capable path
-- require inference eligibility before model serving
-- preserve blocked and deferred claims for operator review
+- completed-bar and market-data inputs
+- Parquet / Arrow / manifest-backed storage
+- cache and partition policy
+- atomic writes
+- station runner and progress events
+- local compute
+- native and GPU-ready training surfaces
 
 Representative public artifacts:
 
-- `skeleton/inference/README.md`
-- `skeleton/runtime/README.md`
-- `skeleton/ui/README.md`
+- `source/omni_station/research_os/data_plane/manifest.py`
+- `source/omni_station/research/data/arrow_utils.py`
+- `source/gpm/artifact/io.py`
+- `redacted_capabilities/native_compute_infrastructure/cache_checkpoint_telemetry.py`
+
+## Research Lifecycle
+
+The layered architecture supports one unified lifecycle:
+
+```text
+0. Idea Intake
+1. Mechanism Framing
+2. Research Charter
+3. Data / Panel Contract
+4. Feature / Factor / State Plan
+5. Label / Outcome Plan
+6. Discovery Factory
+7. Evidence Review
+8. Freeze Decision
+9. Confirmation Lab
+10. Statistical Validation
+11. Decision Score Validation
+12. Economic Replay
+13. Portfolio Utility
+14. Closure Committee
+15. Research Memory / Retirement
+```
 
 ## Cross-Layer Invariant
 
-No layer can promote an artifact by implication. A downstream layer must consume an explicit manifest, verify its contract, and record the claim it admits or blocks.
-
+No low-level station, runner, model, artifact, or replay result can become decision-grade by itself. A route is decision-grade only when a Layer 5 WorkOrder and Layer 4 application path compile into Layer 3 contracts, call Layer 2 engines, bind Layer 1 artifacts, and return reviewable evidence through the same OS path.

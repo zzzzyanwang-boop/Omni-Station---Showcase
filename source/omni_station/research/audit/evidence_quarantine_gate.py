@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/audit/evidence_quarantine_gate.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 4 - Audit and Leakage Controls
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: leakage, forbidden-feature, and evidence admissibility checks.
 
 Implementation highlights visible from the public architecture:

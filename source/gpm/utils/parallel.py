@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/utils/parallel.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 1 - Data / Compute / Artifact Infrastructure
 Public-safe role: parallel module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

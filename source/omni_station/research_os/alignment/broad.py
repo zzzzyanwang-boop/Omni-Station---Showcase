@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/alignment/broad.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 5 - Research Governance & Operations
 Public-safe role: architecture alignment profiles for staged Research OS rollout.
 
 Implementation highlights visible from the public architecture:

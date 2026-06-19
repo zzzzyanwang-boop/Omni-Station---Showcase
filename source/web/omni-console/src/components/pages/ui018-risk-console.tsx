@@ -4,7 +4,7 @@
  * Original private path: web/omni-console/src/components/pages/ui018-risk-console.tsx
  * Original source content is intentionally omitted.
  *
- * Architecture layer: Layer 5 - Console Surface
+ * Architecture layer: Layer 5 - Research Governance & Operations
  * Public-safe role: ui018-risk-console module boundary within the OmniStation research architecture.
  *
  * Implementation highlights visible from the public architecture:

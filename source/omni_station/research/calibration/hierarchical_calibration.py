@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/calibration/hierarchical_calibration.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 4 - Calibration and Robustness
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: rank calibration, reliability, and out-of-distribution robustness controls.
 
 Implementation highlights visible from the public architecture:

@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/apps/ui_gateway/layers/infrastructure/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 5 - UI Gateway and Read Models
+Architecture layer: Layer 5 - Research Governance & Operations
 Public-safe role:   init   module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

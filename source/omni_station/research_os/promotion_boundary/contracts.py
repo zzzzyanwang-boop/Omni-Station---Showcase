@@ -4,8 +4,8 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/promotion_boundary/contracts.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
-Public-safe role: freeze, parity, and promotion contracts for productization boundary control.
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
+Public-safe role: freeze, parity, and promotion contracts for Research OS promotion and freeze boundary control.
 
 Implementation highlights visible from the public architecture:
 - typed boundary contract and public invariant definitions.

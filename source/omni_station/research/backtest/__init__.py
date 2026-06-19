@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/backtest/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3/4 - Offline Replay
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: offline replay and backtest abstractions used before promotion review.
 
 Implementation highlights visible from the public architecture:

@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research/finml/cv/cpcv_path_manifest.py
 Original source content is intentionally omitted.
 
-Architecture layer: Cross-layer Support
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: financial ML method registry and provenance metadata.
 
 Implementation highlights visible from the public architecture:

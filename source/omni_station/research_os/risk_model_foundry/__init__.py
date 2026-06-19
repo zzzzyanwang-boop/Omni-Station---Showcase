@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/risk_model_foundry/__init__.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
 Public-safe role:   init   module boundary within the OmniStation research architecture.
 
 Implementation highlights visible from the public architecture:

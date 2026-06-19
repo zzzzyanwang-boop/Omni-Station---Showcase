@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: gpm/evaluation/group_penalty.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 3 - Generic Pipeline and Metrics Engine
+Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Public-safe role: metrics, cross-validation, robustness, and cost evaluation components.
 
 Implementation highlights visible from the public architecture:

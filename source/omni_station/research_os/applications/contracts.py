@@ -4,7 +4,7 @@ Public showcase placeholder.
 Original private path: omni_station/research_os/applications/contracts.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 1 - Research Control Plane
+Architecture layer: Layer 4 - Research Applications
 Public-safe role: application owner bindings and task-facing contract surfaces.
 
 Implementation highlights visible from the public architecture:
