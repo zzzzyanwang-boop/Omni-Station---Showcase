@@ -37,7 +37,6 @@ OmniStation is presented through five public-safe layers:
 docs/
   architecture/        Public architecture notes and system boundaries
   flows/               Public-safe process flows
-  decisions/           Sanitized architecture decision records
 diagrams/              Mermaid diagrams for system and evidence flows
 pseudocode/            Language-neutral pseudocode for core workflows
 examples/              Toy work orders, manifests, and gate reports
