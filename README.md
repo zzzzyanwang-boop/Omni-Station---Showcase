@@ -4,6 +4,8 @@ OmniStation is a private quantitative research and operations platform. This rep
 
 This repository is intentionally not runnable. The files under `source/` keep original public-safe paths and filenames, but their contents are documentation placeholders rather than production source code.
 
+Sensitive areas are represented separately under `redacted_capabilities/` with sanitized names. This proves coverage of private research lines, strategy/economic evidence, execution safety, order-management boundaries, vendor/data boundaries, and native/performance work without disclosing filenames that would reveal private research assets.
+
 ## Five-Layer Architecture
 
 OmniStation is presented through five public-safe layers:
@@ -17,6 +19,8 @@ OmniStation is presented through five public-safe layers:
 ## What This Shows
 
 - The source-shaped architecture of the private system, including actual public-safe module paths and file names.
+- Redacted capability structures for sensitive research, execution, order-management, vendor/data, and performance surfaces.
+- A capability matrix mapping system abilities to public-safe real files and redacted placeholders.
 - A layered research operating model for moving from work orders to evidence, gates, and review cases.
 - Separation between research orchestration, engines, contracts, artifacts, and promotion gates.
 - Fail-closed posture for incomplete evidence, unsupported claims, and live-execution boundaries.
@@ -36,9 +40,14 @@ OmniStation is presented through five public-safe layers:
 
 ```text
 source/               Public-safe source-shaped skeleton with placeholder file bodies
+redacted_capabilities/ Sanitized capability placeholders for sensitive private surfaces
 docs/
   architecture/        Public architecture notes and system boundaries
   flows/               Public-safe process flows
+  capability-coverage.md
+  redacted-capability-inventory.md
+  redaction-policy.md
+  export-coverage.md
 diagrams/              Mermaid diagrams for system and evidence flows
 pseudocode/            Language-neutral pseudocode for core workflows
 examples/              Toy work orders, manifests, and gate reports
@@ -59,6 +68,12 @@ Each placeholder file contains:
 
 It deliberately excludes data, runtime outputs, private configs, task files, logs, checkpoints, model artifacts, credentials, local paths, strategy-specific filenames, and any source body that would make private research reproducible.
 
+## Redacted Capabilities
+
+The `redacted_capabilities/` tree covers sensitive areas where the real filename itself would disclose too much. The files use sanitized names such as `research_line_a`, `execution_boundary`, `order_management_boundary`, and `performance_native_paths`.
+
+This layer shows that the private system includes candidate lifecycles, feature/label contracts, OOF/CPCV validation, model governance, risk/replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces without exposing private strategy names or implementation.
+
 ## Evaluation Lens
 
 The point of the design is not to claim a public trading edge. The point is to show how the private system is structured to support disciplined quantitative research:
@@ -74,11 +89,15 @@ The point of the design is not to claim a public trading edge. The point is to s
 
 1. `docs/architecture/five-layer-architecture.md`
 2. `source/README.md`
-3. `docs/source-inventory.md`
-4. `diagrams/five-layer-architecture.mmd`
-5. `docs/flows/research-workflow.md`
-6. `pseudocode/research_run_orchestrator.md`
-7. `examples/`
+3. `docs/capability-coverage.md`
+4. `docs/source-inventory.md`
+5. `docs/redaction-policy.md`
+6. `docs/redacted-capability-inventory.md`
+7. `redacted_capabilities/README.md`
+8. `diagrams/five-layer-architecture.mmd`
+9. `docs/flows/research-workflow.md`
+10. `pseudocode/research_run_orchestrator.md`
+11. `examples/`
 
 ## Public Boundary
 

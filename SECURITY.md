@@ -1,10 +1,11 @@
 # Security and Disclosure Policy
 
-This public repository is intentionally limited to architecture documentation, source-shaped placeholder files, diagrams, pseudocode, and synthetic examples.
+This public repository is intentionally limited to architecture documentation, source-shaped placeholder files, redacted capability placeholders, diagrams, pseudocode, and synthetic examples.
 
 ## Out of Scope for Public Disclosure
 
 - Production source bodies or private implementation logic
+- Real sensitive filenames when those filenames reveal research direction, strategy posture, vendor details, execution posture, or unpublished results
 - Credentials, tokens, certificates, or account identifiers
 - Broker, exchange, OMS, or live execution configuration
 - Real market data, vendor data, logs, checkpoints, model weights, or research artifacts
