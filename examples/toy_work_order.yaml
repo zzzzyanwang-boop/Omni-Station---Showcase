@@ -1,0 +1,22 @@
+task_id: toy_factor_quality_review_001
+workstream: offline-research
+objective: Evaluate whether a toy factor family has enough evidence for a scoped offline research claim.
+non_goals:
+  - Do not train a production model.
+  - Do not enable paper or live trading.
+  - Do not claim deployable alpha.
+owner:
+  application: ToyFactorWorkbench
+  engine: ToyEvidenceEngine
+inputs:
+  source_manifest: examples/toy_source_manifest.json
+  universe: TOY_US_EQUITIES_5_SYMBOLS
+  date_range: 2026-01-01_to_2026-01-10
+invariants:
+  - Inputs must be manifest-bound.
+  - Point-in-time assumptions must be stated.
+  - Missing lineage blocks claim admission.
+acceptance_signal:
+  - Gate result is explicit.
+  - Unsupported claims remain blocked.
+  - Evidence manifest and review report are produced.

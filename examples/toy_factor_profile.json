@@ -1,0 +1,22 @@
+{
+  "schema": "omni.showcase.factor_profile.v1",
+  "factor_id": "toy_factor_liquidity_pressure_001",
+  "scope": {
+    "universe": "TOY_US_EQUITIES_5_SYMBOLS",
+    "date_range": "2026-01-01_to_2026-01-10",
+    "sample_type": "synthetic_showcase"
+  },
+  "diagnostics": {
+    "coverage_ratio": 0.8,
+    "rank_ic_mean": 0.03,
+    "rank_icir": 0.7,
+    "redundancy_bucket": "toy_low_overlap",
+    "leakage_sentinel_status": "passed_toy_check"
+  },
+  "claim_status": {
+    "raw_predictive_signal": "diagnostic_only",
+    "risk_adjusted_alpha": "blocked",
+    "production_alpha": "blocked"
+  },
+  "reason": "Synthetic showcase factor has no real data, no production validation, and no risk-neutral evidence."
+}

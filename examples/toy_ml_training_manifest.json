@@ -1,0 +1,20 @@
+{
+  "schema": "omni.showcase.ml_training_manifest.v1",
+  "training_run_id": "toy_sequence_model_run_001",
+  "model_family": "toy_sequence_model",
+  "fold_policy": {
+    "type": "purged_embargoed_folds",
+    "fold_count": 3,
+    "embargo": "toy_1_day",
+    "feature_selection": "fold_local_only"
+  },
+  "artifacts": {
+    "oof_predictions": {"manifest_hash": "fake_oof_manifest_hash_0001", "row_count": 15},
+    "calibration": {"manifest_hash": "fake_calibration_manifest_hash_0001", "status": "toy_complete"}
+  },
+  "promotion": {
+    "model_registry_candidate": true,
+    "inference_eligible": false,
+    "blocked_reason": "Synthetic showcase run cannot authorize inference."
+  }
+}

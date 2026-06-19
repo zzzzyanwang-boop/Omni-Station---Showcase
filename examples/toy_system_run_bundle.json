@@ -1,0 +1,11 @@
+{
+  "schema": "omni.showcase.system_run_bundle.v1",
+  "bundle_id": "toy_architecture_run_001",
+  "layers": {
+    "research_control_plane": {"work_order": "examples/toy_work_order.yaml", "contract_status": "toy_complete"},
+    "data_and_evidence_fabric": {"source_manifest": "examples/toy_source_manifest.json", "evidence_manifest": "examples/toy_evidence_manifest.json"},
+    "research_engine_layer": {"factor_profile": "examples/toy_factor_profile.json", "ml_training_manifest": "examples/toy_ml_training_manifest.json"},
+    "validation_and_governance_layer": {"gate_result": "examples/toy_gate_result.json", "risk_identity_ledger": "examples/toy_risk_identity_ledger.json", "offline_evaluation_report": "examples/toy_offline_evaluation_report.json"},
+    "productization_boundary_layer": {"runtime_posture": "blocked", "reason": "Synthetic showcase bundle cannot authorize paper, live, broker, OMS, or model serving."}
+  }
+}

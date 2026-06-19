@@ -1,0 +1,20 @@
+{
+  "schema": "omni.showcase.offline_evaluation_report.v1",
+  "evaluation_id": "toy_replay_cost_review_001",
+  "inputs": {
+    "signal_manifest_hash": "fake_signal_manifest_hash_0001",
+    "replay_manifest_hash": "fake_replay_manifest_hash_0001"
+  },
+  "cost_evidence": {
+    "slippage_model": "toy_fixed_bps",
+    "latency_model": "toy_event_delay",
+    "fill_model": "toy_partial_fill",
+    "transaction_costs_included": true
+  },
+  "gates": {
+    "deterministic_replay_hash_check": "passed_toy_check",
+    "economic_gate": "blocked",
+    "promotion_gate": "blocked"
+  },
+  "blocked_reason": "Synthetic replay report is structure-only and does not contain real execution evidence."
+}

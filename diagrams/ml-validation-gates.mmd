@@ -1,0 +1,22 @@
+flowchart TB
+  SPEC["Model Family Spec"]
+  FOLD["Purged / Embargoed Fold Policy"]
+  SELECT["Fold-Local Feature Selection"]
+  TRAIN["Training Run Contract"]
+  OOF["OOF Prediction Evidence"]
+  CAL["Calibration Artifact"]
+  REG["Registry Candidate"]
+  INF["Inference Eligibility Gate"]
+
+  SPEC --> FOLD
+  FOLD --> SELECT
+  SELECT --> TRAIN
+  TRAIN --> OOF
+  OOF --> CAL
+  CAL --> REG
+  REG --> INF
+
+  LEAK["Leakage or scope defect"]
+  SELECT -- "test-fold dependency" --> LEAK
+  OOF -- "missing manifest" --> LEAK
+  LEAK --> BLOCK["Blocked Promotion"]

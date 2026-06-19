@@ -1,0 +1,13 @@
+{
+  "schema": "omni.showcase.gate_result.v1",
+  "gate_id": "toy_factor_quality_gate_001",
+  "status": "blocked",
+  "admitted_claims": [
+    {"claim": "toy evidence bundle is structurally complete", "scope": "synthetic showcase example only"}
+  ],
+  "blocked_claims": [
+    {"claim": "factor family is production alpha", "reason": "synthetic example has no real data, no out-of-sample validation, and no promotion review"},
+    {"claim": "paper or live trading is allowed", "reason": "offline showcase examples cannot authorize runtime posture"}
+  ],
+  "required_next_evidence": ["real source contract", "point-in-time lineage proof", "fold-local validation", "independent review gate"]
+}

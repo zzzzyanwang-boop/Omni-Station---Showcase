@@ -1,0 +1,10 @@
+stateDiagram-v2
+  [*] --> DraftWorkOrder
+  DraftWorkOrder --> Contracted: metadata complete
+  Contracted --> EvidenceBuilt: manifest-bound run
+  EvidenceBuilt --> ReviewBlocked: missing evidence
+  EvidenceBuilt --> ReviewPassed: gates pass
+  ReviewBlocked --> Contracted: repair input or scope
+  ReviewPassed --> OfflineClosure: closure case accepted
+  OfflineClosure --> PromotionReview: separate approval
+  PromotionReview --> [*]

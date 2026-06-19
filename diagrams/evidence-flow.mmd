@@ -1,0 +1,17 @@
+flowchart LR
+  SRC["Manifest-bound source"]
+  PRE["Preflight checks"]
+  MAT["Bounded materialization"]
+  HASH["Schema and hash record"]
+  QA["Quality and leakage gates"]
+  CLAIM["Claim admission ledger"]
+  REVIEW["Review report"]
+
+  SRC --> PRE
+  PRE --> MAT
+  MAT --> HASH
+  HASH --> QA
+  QA --> CLAIM
+  CLAIM --> REVIEW
+
+  QA -- "missing or stale evidence" --> BLOCK["Blocked claim"]
