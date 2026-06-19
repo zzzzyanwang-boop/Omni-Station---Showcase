@@ -5,7 +5,7 @@ flowchart LR
   HASH["Schema and hash record"]
   QA["Quality and leakage gates"]
   CLAIM["Claim admission ledger"]
-  REVIEW["Review report"]
+  REVIEW["Human-readable review report"]
 
   SRC --> PRE
   PRE --> MAT
@@ -15,3 +15,5 @@ flowchart LR
   CLAIM --> REVIEW
 
   QA -- "missing or stale evidence" --> BLOCK["Blocked claim"]
+  CLAIM -- "supported only in scope" --> SCOPE["Scoped acceptance"]
+

@@ -1,0 +1,24 @@
+flowchart TB
+  WO["Research Work Order"]
+  RC["Research Contract"]
+  DAG["Evidence DAG"]
+  APP["Layer 4 Research Application"]
+  ENG["Layer 2 Engine"]
+  MAN["Artifact Manifest"]
+  ENV["Evidence Envelope"]
+  GATE["Review Gate"]
+  CLOSE["Closure Case"]
+
+  WO --> RC
+  RC --> DAG
+  DAG --> APP
+  APP --> ENG
+  ENG --> MAN
+  ENG --> ENV
+  MAN --> GATE
+  ENV --> GATE
+  GATE --> CLOSE
+
+  LIVE["Live-capable surfaces"]
+  GATE -. "promotion boundary; not direct execution" .-> LIVE
+

@@ -17,3 +17,6 @@ function validate_model_run(training_manifest):
 
     return admitted("offline_model_evidence_only")
 ```
+
+Design point: offline ML evidence is not inference eligibility by itself.
+

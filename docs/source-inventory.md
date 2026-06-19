@@ -1,0 +1,822 @@
+# Source-Shaped Inventory
+
+Exported placeholder files: 781
+
+This inventory lists the source-shaped files generated from public-safe paths. Implementation content is omitted; each file contains only a role summary and sanitized contract notes.
+
+## Cross-layer Support
+
+- `source/omni_station/research/data/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/arrow_exchange.py` - arrow exchange module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/arrow_utils.py` - arrow utils module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/catalog_adapter.py` - catalog adapter module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/data_quality_lineage_audit.py` - data quality lineage audit module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/datafusion_backend.py` - datafusion backend module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/datafusion_engine.py` - datafusion engine module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/duckdb_engine.py` - duckdb engine module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/fingerprint.py` - fingerprint module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/flagged_instrument_quality_repair.py` - flagged instrument quality repair module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/handler.py` - handler module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/index_utils.py` - index utils module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/prepare_resume.py` - prepare resume module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/provider_manifest.py` - provider manifest module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/provider_manifest_evidence.py` - provider manifest evidence module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/provider_manifest_report.py` - provider manifest report module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/provider_manifest_schema.py` - provider manifest schema module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/provider_quote_quality_review.py` - provider quote quality review module boundary within the OmniStation research architecture.
+- `source/omni_station/research/data/timestamp_contract.py` - timestamp contract module boundary within the OmniStation research architecture.
+- `source/omni_station/research/decision_utility/__init__.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research/decision_utility/break_even.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research/decision_utility/decision_bundle.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research/decision_utility/drift.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research/decision_utility/utility_mapping.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research/finml/__init__.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/_common.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/audit/existing_finml_capability_audit.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/finml/cv/cpcv.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/cv/cpcv_path_manifest.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/cv/embargo.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/cv/purged_kfold.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/diagnostics/backtest_overfitting.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/diagnostics/dsr_pbo.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/diagnostics/trials_registry.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/filters/__init__.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/filters/cusum.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/labeling/barrier_events.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/labeling/label_interval_manifest.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/labeling/meta_labeling.py` - financial ML method registry and provenance metadata.
+- `source/omni_station/research/finml/labeling/triple_barrier.py` - financial ML method registry and provenance metadata.
+
+## Layer 1 - Research Control Plane
+
+- `source/omni_station/research_os/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/alignment/__init__.py` - architecture alignment profiles for staged Research OS rollout.
+- `source/omni_station/research_os/alignment/broad.py` - architecture alignment profiles for staged Research OS rollout.
+- `source/omni_station/research_os/alignment/full.py` - architecture alignment profiles for staged Research OS rollout.
+- `source/omni_station/research_os/alignment/phase0.py` - architecture alignment profiles for staged Research OS rollout.
+- `source/omni_station/research_os/applications/__init__.py` - application owner bindings and task-facing contract surfaces.
+- `source/omni_station/research_os/applications/contracts.py` - application owner bindings and task-facing contract surfaces.
+- `source/omni_station/research_os/base/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/base/enums.py` - enums module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/base/hashes.py` - hashes module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/canary_fixtures.py` - canary fixtures module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/candidate_feature_label/__init__.py` - candidate, feature, and label contract surface for Research OS runs.
+- `source/omni_station/research_os/candidate_feature_label/contracts.py` - candidate, feature, and label contract surface for Research OS runs.
+- `source/omni_station/research_os/conformance/__init__.py` - architecture conformance suites and route certification checks.
+- `source/omni_station/research_os/conformance/suite.py` - architecture conformance suites and route certification checks.
+- `source/omni_station/research_os/data_plane/__init__.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/cache.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/checkpoints.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/contracts.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/folds.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/manifest.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/reader.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/semantic.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/stats.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/data_plane/writer.py` - manifested data access, fold-local reads, checkpoints, cache policy, and writer contracts.
+- `source/omni_station/research_os/engines/__init__.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/calibration_ood_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/contracts.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/decision_runtime_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/decision_score_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/economic_accounting_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/economic_metric_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/execution_replay_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/metric_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/portfolio_metric_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/portfolio_utility_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/research_core_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/engines/statistical_metric_native.py` - native-kernel interfaces and engine contracts for metrics, replay, and accounting.
+- `source/omni_station/research_os/event_graph/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/event_graph/contracts.py` - contracts module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/experiment_validation/__init__.py` - experiment validation contracts and admission controls.
+- `source/omni_station/research_os/experiment_validation/contracts.py` - experiment validation contracts and admission controls.
+- `source/omni_station/research_os/factor_evidence/__init__.py` - factor identity, incrementality, risk adjustment, and secondary audit contracts.
+- `source/omni_station/research_os/factor_evidence/contracts.py` - factor identity, incrementality, risk adjustment, and secondary audit contracts.
+- `source/omni_station/research_os/factor_evidence/controlled_incrementality.py` - factor identity, incrementality, risk adjustment, and secondary audit contracts.
+- `source/omni_station/research_os/factor_evidence/risk_adjusted_identity.py` - factor identity, incrementality, risk adjustment, and secondary audit contracts.
+- `source/omni_station/research_os/factor_evidence/secondary_audit.py` - factor identity, incrementality, risk adjustment, and secondary audit contracts.
+- `source/omni_station/research_os/governance/__init__.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_os/governance/operations.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_os/infra/__init__.py` - bootstrap and infrastructure assembly for public contract paths.
+- `source/omni_station/research_os/infra/bootstrap.py` - bootstrap and infrastructure assembly for public contract paths.
+- `source/omni_station/research_os/kernel/__init__.py` - Research OS spine and top-level evidence lifecycle contracts.
+- `source/omni_station/research_os/kernel/spine.py` - Research OS spine and top-level evidence lifecycle contracts.
+- `source/omni_station/research_os/legacy/__init__.py` - legacy route quarantine and fail-closed bridge policy.
+- `source/omni_station/research_os/legacy/quarantine.py` - legacy route quarantine and fail-closed bridge policy.
+- `source/omni_station/research_os/model_training/__init__.py` - OOF, sequence tensor, and training governance contracts.
+- `source/omni_station/research_os/model_training/contracts.py` - OOF, sequence tensor, and training governance contracts.
+- `source/omni_station/research_os/model_training/research_governance.py` - OOF, sequence tensor, and training governance contracts.
+- `source/omni_station/research_os/model_training/sequence_tensor_store_governance.py` - OOF, sequence tensor, and training governance contracts.
+- `source/omni_station/research_os/offline_evaluation/__init__.py` - offline metric, replay, and economic admission contracts.
+- `source/omni_station/research_os/offline_evaluation/contracts.py` - offline metric, replay, and economic admission contracts.
+- `source/omni_station/research_os/promotion_boundary/__init__.py` - freeze, parity, and promotion contracts for productization boundary control.
+- `source/omni_station/research_os/promotion_boundary/contracts.py` - freeze, parity, and promotion contracts for productization boundary control.
+- `source/omni_station/research_os/risk_model_foundry/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/risk_model_foundry/contracts.py` - contracts module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/semantic_kernel/__init__.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/adapters.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/artifacts.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/common.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/contracts.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/decision.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/evidence.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/gates.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/issue_coverage.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/kernel.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/semantic_kernel/ledger.py` - typed issue coverage, evidence, gates, ledgers, and semantic-kernel decisions.
+- `source/omni_station/research_os/user_acceptance.py` - user acceptance module boundary within the OmniStation research architecture.
+- `source/omni_station/research_os/v1_3.py` - v1 3 module boundary within the OmniStation research architecture.
+
+## Layer 2 - Data and Evidence Fabric
+
+- `source/omni_station/research/features/__init__.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/alpha_safe_bar_factor_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/alpha_safe_external_factor_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/alpha_safe_factor_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/canonical_external_factor_registry.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/compact_node_value.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/exact_deferred_factor_materializer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/__init__.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/base.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/feature_engine_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/institutional_factor_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/mlfinlab_research_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/mlfinpy_research_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/pandas_ta_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/ta_library_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/talib_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_adapters/tsfresh_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_core_representative_materialization.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_core_store_publisher.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_dedup_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_dependency_preflight.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_diagnostics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_family_governance_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_field_mapper.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_fold_local_selector.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_full_build_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_intake_common.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_leakage_audit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_license_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_precise_materializer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_required_dependencies.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_resume_loop.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_source_inventory.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_source_ownership.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_store_builder.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_factor_upstream_blocker_resolution.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/__init__.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/common.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/compiler.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/config.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/demand_index.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/execution_adapters.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/factor_registry.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/factor_semantics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/identity_resolver.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/lanes.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/operator_dag.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/parity.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/planner.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/quality_gates.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/__init__.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/arena.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/checkpoint.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/contracts.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_dag.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_matrix_base.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_runtime.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_runtime_input.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_schedule.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_whole_dag_executor.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/cs_whole_dag_plan.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/execution_groups.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/ir.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/__init__.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/corr.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/masks.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/nan_policy.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/neutralize.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/pointwise.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/rank.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/kernels/rolling.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/legacy_guards.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/legality.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/lowering.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/lowering_rules/__init__.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/lowering_rules/generic_semantic.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/lowering_rules/ta_library.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/lowering_rules/talib.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/materialization.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/node_cache.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/panel_store.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/parity.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/partitioning.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/policies.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/projection.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/reports.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/semantic_hash.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/runtime/telemetry.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/scheduling_policy.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/source_locator.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/external_projection/writer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_diagnostics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_inventory_audit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_leakage_audit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_primitive_cse_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_store_repair_commit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_store_stuck_audit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/factor_store_stuck_remediation.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/feature_engine_transform_contracts.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/fold_local_factor_selection_runner.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/fold_local_factor_selector.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/full_factor_leakage_audit_runner.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/full_factor_store_quality_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/full_non_sample_factor_store_manifest_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/gaf_cnn_pattern_adapter_plan.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/generated_first_class_factor_materializer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/generated_first_class_factor_specs.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/high_frequency_factor_line_materialization.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/high_frequency_factor_line_repair_commit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/high_frequency_factor_line_research.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/internal_finml_factor_adapter.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/internal_legacy_factor_kernel_audit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/license_formula_review_contracts.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/local_finml_research.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/mlfinlab_replacement_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/physical_aligned_external_source_root.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/semantic_operator_engine.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/source_pit_quality_certificate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/tail_close_conditional_factors.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/omni_station/research/features/trade_bar_symbol_resolution.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+
+## Layer 3 - Generic Pipeline and Metrics Engine
+
+- `source/gpm/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/gpm/adapters/__init__.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/adapters/backtest_adapter_stub.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/adapters/base.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/adapters/dbn_adapter_stub.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/adapters/demo_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/adapters/omnistation_backtest_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/adapters/omnistation_data_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/gpm/artifact/__init__.py` - manifest-bound artifact serialization, hash policy, and durable IO conventions.
+- `source/gpm/artifact/ab.py` - manifest-bound artifact serialization, hash policy, and durable IO conventions.
+- `source/gpm/artifact/factor_pack.py` - manifest-bound artifact serialization, hash policy, and durable IO conventions.
+- `source/gpm/artifact/io.py` - manifest-bound artifact serialization, hash policy, and durable IO conventions.
+- `source/gpm/artifact/manifest.py` - manifest-bound artifact serialization, hash policy, and durable IO conventions.
+- `source/gpm/backtest/__init__.py` - offline replay and backtest abstractions used before promotion review.
+- `source/gpm/backtest/decision.py` - offline replay and backtest abstractions used before promotion review.
+- `source/gpm/backtest/engine.py` - offline replay and backtest abstractions used before promotion review.
+- `source/gpm/benchmarks.py` - benchmarks module boundary within the OmniStation research architecture.
+- `source/gpm/cli/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/gpm/cli/main.py` - main module boundary within the OmniStation research architecture.
+- `source/gpm/data_contract.py` - data contract module boundary within the OmniStation research architecture.
+- `source/gpm/errors.py` - errors module boundary within the OmniStation research architecture.
+- `source/gpm/evaluation/__init__.py` - metrics, cross-validation, robustness, and cost evaluation components.
+- `source/gpm/evaluation/cost.py` - metrics, cross-validation, robustness, and cost evaluation components.
+- `source/gpm/evaluation/cv.py` - metrics, cross-validation, robustness, and cost evaluation components.
+- `source/gpm/evaluation/group_penalty.py` - metrics, cross-validation, robustness, and cost evaluation components.
+- `source/gpm/evaluation/metrics.py` - metrics, cross-validation, robustness, and cost evaluation components.
+- `source/gpm/evaluation/robustness.py` - metrics, cross-validation, robustness, and cost evaluation components.
+- `source/gpm/experiment/__init__.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/experiment/config.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/experiment/evidence_lifecycle.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/experiment/production_readiness.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/experiment/replay.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/experiment/report.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/experiment/runner.py` - experiment runner, replay lifecycle, report, and production-readiness workflow.
+- `source/gpm/expr/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/gpm/expr/ast.py` - ast module boundary within the OmniStation research architecture.
+- `source/gpm/expr/batch_executor.py` - batch executor module boundary within the OmniStation research architecture.
+- `source/gpm/expr/bridge.py` - bridge module boundary within the OmniStation research architecture.
+- `source/gpm/expr/builtin_custom_ops.py` - builtin custom ops module boundary within the OmniStation research architecture.
+- `source/gpm/expr/canonical.py` - canonical module boundary within the OmniStation research architecture.
+- `source/gpm/expr/consistency.py` - consistency module boundary within the OmniStation research architecture.
+- `source/gpm/expr/custom_ops.py` - custom ops module boundary within the OmniStation research architecture.
+- `source/gpm/expr/disk_atom_store.py` - disk atom store module boundary within the OmniStation research architecture.
+- `source/gpm/expr/engine_planner.py` - engine planner module boundary within the OmniStation research architecture.
+- `source/gpm/expr/executor_pandas.py` - executor pandas module boundary within the OmniStation research architecture.
+- `source/gpm/expr/executor_polars.py` - executor polars module boundary within the OmniStation research architecture.
+- `source/gpm/expr/group_runtime.py` - group runtime module boundary within the OmniStation research architecture.
+- `source/gpm/expr/hybrid_executor.py` - hybrid executor module boundary within the OmniStation research architecture.
+- `source/gpm/expr/ops.py` - ops module boundary within the OmniStation research architecture.
+- `source/gpm/expr/parser.py` - parser module boundary within the OmniStation research architecture.
+- `source/gpm/expr/registry.py` - registry module boundary within the OmniStation research architecture.
+- `source/gpm/expr/rewrite.py` - rewrite module boundary within the OmniStation research architecture.
+- `source/gpm/expr/serializer.py` - serializer module boundary within the OmniStation research architecture.
+- `source/gpm/expr/stream_ir.py` - stream ir module boundary within the OmniStation research architecture.
+- `source/gpm/expr/typesystem.py` - typesystem module boundary within the OmniStation research architecture.
+- `source/gpm/expr/validator.py` - validator module boundary within the OmniStation research architecture.
+- `source/gpm/ops/__init__.py` - operator-facing research operations and deterministic run control.
+- `source/gpm/ops/io_profile.py` - operator-facing research operations and deterministic run control.
+- `source/gpm/plugins.py` - plugins module boundary within the OmniStation research architecture.
+- `source/gpm/search/__init__.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/base.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/cache.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/deap_typed_gp.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/gplearn_baseline.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/objectives.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/op_catalog.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/policy_generator.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/rejections.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/reward_pipeline.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/variation.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/search/zoo.py` - genetic programming / expression search policy, objectives, cache, and rejection ledger.
+- `source/gpm/sklearn_api.py` - sklearn api module boundary within the OmniStation research architecture.
+- `source/gpm/utils/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/gpm/utils/hashing.py` - hashing module boundary within the OmniStation research architecture.
+- `source/gpm/utils/logging.py` - logging module boundary within the OmniStation research architecture.
+- `source/gpm/utils/parallel.py` - parallel module boundary within the OmniStation research architecture.
+- `source/gpm/utils/seeding.py` - seeding module boundary within the OmniStation research architecture.
+
+## Layer 3 - Research Engine and Evidence Foundry
+
+- `source/omni_station/research_foundry/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/adapters/__init__.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adapters/champion_gate_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adapters/compare_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adapters/cpcv_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adapters/external_factor_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adapters/legacy_gate_bridge.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adapters/oof_adapter.py` - adapter boundary between legacy engines, public contracts, and normalized evidence packets.
+- `source/omni_station/research_foundry/adversarial/__init__.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/attack_registry.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/attack_runner.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/dashboard.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/failure_memory.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/negative_controls.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/placebo_tests.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/red_team_packet.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/red_team_scheduler.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/safety_theorem_suite.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/adversarial/service_proof.py` - red-team, placebo, negative-control, and failure-memory validation suite.
+- `source/omni_station/research_foundry/candidate_lifecycle_anchor_fabric.py` - candidate lifecycle anchor fabric module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/common.py` - common module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/compiler/__init__.py` - feature, label, sidecar, and trainable-matrix compilation boundaries.
+- `source/omni_station/research_foundry/compiler/candidate_compiler.py` - feature, label, sidecar, and trainable-matrix compilation boundaries.
+- `source/omni_station/research_foundry/compiler/feature_compiler.py` - feature, label, sidecar, and trainable-matrix compilation boundaries.
+- `source/omni_station/research_foundry/compiler/label_compiler.py` - feature, label, sidecar, and trainable-matrix compilation boundaries.
+- `source/omni_station/research_foundry/compiler/sidecar_compiler.py` - feature, label, sidecar, and trainable-matrix compilation boundaries.
+- `source/omni_station/research_foundry/compiler/trainable_matrix_compiler.py` - feature, label, sidecar, and trainable-matrix compilation boundaries.
+- `source/omni_station/research_foundry/decision_runtime/__init__.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/_common.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/abstention.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/action_intent.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/action_validation.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/attribution.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/bundle.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/closed_trade_ledger.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/exit_intent.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/exit_policy.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/intent_event_store.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/ledger_normalization.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/objective.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/policy.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/portfolio_intent.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/portfolio_replay.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/position_lifecycle.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/problem.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/replay_plan.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/replay_sources.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/score_resolution.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/simulator_adapter.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/simulator_refs.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/stations.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/streaming_replay.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_runtime/validation.py` - score-to-action, intent, replay, portfolio, and execution-economics simulation contracts.
+- `source/omni_station/research_foundry/decision_utility/__init__.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research_foundry/decision_utility/active_fold_concentration.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research_foundry/decision_utility/bundle.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research_foundry/decision_utility/score_resolution.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research_foundry/decision_utility/score_to_action.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research_foundry/decision_utility/spec.py` - decision-utility translation and score resolution controls.
+- `source/omni_station/research_foundry/economics/__init__.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/capacity_model.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/cost_model.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/execution_portfolio_simulator.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/execution_replay.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/execution_replay_runner.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/fill_model.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/optimizer_rollout.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/portfolio_runner.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/portfolio_utility.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/production_proof.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/economics/robust_optimization.py` - cost, capacity, fill, utility, and replay economics engines.
+- `source/omni_station/research_foundry/evidence/__init__.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/decision_grade_guard.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/decision_packet.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/decision_proof_refs.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/evidence_packet.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/invalidation_graph.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/override_audit.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/p1_packets.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/proof_graph.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/quarantine.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/evidence/research_spec_enforcement.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/external_factor_governance/__init__.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/allocation_v2.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/common.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/consumer_port_policy.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/escalation_policy.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/feature_data_plane.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/leakage_recheck.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/lifecycle_taxonomy.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/mechanism_challenge.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/option_ledger.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/projections.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/redundancy.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/registry_v2.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/requalification_refresh.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/role_taxonomy.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/semantic_tags.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/setup_phase_mapping.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/subset_builder.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/trainable_matrix_preflight.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factor_governance/validators.py` - external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+- `source/omni_station/research_foundry/external_factors/__init__.py` - external factor semantic joins, frozen subsets, and production proof boundaries.
+- `source/omni_station/research_foundry/external_factors/factor_semantics.py` - external factor semantic joins, frozen subsets, and production proof boundaries.
+- `source/omni_station/research_foundry/external_factors/frozen_subset.py` - external factor semantic joins, frozen subsets, and production proof boundaries.
+- `source/omni_station/research_foundry/external_factors/production_proof.py` - external factor semantic joins, frozen subsets, and production proof boundaries.
+- `source/omni_station/research_foundry/external_factors/setup_allocation.py` - external factor semantic joins, frozen subsets, and production proof boundaries.
+- `source/omni_station/research_foundry/external_factors/sidecar_join.py` - external factor semantic joins, frozen subsets, and production proof boundaries.
+- `source/omni_station/research_foundry/governance/__init__.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/active_research_assistant.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/confirmatory_production_closure.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/local_primitive_lane.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/optimizer_adversarial_rollout_closure.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/production_foundation_audit.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/production_migration.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/governance/repository_migration_audit.py` - run governance, operations, closure, and production migration controls.
+- `source/omni_station/research_foundry/lakehouse/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/metadata_quality.py` - metadata quality module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/partition_spec.py` - partition spec module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/production_engine.py` - production engine module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/scan_planner.py` - scan planner module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/schema_registry.py` - schema registry module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/snapshot.py` - snapshot module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/storage_governance.py` - storage governance module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/lakehouse/table_manifest.py` - table manifest module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/model_zoo/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/model_zoo/evidence/__init__.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/branch_decision_eligibility.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/branch_eligibility.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/calibration_ood.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/calibration_reliability.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/closure.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/feature_admission.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/feature_ceiling.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/join_snapshot.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/metrics.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/packets.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/projection.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/requalification.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/resolver.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/score_distribution_drift.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/spec.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/stat_feasibility_preflight.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/stat_tests.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/evidence/stations.py` - proof graph, invalidation graph, evidence packets, and decision-grade guards.
+- `source/omni_station/research_foundry/model_zoo/projections/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/model_zoo/projections/contracts.py` - contracts module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/models/__init__.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/attribution.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/calibration.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/model_card.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/model_factory.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/model_multiplicity.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/model_roles.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/ood.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/production_evidence.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/training_job.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/models/uncertainty.py` - model research boundaries and score artifact policies.
+- `source/omni_station/research_foundry/runtime/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/atomic_writer.py` - atomic writer module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/checkpoint.py` - checkpoint module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/content_cache.py` - content cache module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/fail_closed.py` - fail closed module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/performance_gate.py` - performance gate module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/progress.py` - progress module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/runtime/station_runner.py` - station runner module boundary within the OmniStation research architecture.
+- `source/omni_station/research_foundry/signal_state/__init__.py` - init   module boundary within the OmniStation research architecture.
+
+## Layer 3/4 - Offline Replay
+
+- `source/omni_station/research/backtest/__init__.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/backtest_rankability_gate.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/execution_kill_waterfall.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/facade.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/factor_enhanced_staged_runner.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/fill_model_evidence_gate.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/full_annual_staged_backtest_runner.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/implementation_shortfall_report.py` - offline replay and backtest abstractions used before promotion review.
+- `source/omni_station/research/backtest/staged_backtest_v2.py` - offline replay and backtest abstractions used before promotion review.
+
+## Layer 4 - Audit and Leakage Controls
+
+- `source/omni_station/research/audit/__init__.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/audit/data_quality_quarantine_gate.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/audit/evidence_quarantine_gate.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/audit/forbidden_feature_linter.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/audit/forensic_blocker_contract.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/audit/timestamp_causality_contract.py` - leakage, forbidden-feature, and evidence admissibility checks.
+- `source/omni_station/research/audit/trade_identity.py` - leakage, forbidden-feature, and evidence admissibility checks.
+
+## Layer 4 - Calibration and Robustness
+
+- `source/omni_station/research/calibration/__init__.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/calibration_baseline.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/calibration_drift_report.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/calibration_preregistration.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/calibration_shrinkage.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/conformal_edge_interval.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/full_annual_calibration_runner.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/hierarchical_calibration.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/hierarchical_eb_rank_calibration.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/rank_calibration_reliability.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+- `source/omni_station/research/calibration/rank_transform.py` - rank calibration, reliability, and out-of-distribution robustness controls.
+
+## Layer 4 - Challenger Comparison
+
+- `source/omni_station/research/compare/__init__.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/account_level_compare_runner.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/champion_eligibility_gate.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/champion_eligibility_gate_v3.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/compare_quality_gate_v2.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/compare_quality_gate_v3.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/cpcv_wrapped_compare_runner.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/full_annual_compare_runner.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/research_limited_marker.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/semantic_compatibility_v2.py` - challenger/default comparison and champion eligibility gates.
+- `source/omni_station/research/compare/semantic_compatibility_v3.py` - challenger/default comparison and champion eligibility gates.
+
+## Layer 5 - Console Surface
+
+- `source/web/omni-console/e2e/support/fixture-session.ts` - fixture-session module boundary within the OmniStation research architecture.
+- `source/web/omni-console/e2e/support/host-safe-suite-contracts.ts` - host-safe-suite-contracts module boundary within the OmniStation research architecture.
+- `source/web/omni-console/scripts/generate_gateway_client.py` - generate gateway client module boundary within the OmniStation research architecture.
+- `source/web/omni-console/scripts/generate_ia_catalog.py` - generate ia catalog module boundary within the OmniStation research architecture.
+- `source/web/omni-console/scripts/run_host_safe_playwright_validation.ts` - run host safe playwright validation module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/factor-lab-route-page.tsx` - factor-lab-route-page module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/offline-training-route-page.tsx` - offline-training-route-page module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/page-data-utils.ts` - page-data-utils module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/proposal-control-card.tsx` - proposal-control-card module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/runtime-page-utils.ts` - runtime-page-utils module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui-standard-page-config.ts` - ui-standard-page-config module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui001-topology.tsx` - ui001-topology module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui002-policy-gate.tsx` - ui002-policy-gate module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui003-latency-dashboard.tsx` - ui003-latency-dashboard module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui004-replay-workbench.tsx` - ui004-replay-workbench module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui005-trace-tree.tsx` - ui005-trace-tree module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui006-explorer.tsx` - ui006-explorer module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui007-rulebook.tsx` - ui007-rulebook module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui008-experiments.tsx` - ui008-experiments module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui009-promotion.tsx` - ui009-promotion module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui010-release-gate.tsx` - ui010-release-gate module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui011-perf-gate.tsx` - ui011-perf-gate module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui012-security.tsx` - ui012-security module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui013-dashboard.tsx` - ui013-dashboard module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui014-screener.tsx` - ui014-screener module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui015-watchlists.tsx` - ui015-watchlists module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui016-symbol-workspace.tsx` - ui016-symbol-workspace module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui017-expert-workbench.tsx` - ui017-expert-workbench module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui018-risk-console.tsx` - ui018-risk-console module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui020-data-center.tsx` - ui020-data-center module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui021-drift-calibration.tsx` - ui021-drift-calibration module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui022-alerts-console.tsx` - ui022-alerts-console module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui024-factor-mining.tsx` - ui024-factor-mining module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui025-time-sync.tsx` - ui025-time-sync module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui026-inference-control.tsx` - ui026-inference-control module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui027-model-zoo.tsx` - ui027-model-zoo module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui028-sim-ingestion.tsx` - ui028-sim-ingestion module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui029-factor-registry.tsx` - ui029-factor-registry module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui030-charting-studio.tsx` - ui030-charting-studio module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui032-reports-hub.tsx` - ui032-reports-hub module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui033-news-events.tsx` - ui033-news-events module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui034-settings-admin-help.tsx` - ui034-settings-admin-help module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/components/pages/ui039-proof-graph-ops-console.tsx` - ui039-proof-graph-ops-console module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/generated/control-plane-capabilities.ts` - control-plane-capabilities module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/generated/gateway-client.ts` - gateway-client module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/generated/ia-pages.ts` - ia-pages module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/generated/ui-gateway/fetch-client.ts` - fetch-client module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/generated/ui-gateway/index.ts` - index module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/generated/ui-gateway/openapi-types.ts` - openapi-types module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/ai-insight-config.ts` - ai-insight-config module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/ai-insight-contract.ts` - ai-insight-contract module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/automation-action-policy.ts` - automation-action-policy module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/console-error.ts` - console-error module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/control-plane-contract.ts` - control-plane-contract module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/control-plane-endpoints.ts` - control-plane-endpoints module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/data-source-mode.ts` - data-source-mode module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/desktop-pty.ts` - desktop-pty module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/desktop-runtime.ts` - desktop-runtime module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/error-toast-bus.ts` - error-toast-bus module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/factor-governance-read-model.ts` - factor-governance-read-model module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/gateway-availability.ts` - gateway-availability module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/gateway-fail-closed.ts` - gateway-fail-closed module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/gateway.ts` - gateway module boundary within the OmniStation research architecture.
+- `source/web/omni-console/src/lib/json.ts` - json module boundary within the OmniStation research architecture.
+
+## Layer 5 - UI Gateway and Read Models
+
+- `source/omni_station/apps/ui_gateway/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_ingest_job_runner.py` - ingest job runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_local_copilot_job_runner.py` - local copilot job runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_ops_gates_job_runner.py` - ops gates job runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_replay_job_runner.py` - replay job runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_research_promotion_job_runner.py` - research promotion job runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_stub_job_runner.py` - stub job runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/_windows_training_dispatch_runner.py` - windows training dispatch runner module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/app.py` - app module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/app_contracts.py` - app contracts module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/app_factor_registry_routes.py` - app factor registry routes module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/app_http.py` - app http module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/app_model_routes.py` - app model routes module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/app_route_dispatch.py` - app route dispatch module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/artifacts.py` - artifacts module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/audit.py` - audit module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/automation_profiles.py` - automation profiles module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/contract_registry.py` - contract registry module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/contract_tools.py` - contract tools module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/contract_values.py` - contract values module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/cross_os_path.py` - cross os path module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/domain.py` - domain module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/domain_factor_registry.py` - domain factor registry module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/domain_runtime_read_model.py` - domain runtime read model module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/domain_support.py` - domain support module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/errors.py` - errors module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry.py` - factor registry module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_audit_backfill.py` - factor registry audit backfill module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_catalog.py` - factor registry catalog module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_db.py` - factor registry db module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_errors.py` - factor registry errors module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_expression.py` - factor registry expression module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_governance_lifecycle.py` - factor registry governance lifecycle module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_governance_suggestions.py` - factor registry governance suggestions module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_ingestion_artifacts.py` - factor registry ingestion artifacts module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_metrics.py` - factor registry metrics module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_migrations.py` - factor registry migrations module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_ops.py` - factor registry ops module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_process.py` - factor registry process module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_registration.py` - factor registry registration module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_selection.py` - factor registry selection module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_serialization.py` - factor registry serialization module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_settings.py` - factor registry settings module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/factor_registry_validation_tasks.py` - factor registry validation tasks module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/gui_smoke.py` - gui smoke module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/heartbeat_contract.py` - heartbeat contract module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/high_risk_policy.py` - high risk policy module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/job_kernel.py` - job kernel module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/job_progress_contract.py` - job progress contract module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/job_state_machine.py` - job state machine module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/job_watchdog_runtime.py` - job watchdog runtime module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/jobs.py` - jobs module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/api/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/application/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/domain/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/infrastructure/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/policy/__init__.py` - init   module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/layers/policy/evidence_schema_policy.py` - evidence schema policy module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/main.py` - main module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/market_data_archive.py` - market data archive module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/market_data_events.py` - market data events module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/models.py` - models module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/offline_research_contracts.py` - offline research contracts module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/platform_release_readiness.py` - platform release readiness module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/progress_watchdog_policy.py` - progress watchdog policy module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/proof_graph_ops_page.py` - proof graph ops page module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/proposals.py` - proposals module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/proposed.py` - proposed module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/rbac.py` - rbac module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/recovery_service.py` - recovery service module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/research_contracts.py` - research contracts module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/research_handoff.py` - research handoff module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/research_return_decomposition.py` - research return decomposition module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/research_workflow_dataset_contract.py` - research workflow dataset contract module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/research_workflow_policy.py` - research workflow policy module boundary within the OmniStation research architecture.
+- `source/omni_station/apps/ui_gateway/research_workflow_resume.py` - research workflow resume module boundary within the OmniStation research architecture.
+
+## Validation Evidence - Test Contracts
+
+- `source/tests/research/features/external_projection/_cs_runtime_test_helpers.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_260d_resume_requires_cs_runtime_gates.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_candidate_projection_index_exact.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_compact_after_cs_legality.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_completed_benchmark_baseline_freeze.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_bottleneck_evidence_packet_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_corr_fusion_parity.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_formula_lowering_to_ir.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_major_panel_store.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_perf_delta_report.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_pointwise_fusion_parity.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_rank_fusion_parity.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_runtime_policy_config_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_runtime_report_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_schedule_same_shape_batching.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_semantic_node_hash.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_then_ts_stateful_compact.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_whole_dag_block_plan.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_cs_whole_dag_phase_b_executor.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_dag_downstream_refcount.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_full_universe_cs_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_global_cs_dag_cse.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_legacy_cs_evaluator_not_used_in_production.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_lowering_inventory_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_node_cache_key_semantics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_node_hash_excludes_provider_dialect.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_perf_promotion_band_assignment.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_provider_dialect_not_execution_routing.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_rank_boundary_certificate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_rank_sort_cache_semantics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_runtime_arena_refcount_release.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_runtime_evidence_bundle_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_schedule_topological_order.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_ts_precompute_for_cs_full_universe.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_ui_evidence_surface_manifest.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/external_projection/test_unsupported_lowering_blocks_production.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_affected_part_cache_cleanup_scope.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_alpha_safe_bar_adapter_timeout_diagnostic.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_alpha_safe_bar_factor_adapter_blocks_direct_legacy_feature_store_evidence.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_alpha_safe_bar_factor_adapter_dedupes_columns.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_alpha_safe_bar_factor_adapter_reuses_legacy_compute_all_patterns.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_alpha_safe_bar_factor_adapter_uses_completed_bars.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_alpha_safe_factor_contract_blocks_future_label_fields.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_canonical_external_factor_registry_expands_inventory.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_controlled_resume_checkpoint_binding.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_cost_aware_factor_materialization.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_dependency_missing_blocks_full_factor_build.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_exact_deferred_factor_materializer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_adapters_fail_closed_missing_dependency.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_contract_blocks_future_label_fields.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_core_representative_materialization.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_core_store_publisher.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_dedup_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_dependency_preflight.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_diagnostics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_family_governance_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_leakage_audit_blocks_realized_edge.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_license_gate_research_only.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_required_dependencies_manifest.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_resume_loop.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_source_inventory_schema.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_source_ownership.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_store_direct_route_removed.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_store_full_not_sample.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_store_full_streaming.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_factor_store_sample_loader.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_projection_factor_semantics.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_projection_physical_aligned.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_external_projection_runtime_policy.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_factor_leakage_audit_blocks_realized_edge.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_factor_primitive_cse_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_factor_store_builder_point_in_time.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_factor_store_repair_commit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_factor_store_stuck_audit_readonly.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_factor_store_stuck_remediation_controls.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_feature_engine_transform_contracts.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_fold_local_bucket_cutpoints_not_reused.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_fold_local_cost_liquidity_bucket_contract.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_fold_local_factor_selection_blocks_without_full_store.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_fold_local_factor_selector_train_only.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_fold_local_selection_after_full_store.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_full_external_factor_leakage_audit_blocks_future_bar.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_full_factor_leakage_audit_blocks_forbidden_fields.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_full_factor_store_quality_gate_waits_for_full_store.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_full_non_sample_factor_store_manifest_gate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_generated_first_class_factor_materializer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_high_frequency_factor_line_research.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_internal_legacy_factor_kernel_audit.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_license_formula_review_contracts.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_local_finml_research.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_local_formula_optimization_consistency.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_no_second_materializer_started.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_physical_aligned_external_source_root.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_precise_external_factor_materializer.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_progress_detector_slow_active_stage.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_public_formulaic_factor_restore.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_restored_public_formulaic_join.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_single_part_probe_no_publish.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_source_pit_quality_certificate.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_tail_close_conditional_factors_no_future.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_talib_cdl_dependency_required_for_full_build.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_trade_bar_prepare_manifest.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_tsfresh_bounded_lane_checkpoint.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/features/test_tsfresh_internal_heartbeat_counts_as_progress.py` - factor materialization, source ownership, leakage gates, and feature-store publishing.
+- `source/tests/research/models/test_high_edge_lightgbm_artifactization.py` - model research boundaries and score artifact policies.
+- `source/tests/research/models/test_model_artifact_prediction_replay.py` - model research boundaries and score artifact policies.
+- `source/tests/research/models/test_no_proxy_score_artifacts.py` - model research boundaries and score artifact policies.
+- `source/tests/research/models/test_two_stage_tradeable_edge_model.py` - model research boundaries and score artifact policies.
+- `source/tests/research/performance/test_arrow_io_probe_optional.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_autonomous_research_ops_evidence_audit_blocks_forbidden.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_candidate_confirmation_requires_two_row_counts.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_datafusion_decision_update_defer_when_binding_missing.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_datafusion_preflight_reports_missing_binding.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_engine_benchmark_case_schema.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_engine_benchmark_dry_run.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_expanded_sample_publisher_does_not_repeat_small_pilot_as_large_target.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_expanded_sample_publisher_requires_coverage_for_p2.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_hotpath_ranker_no_high_confidence_without_measurement.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_label_panel_polars_prototype_optional.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.
+- `source/tests/research/performance/test_manifest_only_artifact_discovery_stage2.py` - physical source resolution, compatibility, benchmarks, and materialization performance controls.

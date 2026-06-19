@@ -9,10 +9,18 @@
     "execution_conditioning_feature": true,
     "risk_adjusted_alpha": false
   },
-  "required_controls": ["benchmark_beta_sidecar", "sector_or_industry_sidecar", "style_exposure_sidecar", "residual_covariance_review"],
-  "available_controls": ["toy_benchmark_proxy"],
+  "required_controls": [
+    "benchmark_beta_sidecar",
+    "sector_or_industry_sidecar",
+    "style_exposure_sidecar",
+    "residual_covariance_review"
+  ],
+  "available_controls": [
+    "toy_benchmark_proxy"
+  ],
   "claim_decision": {
     "risk_adjusted_alpha_claim": "blocked",
     "reason": "Required risk controls are incomplete in this synthetic example."
   }
 }
+

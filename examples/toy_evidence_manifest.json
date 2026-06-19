@@ -21,5 +21,14 @@
       "content_hash": "fake_content_hash_0001"
     }
   ],
-  "claim_limits": ["not_production_research", "not_tradeable", "not_live_ready"]
+  "lineage": {
+    "source_manifest_hash": "fake_source_manifest_hash_0001",
+    "point_in_time_policy": "toy_declared_not_production"
+  },
+  "claim_limits": [
+    "not_production_research",
+    "not_tradeable",
+    "not_live_ready"
+  ]
 }
+

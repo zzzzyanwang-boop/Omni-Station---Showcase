@@ -26,3 +26,6 @@ function resolve_artifact(manifest_ref, expected_kind, expected_schema):
     assert content_hash_matches(manifest)
     return manifest
 ```
+
+Design point: consumers use manifest references, not loose files.
+

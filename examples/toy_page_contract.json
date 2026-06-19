@@ -1,0 +1,27 @@
+{
+  "schema": "omni.showcase.page_contract.v1",
+  "page_id": "toy-evidence-review",
+  "primary_task": "review evidence status and blocked claims",
+  "sections": [
+    {
+      "id": "summary",
+      "purpose": "show current gate status"
+    },
+    {
+      "id": "lineage",
+      "purpose": "show source and artifact provenance"
+    },
+    {
+      "id": "claims",
+      "purpose": "separate admitted, blocked, and deferred claims"
+    }
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "ready",
+    "blocked",
+    "permission_denied",
+    "offline"
+  ]
+}

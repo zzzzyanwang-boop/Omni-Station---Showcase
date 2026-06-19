@@ -20,3 +20,4 @@ acceptance_signal:
   - Gate result is explicit.
   - Unsupported claims remain blocked.
   - Evidence manifest and review report are produced.
+

@@ -2,6 +2,8 @@
 
 This document describes the public contract between the five layers.
 
+## Contract Summary
+
 | From | To | Contract | Failure Rule |
 | --- | --- | --- | --- |
 | Control Plane | Evidence Fabric | Work order, research contract, evidence DAG | Block if owner, scope, or contract is missing |
@@ -49,3 +51,4 @@ ReviewGateResult
 ```
 
 The real implementation is private. This sketch shows the shape of the architecture, not source code.
+

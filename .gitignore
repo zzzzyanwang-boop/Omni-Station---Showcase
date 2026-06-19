@@ -1,15 +1,24 @@
-# Documentation-only public showcase
+# This showcase repository is documentation-only.
+# Keep private source, data, runtime output, credentials, and generated artifacts out.
 
 .env
 .env.*
 *.pem
 *.key
+*.p12
+*.pfx
 *.token
 *.secret
 
 __pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
+venv/
 node_modules/
+dist/
+build/
 
 data/
 datasets/
@@ -22,12 +31,13 @@ output/
 _private/
 _scratch/
 *.parquet
-*.csv
+*.feather
 *.duckdb
 *.sqlite
 *.db
+*.csv
 *.zip
-*.pkl
-*.onnx
-*.pt
-*.pth
+*.7z
+*.tar
+*.gz
+

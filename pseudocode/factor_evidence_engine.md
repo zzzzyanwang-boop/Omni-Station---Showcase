@@ -16,5 +16,14 @@ function evaluate_factor_candidate(candidate, input_bundle):
     else:
         claims.append(block("unsupported_alpha_claim"))
 
-    return publish_artifact({ profile, leakage, redundancy, risk_identity, claims })
+    return publish_artifact({
+        factor_profile: profile,
+        leakage: leakage,
+        redundancy: redundancy,
+        risk_identity: risk_identity,
+        claims: claims
+    })
 ```
+
+Design point: a raw diagnostic metric cannot become a production claim without lineage, leakage, risk, and review gates.
+

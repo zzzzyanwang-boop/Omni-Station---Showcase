@@ -10,3 +10,8 @@ The private system treats data lineage as part of the research result. A metric 
 - Hash boundary: content or manifest hashes used to detect drift.
 - Sample boundary: whether evidence is sample, bounded certification, or full-scope.
 - Consumer boundary: which downstream gate is allowed to consume the artifact.
+
+## Public-Safe Example
+
+`examples/toy_evidence_manifest.json` shows the shape of an evidence manifest without including real data paths or real hashes.
+

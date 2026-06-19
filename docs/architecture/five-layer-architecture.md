@@ -14,6 +14,11 @@ Responsibilities:
 - reject missing owner, missing contract, loose artifact discovery, and unbounded runs
 - expose operator-readable status without exposing private runtime details
 
+Representative public artifacts:
+
+- `examples/toy_work_order.yaml`
+- `pseudocode/research_run_orchestrator.md`
+
 ## Layer 2: Data and Evidence Fabric
 
 Purpose: make every input and output manifest-bound and reproducible.
@@ -25,6 +30,12 @@ Responsibilities:
 - preserve schema hashes, content hashes, row counts, sample scope, and lineage
 - prefer columnar, partitionable artifact concepts for row-level research data
 - fail closed on stale caches, missing manifests, mixed artifact formats, or untracked inputs
+
+Representative public artifacts:
+
+- `examples/toy_source_manifest.json`
+- `examples/toy_evidence_manifest.json`
+- `pseudocode/manifest_store.md`
 
 ## Layer 3: Research Engine Layer
 
@@ -39,6 +50,13 @@ Engine families:
 - risk sidecar generation
 - deterministic replay and execution-cost evaluation
 - performance-sensitive materialization kernels
+
+Representative public artifacts:
+
+- `examples/toy_factor_profile.json`
+- `examples/toy_ml_training_manifest.json`
+- `pseudocode/factor_evidence_engine.md`
+- `pseudocode/ml_validation_gate.md`
 
 ## Layer 4: Validation and Governance Layer
 
@@ -55,6 +73,13 @@ Gate families:
 
 The layer blocks unsupported claims even when a diagnostic artifact exists.
 
+Representative public artifacts:
+
+- `examples/toy_gate_result.json`
+- `examples/toy_risk_identity_ledger.json`
+- `examples/toy_offline_evaluation_report.json`
+- `pseudocode/replay_cost_gate.md`
+
 ## Layer 5: Productization Boundary Layer
 
 Purpose: prevent offline research output from directly becoming production behavior.
@@ -67,6 +92,13 @@ Responsibilities:
 - require inference eligibility before model serving
 - preserve blocked and deferred claims for operator review
 
+Representative public artifacts:
+
+- `skeleton/inference/README.md`
+- `skeleton/runtime/README.md`
+- `skeleton/ui/README.md`
+
 ## Cross-Layer Invariant
 
 No layer can promote an artifact by implication. A downstream layer must consume an explicit manifest, verify its contract, and record the claim it admits or blocks.
+

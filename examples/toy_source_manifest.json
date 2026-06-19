@@ -2,6 +2,7 @@
   "schema": "omni.showcase.source_manifest.v1",
   "source_id": "toy_source_manifest_001",
   "source_kind": "synthetic_showcase_source",
+  "description": "Fabricated source manifest for public architecture examples.",
   "scope": {
     "universe": "TOY_US_EQUITIES_5_SYMBOLS",
     "date_range": "2026-01-01_to_2026-01-10",
@@ -15,5 +16,10 @@
       "content_hash": "fake_source_content_hash_0001"
     }
   ],
-  "restrictions": ["not_real_market_data", "not_research_evidence", "not_tradeable"]
+  "restrictions": [
+    "not_real_market_data",
+    "not_research_evidence",
+    "not_tradeable"
+  ]
 }
+

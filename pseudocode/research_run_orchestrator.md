@@ -24,3 +24,6 @@ function run_research_work_order(work_order):
     closure_case = write_closure_case(work_order, gate_result)
     return closure_case
 ```
+
+Design point: the orchestrator never discovers artifacts by `latest` naming or filesystem globbing.
+

@@ -1,5 +1,7 @@
 # ML Training and Validation Flow
 
+This flow demonstrates model evidence governance without exposing private models, weights, features, or data.
+
 ```text
 model family spec
   -> training run contract
@@ -12,4 +14,7 @@ model family spec
   -> inference eligibility gate
 ```
 
+## Gate Rule
+
 If feature selection sees test-fold information, if OOF predictions are not manifest-bound, or if calibration evidence is missing, promotion remains blocked.
+

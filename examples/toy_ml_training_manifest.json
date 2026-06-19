@@ -9,8 +9,14 @@
     "feature_selection": "fold_local_only"
   },
   "artifacts": {
-    "oof_predictions": {"manifest_hash": "fake_oof_manifest_hash_0001", "row_count": 15},
-    "calibration": {"manifest_hash": "fake_calibration_manifest_hash_0001", "status": "toy_complete"}
+    "oof_predictions": {
+      "manifest_hash": "fake_oof_manifest_hash_0001",
+      "row_count": 15
+    },
+    "calibration": {
+      "manifest_hash": "fake_calibration_manifest_hash_0001",
+      "status": "toy_complete"
+    }
   },
   "promotion": {
     "model_registry_candidate": true,
@@ -18,3 +24,4 @@
     "blocked_reason": "Synthetic showcase run cannot authorize inference."
   }
 }
+

@@ -2,6 +2,8 @@
 
 Validation gates prevent unsupported claims from moving downstream.
 
+## Gate Categories
+
 | Gate | Purpose |
 | --- | --- |
 | Contract gate | Required metadata and ownership are present |
@@ -11,4 +13,10 @@ Validation gates prevent unsupported claims from moving downstream.
 | Claim gate | The claim does not exceed the available evidence |
 | Promotion gate | Offline evidence is not confused with live readiness |
 
-Gate outcomes: `passed`, `blocked`, `deferred`, or `diagnostic`.
+## Gate Outcomes
+
+- `passed`: claim is supported inside the declared scope.
+- `blocked`: claim is not supported and must not move downstream.
+- `deferred`: claim needs additional evidence before review.
+- `diagnostic`: useful for debugging, not for promotion.
+
