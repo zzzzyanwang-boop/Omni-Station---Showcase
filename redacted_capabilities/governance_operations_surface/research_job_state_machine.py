@@ -1,25 +1,25 @@
 """
-Public redacted capability placeholder.
+Architecture review placeholder for a sanitized capability boundary.
 
-This file does not preserve a private filename. It is a sanitized stand-in for
-one or more private modules whose names would reveal research lines, strategy
+This file uses a neutral capability name for
+one or more implementation modules whose original names would reveal research lines, strategy
 posture, vendor details, execution posture, or unpublished results.
 
-Redacted capability area: governance_operations_surface
+Sanitized capability area: governance_operations_surface
 Research OS layer: Layer 5 - Research Governance & Operations
 Capability: Research ops UI
-Public-safe role: Research job state and progress UI contract.
+Architecture role: Research job state and progress UI contract.
 
-Implementation highlights visible from the public architecture:
+Implementation highlights visible at architecture-review level:
 - job state transitions.
 - blocked/error states.
 - progress watchdog policy.
 
-Public contract shape:
+Contract shape:
 - Inputs: sanitized work order, evidence manifest, model artifact reference, replay bundle, or UI read-model request.
 - Outputs: sanitized gate decision, evidence packet, review packet, replay summary, or operator-facing state projection.
 
-Removed from this public placeholder:
+Implementation details intentionally omitted:
 - queue ids.
 - host paths.
 - operator logs.

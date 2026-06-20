@@ -1,24 +1,24 @@
 """
-Public showcase placeholder.
+Architecture review placeholder.
 
-Original private path: tests/research/features/external_projection/test_260d_resume_requires_cs_runtime_gates.py
+Retained module path: tests/research/features/external_projection/test_260d_resume_requires_cs_runtime_gates.py
 Original source content is intentionally omitted.
 
 Architecture layer: Validation Evidence - Test Contracts
-Public-safe role: factor materialization, source ownership, leakage gates, and feature-store publishing.
+Architecture role: factor materialization, source ownership, leakage gates, and feature-store publishing.
 
-Implementation highlights visible from the public architecture:
+Implementation highlights visible at architecture-review level:
 - fail-closed admission gate with explicit pass/fail evidence.
 - read-model contract exposed to the operator console.
 - regression test for fail-closed behavior and boundary invariants.
 - separates orchestration contracts from implementation details.
 - emits or consumes manifest-ready artifacts instead of loose files.
 
-Public contract shape:
+Contract shape:
 - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
 - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
 
-Removed from this public file:
-- production source code, private algorithms, strategy parameters, data paths, credentials, and runtime state.
+Implementation details intentionally omitted:
+- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
 - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
 """

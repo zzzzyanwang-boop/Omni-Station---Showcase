@@ -1,25 +1,25 @@
 """
-Public redacted capability placeholder.
+Architecture review placeholder for a sanitized capability boundary.
 
-This file does not preserve a private filename. It is a sanitized stand-in for
-one or more private modules whose names would reveal research lines, strategy
+This file uses a neutral capability name for
+one or more implementation modules whose original names would reveal research lines, strategy
 posture, vendor details, execution posture, or unpublished results.
 
-Redacted capability area: native_compute_infrastructure
+Sanitized capability area: native_compute_infrastructure
 Research OS layer: Layer 1 - Data / Compute / Artifact Infrastructure
 Capability: Streaming state backend
-Public-safe role: Streaming state-machine backend decision boundary.
+Architecture role: Streaming state-machine backend decision boundary.
 
-Implementation highlights visible from the public architecture:
+Implementation highlights visible at architecture-review level:
 - bounded memory state.
 - checkpoint/resume semantics.
 - partition-local processing.
 
-Public contract shape:
+Contract shape:
 - Inputs: sanitized work order, evidence manifest, model artifact reference, replay bundle, or UI read-model request.
 - Outputs: sanitized gate decision, evidence packet, review packet, replay summary, or operator-facing state projection.
 
-Removed from this public placeholder:
+Implementation details intentionally omitted:
 - state transition implementation.
 - throughput numbers.
 - raw data layout.

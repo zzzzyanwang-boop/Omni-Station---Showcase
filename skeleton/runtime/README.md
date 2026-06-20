@@ -1,6 +1,5 @@
 # Runtime
 
-Runtime modules are live-capable in the private system only after separate approval boundaries.
+Runtime modules become live-capable only after separate approval boundaries.
 
-This public showcase does not include live execution code, broker integration, OMS logic, paper trading, or deployment configuration.
-
+This architecture review package covers runtime boundary design, not live execution code, broker integration, OMS logic, paper trading, or deployment configuration.

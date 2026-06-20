@@ -2,7 +2,7 @@
 
 Inference is treated as a separate production boundary, not a direct extension of research output.
 
-Public-safe responsibilities:
+Reviewable responsibilities:
 
 - model artifact eligibility
 - calibration and registry checks
@@ -10,5 +10,5 @@ Public-safe responsibilities:
 - monitoring readiness
 - blocked serving posture when evidence is incomplete
 
-Private services, endpoints, deployment configuration, and model artifacts are not published.
+Implementation services, endpoints, deployment configuration, and model artifacts are not published.
 

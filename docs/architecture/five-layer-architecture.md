@@ -1,6 +1,6 @@
 # Research OS Five-Layer Architecture
 
-This document is the public-safe architecture map for OmniStation. It follows the internal Research OS full-system design baseline. It does not expose production source code, private datasets, alpha formulas, credentials, local paths, run state, or unpublished results.
+This document is the architecture map for OmniStation Research OS. It follows the full-system design baseline and focuses on the reviewable system structure: ownership, contracts, evidence flow, engines, artifacts, gates, and infrastructure.
 
 The design is a top-down Research Operating System, not a bottom-up script collection. Research begins with governance and WorkOrders, flows through applications and evidence contracts, calls engines, and lands on data/compute/artifact infrastructure.
 
@@ -40,7 +40,7 @@ Representative objects:
 - `RetirementDecision`
 - `ResearchMemoryEntry`
 
-Representative public artifacts:
+Representative review artifacts:
 
 - `source/omni_station/research_os/governance/operations.py`
 - `source/omni_station/apps/ui_gateway/proof_graph_ops_page.py`
@@ -68,7 +68,7 @@ Application families:
 - Research Memory Library
 - Legacy Quarantine Console
 
-Representative public artifacts:
+Representative review artifacts:
 
 - `source/omni_station/research_os/applications/contracts.py`
 - `source/omni_station/research_foundry/compiler/feature_compiler.py`
@@ -91,7 +91,7 @@ Kernel objects:
 - `ConfirmatorySpec`
 - `ClosureArbitration`
 
-Representative public artifacts:
+Representative review artifacts:
 
 - `source/omni_station/research_os/kernel/spine.py`
 - `source/omni_station/research_os/semantic_kernel/gates.py`
@@ -115,7 +115,7 @@ Engine families:
 - ExecutionReplayEngine
 - PortfolioEngine
 
-Representative public artifacts:
+Representative review artifacts:
 
 - `source/omni_station/research_os/engines/research_core_native.py`
 - `source/omni_station/research/features/external_projection/runtime/materialization.py`
@@ -136,7 +136,7 @@ Infrastructure areas:
 - local compute
 - native and GPU-ready training surfaces
 
-Representative public artifacts:
+Representative review artifacts:
 
 - `source/omni_station/research_os/data_plane/manifest.py`
 - `source/omni_station/research/data/arrow_utils.py`

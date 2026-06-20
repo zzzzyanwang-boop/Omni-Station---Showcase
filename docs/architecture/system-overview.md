@@ -1,10 +1,10 @@
 # System Overview
 
-OmniStation is structured as an institutional Research Operating System. The public showcase follows the full-system design baseline: research starts at Governance & Operations, enters Research Applications, compiles into Evidence / Contract / DAG Kernel objects, calls Provider / Model / Runtime Engines, and binds Data / Compute / Artifact Infrastructure.
+OmniStation is structured as an institutional Research Operating System. The architecture follows the full-system design baseline: research starts at Governance & Operations, enters Research Applications, compiles into Evidence / Contract / DAG Kernel objects, calls Provider / Model / Runtime Engines, and binds Data / Compute / Artifact Infrastructure.
 
 ## Layer Model
 
-| Layer | Responsibility | Public Showcase Representation |
+| Layer | Responsibility | Review Artifact Examples |
 | --- | --- | --- |
 | Layer 5 - Research Governance & Operations | WorkOrders, route authority, stage state, review ownership, freeze/stop/waiver/retirement decisions, Research Mission Control | `source/omni_station/research_os/governance/operations.py`, `source/omni_station/apps/ui_gateway/proof_graph_ops_page.py` |
 | Layer 4 - Research Applications | Idea intake, mechanism framing, data/panel contracts, feature/factor foundry, discovery, review/freeze, confirmation, decision score, replay, closure, memory | `source/omni_station/research_os/applications/contracts.py`, `source/omni_station/research_foundry/compiler/feature_compiler.py` |
@@ -24,9 +24,9 @@ Idea Intake -> Mechanism Framing -> Research Charter -> Data / Panel Contract
 -> Portfolio Utility -> Closure Committee -> Research Memory / Retirement
 ```
 
-## Public Architecture Domains
+## Architecture Domains
 
-| Domain | What It Demonstrates | Public Showcase Representation |
+| Domain | What It Demonstrates | Review Artifact Examples |
 | --- | --- | --- |
 | Governance and operations | WorkOrder authority, stage state, allowed next action, blockers, review board state | `docs/architecture/five-layer-architecture.md`, `redacted_capabilities/governance_operations_surface/evidence_console_read_model.py` |
 | Research applications | OS apps that own the research workflow rather than raw scripts or stations | `source/omni_station/research_os/applications/contracts.py`, `redacted_capabilities/research_line_a/candidate_lifecycle.py` |

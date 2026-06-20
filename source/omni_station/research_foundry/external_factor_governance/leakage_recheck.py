@@ -1,24 +1,24 @@
 """
-Public showcase placeholder.
+Architecture review placeholder.
 
-Original private path: omni_station/research_foundry/external_factor_governance/leakage_recheck.py
+Retained module path: omni_station/research_foundry/external_factor_governance/leakage_recheck.py
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 4 - Research Applications
-Public-safe role: external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
+Architecture role: external factor allocation, leakage recheck, role taxonomy, and trainable-matrix preflight.
 
-Implementation highlights visible from the public architecture:
+Implementation highlights visible at architecture-review level:
 - future-information and forbidden-feature protection.
 - factor identity, source ownership, materialization, and family governance.
 - separates orchestration contracts from implementation details.
 - emits or consumes manifest-ready artifacts instead of loose files.
-- keeps private strategy logic, parameters, and data outside the public boundary.
+- keeps strategy logic, production parameters, and data outside the review surface.
 
-Public contract shape:
+Contract shape:
 - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
 - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
 
-Removed from this public file:
-- production source code, private algorithms, strategy parameters, data paths, credentials, and runtime state.
+Implementation details intentionally omitted:
+- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
 - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
 """

@@ -1,6 +1,6 @@
 # Data Lineage
 
-The private system treats data lineage as part of the research result. A metric without a source contract, schema, and evidence path is not decision-grade.
+OmniStation treats data lineage as part of the research result. A metric without a source contract, schema, and evidence path is not decision-grade.
 
 ## Lineage Concepts
 
@@ -11,7 +11,6 @@ The private system treats data lineage as part of the research result. A metric 
 - Sample boundary: whether evidence is sample, bounded certification, or full-scope.
 - Consumer boundary: which downstream gate is allowed to consume the artifact.
 
-## Public-Safe Example
+## Synthetic Example
 
 `examples/toy_evidence_manifest.json` shows the shape of an evidence manifest without including real data paths or real hashes.
-

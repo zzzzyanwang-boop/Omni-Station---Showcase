@@ -2,7 +2,7 @@
 
 Alpha and factor research is handled as an evidence-admission workflow.
 
-Public-safe responsibilities:
+Reviewable responsibilities:
 
 - hypothesis registration
 - factor profiling
@@ -12,5 +12,5 @@ Public-safe responsibilities:
 - leakage sentinel results
 - claim admission or block decision
 
-Private source code, formulas, feature definitions, and real metrics are not published.
+Source bodies, formulas, feature definitions, and production metrics remain outside the review surface.
 

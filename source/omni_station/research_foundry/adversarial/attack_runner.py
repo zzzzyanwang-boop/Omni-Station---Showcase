@@ -1,23 +1,23 @@
 """
-Public showcase placeholder.
+Architecture review placeholder.
 
-Original private path: omni_station/research_foundry/adversarial/attack_runner.py
+Retained module path: omni_station/research_foundry/adversarial/attack_runner.py
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 4 - Research Applications
-Public-safe role: red-team, placebo, negative-control, and failure-memory validation suite.
+Architecture role: red-team, placebo, negative-control, and failure-memory validation suite.
 
-Implementation highlights visible from the public architecture:
+Implementation highlights visible at architecture-review level:
 - bounded orchestration runner with manifest/evidence outputs.
 - separates orchestration contracts from implementation details.
 - emits or consumes manifest-ready artifacts instead of loose files.
-- keeps private strategy logic, parameters, and data outside the public boundary.
+- keeps strategy logic, production parameters, and data outside the review surface.
 
-Public contract shape:
+Contract shape:
 - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
 - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
 
-Removed from this public file:
-- production source code, private algorithms, strategy parameters, data paths, credentials, and runtime state.
+Implementation details intentionally omitted:
+- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
 - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
 """

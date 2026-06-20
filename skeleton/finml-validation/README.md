@@ -2,7 +2,7 @@
 
 Financial ML validation must account for nonstationarity, overlapping labels, and leakage risk.
 
-Public-safe responsibilities:
+Reviewable responsibilities:
 
 - purged and embargoed fold policy
 - CPCV-style path coverage

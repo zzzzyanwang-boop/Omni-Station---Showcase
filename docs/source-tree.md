@@ -1,6 +1,6 @@
-# Public Source Tree Snapshot
+# Source Tree Snapshot
 
-Only files included in the public-safe skeleton are listed.
+Only source-shaped files retained for architecture review are listed.
 
 - `source/gpm/__init__.py`
 - `source/gpm/adapters/__init__.py`

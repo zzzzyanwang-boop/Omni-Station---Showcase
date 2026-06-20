@@ -1,6 +1,6 @@
 # Performance Materialization Flow
 
-This flow describes how performance-sensitive research work is evaluated without exposing private kernels.
+This flow describes how performance-sensitive research work is evaluated through physical execution shape, bounded scans, materialization control, cache policy, and equivalence checks.
 
 ```text
 hot path identified
@@ -17,4 +17,3 @@ hot path identified
 ## Performance Rule
 
 Performance claims should tie to physical work removed: fewer scans, fewer rows materialized, narrower projections, fewer copies, better cache locality, or native/vectorized execution.
-

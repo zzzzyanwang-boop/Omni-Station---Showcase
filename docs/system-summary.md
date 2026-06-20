@@ -2,7 +2,7 @@
 
 OmniStation is organized as a research operating system rather than a collection of scripts. The architecture emphasizes evidence provenance, repeatable gates, and explicit ownership between orchestration, engines, artifacts, and review surfaces.
 
-This public showcase focuses on system architecture and flow. It does not include private source code, private data, real research output, or non-architecture narrative.
+This repository focuses on system architecture and decision flow. It provides a reviewable map of how research intent becomes contract-bound execution, evidence artifacts, validation gates, promotion decisions, and retained research memory.
 
 ## Engineering Themes
 
@@ -21,6 +21,6 @@ This public showcase focuses on system architecture and flow. It does not includ
 - Market microstructure work is framed as an execution problem: order-book inputs, replay determinism, fill/slippage/latency cost evidence, and economic pass/fail gates.
 - Risk work is framed as an attribution problem: beta, sector/style controls, factor identity, and explicit separation between raw signal and neutralized alpha.
 
-## Public Showcase Scope
+## Review Standard
 
-This repository demonstrates structure and decision quality. It does not publish the private implementation or any production research result.
+The repository is complete when a reviewer can understand the Research OS architecture, the evidence lifecycle, the validation posture, the promotion boundary, and the physical execution concerns without relying on source bodies or runtime artifacts.

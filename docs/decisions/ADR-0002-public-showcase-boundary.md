@@ -1,21 +1,20 @@
-# ADR-0002: Public Showcase Boundary
+# ADR-0002: Architecture Review Boundary
 
 ## Status
 
-Accepted for this public repository.
+Accepted for this architecture review repository.
 
 ## Context
 
-The private OmniStation repository contains production implementation details, research artifacts, and operational context that are not appropriate for publication.
+OmniStation needs a review surface that communicates architecture, evidence discipline, validation posture, and operational boundaries without depending on implementation access.
 
 ## Decision
 
-The public repository is generated as a clean, documentation-only export. It contains architecture summaries, diagrams, skeleton directories, and synthetic examples.
+The repository is generated as a clean, documentation-only architecture export. It contains architecture summaries, diagrams, source-shaped module placeholders, sanitized capability boundaries, and synthetic contract fixtures.
 
 ## Consequences
 
-- The public repository is useful for architecture review but not runnable.
-- No private git history is exposed.
-- Public examples use toy identifiers and fake hashes.
-- Any future public update must be rebuilt through the same whitelist boundary.
-
+- The repository is useful for architecture review but not runnable.
+- The working repository history is not part of the review surface.
+- Synthetic examples use neutral identifiers and placeholder hashes.
+- Future updates must be rebuilt through the same curated export boundary.

@@ -1,8 +1,8 @@
-# Source-Shaped Skeleton
+# Source-Shaped Module Tree
 
-This directory mirrors a public-safe subset of the private OmniStation source tree.
+This directory gives reviewers a navigable module map for the OmniStation Research OS architecture.
 
-Every file keeps the original public-safe path and filename, but the implementation body has been replaced by a short architecture summary. These files are intentionally not executable. They are included to show ownership boundaries, module responsibilities, and how the Research OS layer model is organized without disclosing source code or research IP.
+Each file keeps a retained module path and filename where that name communicates architecture ownership or general engineering responsibility. The implementation body is replaced by a short architecture note. These files are not runtime modules; they are review artifacts for inspecting ownership boundaries, module responsibilities, and the Research OS layer model.
 
 Layer labels follow the Research OS design baseline:
 
@@ -12,4 +12,4 @@ Layer labels follow the Research OS design baseline:
 - Layer 2 - Provider / Model / Runtime Engines
 - Layer 1 - Data / Compute / Artifact Infrastructure
 
-Excluded from this skeleton: data, runtime output, configs with strategy-specific names, task files, logs, model artifacts, credentials, private paths, and modules whose filename would reveal sensitive research lines.
+Each placeholder describes the module's architecture role, public contract shape, and implementation highlights at system-design level. Runtime data, generated artifacts, local configuration, credentials, strategy-specific labels, and implementation logic are outside this review tree by construction.

@@ -1,47 +1,47 @@
 # Source-Shaped Export Rules
 
-The showcase export is whitelist-based. It preserves a public-safe subset of the real source tree while replacing implementation bodies with descriptive placeholders.
+The architecture export is allowlist-based. It retains module paths that help reviewers understand system ownership while replacing implementation bodies with descriptive placeholders.
 
-## Included
+## Retained Surfaces
 
 - Research OS governance/operations, application contracts, evidence kernel, data-plane interfaces, engine contracts, and conformance checks.
 - Research foundry modules for applications, evidence, adversarial validation, decision runtime, economics, external-factor governance, and general orchestration.
-- Feature, training, validation, performance, model-governance, and promotion-boundary modules that communicate architecture rather than private edge details.
+- Feature, training, validation, performance, model-governance, and promotion-boundary modules that communicate architecture rather than implementation edge.
 - UI gateway and console read-model contracts that show operator-facing architecture.
 - Tests that demonstrate fail-closed boundaries, leakage controls, evidence contracts, and promotion guards.
-- Redacted capability placeholders for private research lines, execution/order-management boundaries, vendor/data details, and performance work where the real filename would disclose sensitive information.
+- Sanitized capability placeholders for research lines, execution/order-management boundaries, vendor/data details, and performance work where the original filename would over-disclose system posture.
 
-## Excluded
+## Boundary Controls
 
-- Production source bodies.
-- Real configs, tasks, queue state, handoffs, run logs, datasets, model artifacts, checkpoints, reports, and generated stores.
-- Paths whose filenames reveal sensitive research lines, private setup labels, unpublished strategy names, vendor-specific run repair, or live/broker posture details beyond boundary guards.
-- Local usernames, machine paths, vendor credentials, tokens, and any secret-like material.
+- Production source bodies are replaced before publication.
+- Runtime configs, task state, queue state, handoffs, run logs, datasets, model artifacts, checkpoints, reports, and generated stores stay outside the review tree.
+- Paths whose filenames reveal research lines, setup labels, unpublished strategy names, vendor-specific repair history, or live/broker posture are represented by sanitized capability boundaries instead of retained filenames.
+- Local usernames, machine paths, vendor credentials, tokens, and any secret-like material stay outside the review tree.
 
-## Redacted Capability Rule
+## Sanitized Capability Rule
 
-When a private module is important for proving capability coverage but the original path is sensitive, publish a sanitized placeholder under `redacted_capabilities/` instead of preserving the original filename.
+When a module is important for proving capability coverage but the original path is too revealing, publish a sanitized placeholder under `redacted_capabilities/`.
 
 The placeholder may describe:
 
-- capability area,
-- official Research OS layer when applicable,
-- public-safe role,
-- architecture-level highlights,
-- sanitized input/output contract,
-- private material removed.
+- capability area;
+- official Research OS layer when applicable;
+- architecture role;
+- architecture-level highlights;
+- sanitized input/output contract;
+- implementation details omitted from the review surface.
 
-It must not preserve the exact internal filename, strategy label, experiment label, vendor-specific path, account/order details, run id, threshold, formula, or implementation logic.
+It must not preserve exact internal filenames, strategy labels, experiment labels, vendor-specific paths, account/order details, run ids, thresholds, formulas, or implementation logic.
 
 ## Placeholder Contract
 
 Each exported source-shaped file must contain only:
 
-- original public-safe path,
-- architecture layer,
-- module responsibility,
-- public-safe implementation highlights,
-- sanitized input/output contract,
-- explicit list of removed private material.
+- retained module path;
+- Research OS architecture layer;
+- module responsibility;
+- implementation highlights at system-design level;
+- sanitized input/output contract;
+- explicit note that implementation details are omitted.
 
-The files are documentation artifacts, not runnable source code.
+The files are architecture review artifacts, not runnable source code.

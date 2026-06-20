@@ -1,8 +1,8 @@
-# Redacted Capabilities
+# Sanitized Capability Boundaries
 
 This directory complements `source/`.
 
-- `source/` keeps public-safe real paths and filenames while removing implementation bodies.
-- `redacted_capabilities/` uses sanitized names for sensitive research lines, strategy/economic evidence, execution safety, order-management boundaries, vendor/data details, and private performance work.
+- `source/` retains module paths when the filename is useful for architecture review.
+- `redacted_capabilities/` uses neutral capability names when the original filename would over-disclose research direction, execution posture, vendor dependency, account assumption, or unpublished result history.
 
-The goal is to prove capability coverage without exposing filenames that would reveal private research direction, alpha hypotheses, execution posture, vendor relationships, account assumptions, or unpublished results.
+Each file describes the capability boundary, Research OS layer, architecture-level highlights, and sanitized input/output contract. The intent is to make sensitive surfaces reviewable as system design without exposing implementation details or reproducible research logic.

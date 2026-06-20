@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted for the private system architecture.
+Accepted for the OmniStation Research OS architecture.
 
 ## Context
 
@@ -18,4 +18,3 @@ Research execution is organized around explicit work orders, contracts, evidence
 - Intermediate artifacts need schema and provenance.
 - Claims can be blocked even when a diagnostic metric looks attractive.
 - Reviewers can audit what was proven, what was not proven, and which downstream paths remain closed.
-

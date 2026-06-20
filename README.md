@@ -1,14 +1,12 @@
-# OmniStation System Architecture Showcase
+# OmniStation Research OS Architecture Review
 
-OmniStation is a private quantitative research and operations platform. This repository is a public system-architecture showcase: it preserves a public-safe subset of the real source tree while replacing every implementation body with module highlights, responsibility summaries, sanitized input/output contracts, and explicit disclosure boundaries.
+OmniStation is a quantitative research operating system for turning research intent into governed evidence, reproducible artifacts, and reviewable promotion decisions. This repository presents the architecture surface of the system: retained module paths, sanitized capability boundaries, diagrams, pseudocode, and synthetic contract fixtures.
 
-This repository is intentionally not runnable. The files under `source/` keep original public-safe paths and filenames, but their contents are documentation placeholders rather than production source code.
-
-Sensitive areas are represented separately under `redacted_capabilities/` with sanitized names. This proves coverage of private research lines, strategy/economic evidence, execution safety, order-management boundaries, vendor/data boundaries, and native/performance work without disclosing filenames that would reveal private research assets.
+The repository is designed for technical architecture review, not runtime execution. Implementation bodies are replaced with module-level responsibility summaries so the design can be inspected through ownership, contracts, failure boundaries, validation posture, data lineage, and operational controls.
 
 ## Research OS Five-Layer Architecture
 
-OmniStation is presented through the Research OS layer model from the full-system design baseline:
+OmniStation follows the Research OS layer model from the full-system design baseline:
 
 1. Layer 5 - Research Governance & Operations: WorkOrders, route authority, owners, stages, blockers, allowed next actions, freeze/stop/waiver/retirement decisions, and Research Mission Control.
 2. Layer 4 - Research Applications: Idea Intake, Mechanism Memo, Data & Panel Contract, Feature / Factor Foundry, Discovery, Review & Freeze, Confirmation, Decision Score, Economic Replay, Portfolio Utility, Closure, Memory, and Quarantine apps.
@@ -16,74 +14,70 @@ OmniStation is presented through the Research OS layer model from the full-syste
 4. Layer 2 - Provider / Model / Runtime Engines: FeatureProvider, ExternalFactorProvider, SignalStateProvider, EconomicStateProvider, LabelOracle, ModelZoo, Calibration/OOD, DecisionRuntime, ExecutionReplayEngine, and PortfolioEngine.
 5. Layer 1 - Data / Compute / Artifact Infrastructure: market-data inputs, Parquet/Arrow/manifests, cache, partitioning, atomic writes, station runners, progress events, local compute, native kernels, and GPU-ready training surfaces.
 
-## What This Shows
+## Architecture Review Focus
 
-- The source-shaped architecture of the private system, including actual public-safe module paths and file names.
-- Redacted capability structures for sensitive research, execution, order-management, vendor/data, and performance surfaces.
-- A capability matrix mapping system abilities to public-safe real files and redacted placeholders.
-- A layered Research OS model for moving from WorkOrders to applications, compiled contracts, engines, artifacts, review gates, closure, and memory.
-- Separation between governance, research applications, evidence kernel, runtime engines, and physical infrastructure.
-- Fail-closed posture for incomplete evidence, unsupported claims, and live-execution boundaries.
-- Reproducibility concepts: manifest-bound artifacts, evidence envelopes, lineage, and explicit review results.
-- Pseudocode and fake examples that illustrate implementation shape without exposing real trading logic or data.
-- Process flow for alpha/factor research, ML validation, risk attribution, offline replay, performance materialization, and promotion gating.
+This repository is organized so a technical reviewer can evaluate:
 
-## What Is Not Included
+- whether research work has explicit ownership from WorkOrder through application, contract, engine call, artifact, gate, closure, and memory;
+- how the system separates governance, research applications, evidence kernel, reusable engines, and physical infrastructure;
+- how feature, label, OOF, CPCV, replay, risk, and promotion artifacts become manifest-bound evidence instead of loose files;
+- how leakage controls, fold-local policies, multiple-testing discipline, and fail-closed gates are represented at system boundaries;
+- how decision runtime, execution replay, cost/capacity, and order-management boundaries remain separated from research evidence;
+- how operator-facing read models expose stage, blocker, allowed action, evidence state, and review results without requiring direct access to runtime internals;
+- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, cache lifecycle, checkpoint semantics, native kernels, and progress telemetry.
 
-- Production source code or private git history.
-- Real strategies, alpha formulas, feature definitions, model logic, or execution rules.
-- Broker, OMS, live trading, paper trading, credentials, or deployment configuration.
-- Real research datasets, market data, Parquet stores, checkpoints, model weights, logs, or reports.
-- Internal operator runbooks, machine paths, usernames, queue state, or runtime artifacts.
+## Evidence Boundary
+
+The repository preserves architecture evidence while separating it from implementation IP. Module paths are retained where the filename communicates system ownership. Capability-level placeholders are used where the exact filename would over-disclose research direction, vendor dependency, execution posture, or unpublished result history. Examples use synthetic identifiers, hashes, row counts, and reports so contract shape can be reviewed without implying a production research result.
+
+This boundary is part of the engineering design: the review surface should demonstrate system structure, contract discipline, evidence flow, and operational control without making strategies, data, model internals, or runtime configuration reproducible.
 
 ## Repository Map
 
 ```text
-source/               Public-safe source-shaped skeleton with placeholder file bodies
-redacted_capabilities/ Sanitized capability placeholders for sensitive private surfaces
+source/                 Source-shaped module tree with architecture placeholder bodies
+redacted_capabilities/  Sanitized capability boundary placeholders
 docs/
-  architecture/        Public architecture notes and system boundaries
-  flows/               Public-safe process flows
+  architecture/          Five-layer architecture, contracts, lineage, and validation notes
+  flows/                 Research workflow and evidence flow notes
   capability-coverage.md
   redacted-capability-inventory.md
   redaction-policy.md
   export-coverage.md
-diagrams/              Mermaid diagrams for system and evidence flows
-pseudocode/            Language-neutral pseudocode for core workflows
-examples/              Toy work orders, manifests, and gate reports
+diagrams/                Mermaid diagrams for system and evidence flows
+pseudocode/              Language-neutral sketches of core workflows
+examples/                Synthetic work orders, manifests, and gate reports
 ```
 
-## Source-Shaped Skeleton
+## Source-Shaped Module Tree
 
-The `source/` tree is the core of this showcase. It mirrors selected real paths such as Research OS governance, application contracts, evidence kernel modules, provider/runtime engines, data-plane infrastructure, UI/read-model surfaces, and test contracts.
+The `source/` tree gives reviewers a navigable map of selected real modules across Research OS governance, application contracts, evidence kernel modules, provider/runtime engines, data-plane infrastructure, UI/read-model surfaces, and test contracts.
 
 Each placeholder file contains:
 
-- original public-safe path and filename
-- architecture layer
-- module responsibility
-- implementation highlights visible at the system-design level
-- sanitized input/output contract
-- private material removed from the public version
+- retained module path and filename;
+- Research OS layer;
+- module responsibility;
+- implementation highlights at system-design level;
+- sanitized input/output contract;
+- implementation details intentionally omitted from the review surface.
 
-It deliberately excludes data, runtime outputs, private configs, task files, logs, checkpoints, model artifacts, credentials, local paths, strategy-specific filenames, and any source body that would make private research reproducible.
+## Sanitized Capability Boundaries
 
-## Redacted Capabilities
+The `redacted_capabilities/` tree documents capabilities whose exact module names would reveal more than the architecture needs to prove. The directory uses neutral boundary names such as `research_line_a`, `runtime_engine_boundary`, `order_management_boundary`, and `native_compute_infrastructure`.
 
-The `redacted_capabilities/` tree covers sensitive areas where the real filename itself would disclose too much. The files use sanitized names such as `research_line_a`, `runtime_engine_boundary`, `order_management_boundary`, and `native_compute_infrastructure`.
+These placeholders cover candidate lifecycles, feature/label contracts, OOF/CPCV validation, model governance, risk and replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces.
 
-This layer shows that the private system includes candidate lifecycles, feature/label contracts, OOF/CPCV validation, model governance, risk/replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces without exposing private strategy names or implementation.
+## Technical Review Criteria
 
-## Evaluation Lens
+The design should be evaluated on:
 
-The point of the design is not to claim a public trading edge. The point is to show how the private system is structured to support disciplined quantitative research:
-
-- clear ownership boundaries
-- reproducible evidence chains
-- fail-closed validation gates
-- promotion controls
-- operational separation between offline research and live-capable surfaces
-- reviewable artifacts instead of informal notebooks or loose files
+- ownership boundaries between governance, applications, kernel, engines, infrastructure, and UI/read models;
+- reproducible evidence chains through manifests, schema/content hashes, evidence envelopes, and explicit gate results;
+- fail-closed behavior for missing lineage, stale inputs, unsupported claims, or incomplete validation;
+- separation between offline research evidence, promotion review, and live-capable runtime surfaces;
+- reviewable artifacts instead of informal notebooks, ad hoc scripts, or latest-file conventions;
+- physical execution awareness in data layout, materialization, cache policy, native execution, and progress reporting.
 
 ## Suggested Reading Order
 
@@ -99,6 +93,6 @@ The point of the design is not to claim a public trading edge. The point is to s
 10. `pseudocode/research_run_orchestrator.md`
 11. `examples/`
 
-## Public Boundary
+## Fixture Semantics
 
-All examples in this repository are fabricated. They use toy symbols, tiny row counts, placeholder hashes, and non-production names. They are included only to make the contracts readable.
+The files under `examples/` are synthetic contract fixtures. They demonstrate schema shape, review semantics, and gate outcomes; they do not represent production research output or a deployable strategy.

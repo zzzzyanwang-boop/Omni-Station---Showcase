@@ -2,7 +2,7 @@
 
 Performance work is evaluated by physical computation removed, not by wrapper complexity.
 
-Public-safe responsibilities:
+Reviewable responsibilities:
 
 - column projection before scan and materialization
 - columnar storage and partition policy
@@ -11,5 +11,5 @@ Public-safe responsibilities:
 - cache lifecycle and manifest-bound reuse
 - stage timing and bottleneck reports
 
-Private kernels, benchmarks, runtime logs, and hardware-specific traces are not published.
+Kernels, benchmarks, runtime logs, and hardware-specific traces remain outside the review surface.
 

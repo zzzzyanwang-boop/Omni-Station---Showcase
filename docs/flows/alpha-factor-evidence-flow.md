@@ -1,6 +1,6 @@
 # Alpha and Factor Evidence Flow
 
-This flow demonstrates factor profiling without exposing private formulas or results.
+This flow demonstrates factor profiling as a contract-bound evidence process.
 
 ```text
 factor candidate
@@ -14,11 +14,10 @@ factor candidate
   -> admitted / blocked / deferred claim
 ```
 
-## Public-Safe Example
+## Synthetic Fixture
 
 See `examples/toy_factor_profile.json` and `examples/toy_risk_identity_ledger.json`.
 
 ## Claim Rule
 
 Raw predictive diagnostics do not imply production alpha, neutralized alpha, or live eligibility.
-

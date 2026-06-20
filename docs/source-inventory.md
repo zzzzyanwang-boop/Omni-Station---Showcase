@@ -2,9 +2,9 @@
 
 Exported placeholder files: 781
 
-This inventory lists source-shaped files generated from public-safe paths. Implementation content is omitted; each file contains only a role summary and sanitized contract notes.
+This inventory lists source-shaped files retained for architecture review. Implementation content is omitted; each file contains only a role summary and sanitized contract notes.
 
-Layer names follow the internal Research OS design baseline:
+Layer names follow the Research OS design baseline:
 
 - Layer 5 - Research Governance & Operations
 - Layer 4 - Research Applications

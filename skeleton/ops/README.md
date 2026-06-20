@@ -2,11 +2,10 @@
 
 Operations surfaces coordinate bounded runs and review handoffs.
 
-Public showcase scope:
+Review scope:
 
 - conceptual run lifecycle
 - safe publication boundary
 - synthetic status records
 
-Private runtime queues, service controls, machine paths, and logs are not included.
-
+Runtime queues, service controls, machine paths, and logs remain outside the review surface.

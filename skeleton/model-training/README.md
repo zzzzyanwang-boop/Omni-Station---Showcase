@@ -2,7 +2,7 @@
 
 Model training is governed by contracts and evidence artifacts.
 
-Public-safe responsibilities:
+Reviewable responsibilities:
 
 - model-family specification
 - training-run contract
@@ -12,5 +12,5 @@ Public-safe responsibilities:
 - model registry candidate
 - inference eligibility gate
 
-Private model code, weights, training data, and metrics are not published.
+Implementation model code, weights, training data, and metrics are not published.
 

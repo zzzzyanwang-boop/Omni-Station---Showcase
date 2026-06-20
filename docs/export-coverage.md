@@ -1,57 +1,56 @@
-# Export Coverage
+# Review Coverage
 
-This repository is not a full mirror of the private project. It is a public-safe representation of the system architecture.
+This repository is an architecture review package for OmniStation. It is scoped to system structure, boundary contracts, evidence flow, validation posture, and operational controls.
 
-## Included Counts
+## Artifact Counts
 
-- Source-shaped real public-safe placeholder files: 781
-- Redacted capability placeholder files: 34
-- Architecture and flow documents: public-safe summaries only
+- Source-shaped retained module placeholders: 781
+- Sanitized capability boundary placeholders: 34
+- Architecture and flow documents: system-design summaries
 - Pseudocode: language-neutral workflow sketches
-- Examples: fabricated toy manifests and reports
+- Examples: synthetic contract fixtures
 
-## Included Surfaces
+## Review Surfaces
 
-- Layer 5 governance/operations, Research Mission Control, route authority, and stage state
-- Layer 4 research applications such as intake, mechanism framing, data/panel contracts, foundry, discovery, review/freeze, confirmation, replay, closure, and memory
-- Layer 3 evidence/contracts/DAG kernel, semantic kernel, manifest store concepts, conformance, and route authority
-- Layer 2 provider/model/runtime engines, including feature providers, model validation, replay/economic engines, and runtime services
-- Layer 1 data/compute/artifact infrastructure, including manifests, cache, partitions, atomic writes, and progress evidence
-- Research foundry concepts: evidence, adversarial checks, decision runtime, economics, external-factor governance
-- Feature/label/data lineage, source quality, manifest stores, checkpoints, materialization boundaries
-- ML validation, OOF/CPCV, fold-local controls, calibration, leakage and multiple-testing controls
-- Risk/economic/replay evidence, freeze decisions, closure state, and runtime boundary contracts
-- UI gateway and operator-facing read-model surfaces
-- Tests that demonstrate fail-closed boundaries and validation contracts
+- Layer 5 governance/operations, Research Mission Control, route authority, and stage state.
+- Layer 4 research applications such as intake, mechanism framing, data/panel contracts, foundry, discovery, review/freeze, confirmation, replay, closure, and memory.
+- Layer 3 evidence/contracts/DAG kernel, semantic kernel, manifest store concepts, conformance, and route authority.
+- Layer 2 provider/model/runtime engines, including feature providers, model validation, replay/economic engines, and runtime services.
+- Layer 1 data/compute/artifact infrastructure, including manifests, cache, partitions, atomic writes, and progress evidence.
+- Research foundry concepts: evidence, adversarial checks, decision runtime, economics, external-factor governance.
+- Feature/label/data lineage, source quality, manifest stores, checkpoints, materialization boundaries.
+- ML validation, OOF/CPCV, fold-local controls, calibration, leakage and multiple-testing controls.
+- Risk/economic/replay evidence, freeze decisions, closure state, and runtime boundary contracts.
+- UI gateway and operator-facing read-model surfaces.
+- Tests that demonstrate fail-closed boundaries and validation contracts.
 
-## Redacted Surfaces
+## Sanitized Boundary Surfaces
 
-The following are represented through `redacted_capabilities/` rather than real filenames:
+Some capability areas are represented through `redacted_capabilities/` instead of retained filenames:
 
-- private research lines
-- alpha/factor hypotheses with sensitive names
-- strategy/economic evidence whose file names would disclose internal posture
-- execution and order-management implementation boundaries
-- vendor/data-specific repair paths
-- native/performance work tied to private datasets or benchmarks
+- research-line lifecycles;
+- alpha/factor hypotheses with over-disclosing names;
+- strategy/economic evidence with sensitive naming;
+- execution and order-management implementation boundaries;
+- vendor/data-specific repair paths;
+- native/performance work tied to non-public datasets or benchmarks.
 
-## Fully Excluded Surfaces
+## Boundary Controls
 
-The following are not represented as files:
+The export deliberately keeps the review surface separate from implementation and runtime material:
 
-- real datasets, feature matrices, labels, OOF predictions, replay outputs
-- model weights, checkpoints, caches, logs, queue state, reports
-- real configs, task specs, handoffs, operator-local state
-- credentials, secrets, local paths, usernames, account ids, order ids
-- exact formulas, thresholds, production settings, private run identifiers
+- source bodies, production settings, formulas, thresholds, and model internals are omitted;
+- datasets, feature matrices, labels, OOF predictions, replay outputs, checkpoints, caches, logs, queue state, and reports are omitted;
+- local paths, credentials, usernames, account ids, order ids, and run identifiers are omitted;
+- original filenames are omitted when the name itself would reveal research direction, execution posture, vendor detail, or unpublished result history.
 
 ## Completeness Standard
 
-The public repository is complete when an external reviewer can understand:
+The repository is complete when a reviewer can understand:
 
-- the official Research OS five-layer architecture
-- how research moves from WorkOrder to Research Application, compiled contract, evidence DAG, engines, artifacts, review, closure, and memory
-- where data lineage, leakage control, OOF/CPCV, model governance, risk/replay, freeze/confirmation, and UI surfaces fit
-- which parts are intentionally redacted and why
+- the official Research OS five-layer architecture;
+- how research moves from WorkOrder to Research Application, compiled contract, evidence DAG, engines, artifacts, review, closure, and memory;
+- where data lineage, leakage control, OOF/CPCV, model governance, risk/replay, freeze/confirmation, and UI surfaces fit;
+- which areas use sanitized capability boundaries and why.
 
-It is not complete by mirroring every private filename.
+Completeness is measured by architecture coverage and reviewability, not by mirroring every implementation file.

@@ -2,7 +2,7 @@
 
 ## Summary
 
-The toy evidence bundle is structurally complete for a public showcase example. It does not support any production research, trading, paper, or live-execution claim.
+The synthetic evidence bundle is structurally complete as a contract fixture. It does not support any production research, trading, paper, or live-execution claim.
 
 ## Evidence Reviewed
 
@@ -14,9 +14,8 @@ The toy evidence bundle is structurally complete for a public showcase example. 
 
 Status: `blocked_for_promotion`
 
-The synthetic example demonstrates the gate shape but intentionally lacks real data, out-of-sample validation, leakage checks, execution-cost modeling, and promotion review.
+The synthetic example demonstrates the gate shape while omitting production data, out-of-sample validation, leakage checks, execution-cost modeling, and promotion review.
 
 ## Residual Risk
 
-None for production because this artifact is not production eligible. The only intended use is architecture review.
-
+None for production because this artifact is not production eligible. The intended use is architecture review.

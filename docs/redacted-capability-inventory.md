@@ -2,9 +2,9 @@
 
 Redacted placeholder files: 34
 
-These files do not preserve private filenames. They are sanitized stand-ins for sensitive private modules whose exact paths would reveal research direction, strategy posture, vendor details, execution posture, or unpublished results.
+These files use neutral capability names for modules whose original paths would over-disclose research direction, strategy posture, vendor detail, execution posture, or unpublished result history.
 
-| Path | Research OS layer | Area | Capability | Public-safe role |
+| Path | Research OS layer | Area | Capability | Reviewable role |
 |---|---|---|---|---|
 | `redacted_capabilities/data_compute_artifact_infrastructure/data_quality_quarantine.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Data quality quarantine | Quarantine gate for suspect source partitions |
 | `redacted_capabilities/data_compute_artifact_infrastructure/feature_store_materialization.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Feature-store materialization | Feature-store materialization boundary |
@@ -27,15 +27,15 @@ These files do not preserve private filenames. They are sanitized stand-ins for 
 | `redacted_capabilities/native_compute_infrastructure/native_candidate_materialization.py` | Layer 1 - Data / Compute / Artifact Infrastructure | native_compute_infrastructure | Native materialization | Native candidate materialization boundary |
 | `redacted_capabilities/native_compute_infrastructure/streaming_state_backend.py` | Layer 1 - Data / Compute / Artifact Infrastructure | native_compute_infrastructure | Streaming state backend | Streaming state-machine backend decision boundary |
 | `redacted_capabilities/research_line_a/candidate_lifecycle.py` | Layer 4 - Research Applications | research_line_a | Alpha / factor research line | Candidate lifecycle from hypothesis intake to frozen review packet |
-| `redacted_capabilities/research_line_a/feature_label_contract.py` | Layer 4 - Research Applications | research_line_a | Feature and label fabric | Feature/label contract for a private research line |
-| `redacted_capabilities/research_line_a/oof_validation.py` | Layer 4 - Research Applications | research_line_a | OOF and fold-local validation | Out-of-fold validation path for a private research line |
-| `redacted_capabilities/research_line_a/promotion_packet.py` | Layer 4 - Research Applications | research_line_a | Promotion boundary | Freeze and promotion packet for private research line |
-| `redacted_capabilities/research_line_a/replay_economics.py` | Layer 4 - Research Applications | research_line_a | Offline replay and economics | Replay economics bundle for private line evidence |
-| `redacted_capabilities/research_line_b/ablation_ledger.py` | Layer 4 - Research Applications | research_line_b | Ablation and mechanism evidence | Mechanism and ablation ledger for private line |
+| `redacted_capabilities/research_line_a/feature_label_contract.py` | Layer 4 - Research Applications | research_line_a | Feature and label fabric | Feature/label contract for a sanitized research-line boundary |
+| `redacted_capabilities/research_line_a/oof_validation.py` | Layer 4 - Research Applications | research_line_a | OOF and fold-local validation | Out-of-fold validation path for a sanitized research-line boundary |
+| `redacted_capabilities/research_line_a/promotion_packet.py` | Layer 4 - Research Applications | research_line_a | Promotion boundary | Freeze and promotion packet for a sanitized research-line boundary |
+| `redacted_capabilities/research_line_a/replay_economics.py` | Layer 4 - Research Applications | research_line_a | Offline replay and economics | Replay economics bundle for sanitized line evidence |
+| `redacted_capabilities/research_line_b/ablation_ledger.py` | Layer 4 - Research Applications | research_line_b | Ablation and mechanism evidence | Mechanism and ablation ledger for a sanitized research-line boundary |
 | `redacted_capabilities/research_line_b/confirmatory_gate.py` | Layer 4 - Research Applications | research_line_b | Confirmatory validation | Confirmatory gate before challenger/default eligibility |
-| `redacted_capabilities/research_line_b/factor_neutralization.py` | Layer 4 - Research Applications | research_line_b | Risk-adjusted evidence | Risk-sidecar and neutralization control for private line |
-| `redacted_capabilities/research_line_b/robustness_report.py` | Layer 4 - Research Applications | research_line_b | Robustness validation | Robustness report scaffold for private line |
-| `redacted_capabilities/research_line_b/signal_state_machine.py` | Layer 4 - Research Applications | research_line_b | Signal-state research | Sanitized signal state machine for a second private line |
+| `redacted_capabilities/research_line_b/factor_neutralization.py` | Layer 4 - Research Applications | research_line_b | Risk-adjusted evidence | Risk-sidecar and neutralization control for a sanitized research-line boundary |
+| `redacted_capabilities/research_line_b/robustness_report.py` | Layer 4 - Research Applications | research_line_b | Robustness validation | Robustness report scaffold for a sanitized research-line boundary |
+| `redacted_capabilities/research_line_b/signal_state_machine.py` | Layer 4 - Research Applications | research_line_b | Signal-state research | Sanitized signal state machine for a second research-line boundary |
 | `redacted_capabilities/governance_operations_surface/evidence_console_read_model.py` | Layer 5 - Research Governance & Operations | governance_operations_surface | Evidence UI surface | Evidence console read-model contract |
 | `redacted_capabilities/governance_operations_surface/promotion_review_page.py` | Layer 5 - Research Governance & Operations | governance_operations_surface | Promotion review UI | Promotion review page contract |
 | `redacted_capabilities/governance_operations_surface/proof_graph_ops_console.py` | Layer 5 - Research Governance & Operations | governance_operations_surface | Proof graph UI | Proof graph operations console contract |

@@ -1,6 +1,6 @@
 # Layer Contracts
 
-This document describes the public contract between the Research OS layers.
+This document describes the reviewable contract between the Research OS layers.
 
 ## Contract Summary
 
@@ -13,7 +13,7 @@ This document describes the public contract between the Research OS layers.
 | Layer 1 - Data / Compute / Artifact Infrastructure | Layer 3 - Evidence / Contract / DAG Kernel | Manifest-bound artifact, schema/content hashes, lineage, progress and write evidence | Block if output is partial, unhashable, stale, or not contract-bound |
 | Layer 3 - Evidence / Contract / DAG Kernel | Layer 5 - Research Governance & Operations | Evidence envelope, review gate result, closure/freeze/retirement state | Block claims outside the compiled contract or approved route stage |
 
-## Public-Safe Interface Sketch
+## Interface Sketch
 
 ```text
 ResearchWorkOrder
@@ -70,4 +70,4 @@ ReviewGateResult
   closure_status
 ```
 
-The real implementation is private. This sketch shows the architecture contract shape, not production source code.
+This sketch shows the architecture contract shape, not production source code.

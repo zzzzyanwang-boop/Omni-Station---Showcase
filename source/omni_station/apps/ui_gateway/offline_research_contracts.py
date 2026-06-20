@@ -1,24 +1,24 @@
 """
-Public showcase placeholder.
+Architecture review placeholder.
 
-Original private path: omni_station/apps/ui_gateway/offline_research_contracts.py
+Retained module path: omni_station/apps/ui_gateway/offline_research_contracts.py
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 5 - Research Governance & Operations
-Public-safe role: offline research contracts module boundary within the OmniStation research architecture.
+Architecture role: offline research contracts module boundary within the OmniStation research architecture.
 
-Implementation highlights visible from the public architecture:
+Implementation highlights visible at architecture-review level:
 - fail-closed admission gate with explicit pass/fail evidence.
 - read-model contract exposed to the operator console.
 - typed boundary contract and public invariant definitions.
 - separates orchestration contracts from implementation details.
 - emits or consumes manifest-ready artifacts instead of loose files.
 
-Public contract shape:
+Contract shape:
 - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
 - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
 
-Removed from this public file:
-- production source code, private algorithms, strategy parameters, data paths, credentials, and runtime state.
+Implementation details intentionally omitted:
+- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
 - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
 """
