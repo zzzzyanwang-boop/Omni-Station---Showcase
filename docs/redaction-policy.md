@@ -12,6 +12,8 @@ Examples:
 - `source/omni_station/research_os/data_plane/manifest.py`
 - `source/gpm/expr/engine_planner.py`
 - `source/omni_station/apps/ui_gateway/app.py`
+- `source/rust/omni_features_stream/src/lib.rs`
+- `source/rust/omni_bus_iceoryx2/src/proof_atomic.rs`
 
 The file body is still replaced with an architecture placeholder.
 

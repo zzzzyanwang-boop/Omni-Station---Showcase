@@ -12,5 +12,7 @@ Reviewable responsibilities:
 - model registry candidate
 - inference eligibility gate
 
-Implementation model code, weights, training data, and metrics are not published.
+Review surface:
+
+- model code, weights, training rows, and metric values are represented through model-family contracts, artifact manifests, calibration records, and gate outcomes
 

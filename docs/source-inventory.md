@@ -1,6 +1,6 @@
 # Source-Shaped Inventory
 
-Exported placeholder files: 781
+Exported placeholder files: 811
 
 This inventory lists source-shaped files retained for architecture review. Implementation content is omitted; each file contains only a role summary and sanitized contract notes.
 
@@ -11,6 +11,39 @@ Layer names follow the Research OS design baseline:
 - Layer 3 - Evidence / Contract / DAG Kernel
 - Layer 2 - Provider / Model / Runtime Engines
 - Layer 1 - Data / Compute / Artifact Infrastructure
+
+## Rust Native Source-Shaped Surface
+
+- `source/rust/omni_alpha_ops_py/src/lib.rs` - PyO3 bridge for high-volume alpha/factor operations under Research OS contracts.
+- `source/rust/omni_bus_iceoryx2/src/bin/recorder.rs` - native bus recorder entrypoint for durable event capture.
+- `source/rust/omni_bus_iceoryx2/src/journal.rs` - journal boundary for replayable native bus events.
+- `source/rust/omni_bus_iceoryx2/src/lib.rs` - native bus crate boundary for high-throughput local event transport.
+- `source/rust/omni_bus_iceoryx2/src/proof_atomic.rs` - atomic proof/watermark primitive for native event consistency.
+- `source/rust/omni_bus_iceoryx2/src/seq_watermark.rs` - sequence watermark tracking for native bus progress and replay safety.
+- `source/rust/omni_clock/src/lib.rs` - deterministic clock boundary for replay, actor coordination, and timestamp semantics.
+- `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs` - PyO3 bridge for counterfactual execution and replay kernel calls.
+- `source/rust/omni_datafusion_query/src/lib.rs` - DataFusion-style query crate boundary for columnar scan and projection control.
+- `source/rust/omni_datafusion_query/src/main.rs` - query entrypoint for validating native columnar scan behavior.
+- `source/rust/omni_expr_compiler_py/src/lib.rs` - PyO3 bridge for expression compilation and native execution planning.
+- `source/rust/omni_features_stream/benches/stream_engine.rs` - benchmark harness for native feature-stream execution shape.
+- `source/rust/omni_features_stream/src/lib.rs` - native feature-stream crate boundary for stateful feature materialization.
+- `source/rust/omni_features_stream/src/validate.rs` - validation boundary for feature-stream IR and state transition contracts.
+- `source/rust/omni_features_stream/tests/validate_ir.rs` - native feature-stream IR contract test boundary.
+- `source/rust/omni_features_stream_py/src/lib.rs` - PyO3 bridge between Research OS feature providers and native feature-stream execution.
+- `source/rust/omni_inference_actor/src/lib.rs` - native inference actor boundary for serving-eligible model execution.
+- `source/rust/omni_inference_actor/src/tvm_backend/contract.rs` - compiled-model backend contract for native inference.
+- `source/rust/omni_market_gateway/src/frame.rs` - frame parsing and validation boundary for native market-data ingress.
+- `source/rust/omni_market_gateway/src/lib.rs` - native market-gateway crate boundary for framed market-data ingress and replay.
+- `source/rust/omni_market_gateway/src/replay.rs` - market-gateway replay boundary for deterministic event reconstruction.
+- `source/rust/omni_microstructure_sim/src/lib.rs` - native microstructure simulation boundary for replay and cost assumptions.
+- `source/rust/omni_observability/src/lib.rs` - native observability crate boundary for metrics, traces, and runtime counters.
+- `source/rust/omni_prof/src/lib.rs` - profiling support boundary for native hot-path measurement.
+- `source/rust/omni_rules/src/lib.rs` - deterministic rules crate boundary for policy/rule evaluation.
+- `source/rust/omni_tick_matcher_py/src/lib.rs` - PyO3 bridge for high-volume tick/event matching.
+- `source/rust/omni_uring_recorder/src/buffer_pool.rs` - native buffer-pool boundary for high-throughput recorder IO.
+- `source/rust/omni_wire/src/bin/codec_capability_probe.rs` - executable probe for codec feature negotiation and runtime compatibility checks.
+- `source/rust/omni_wire/src/lib.rs` - wire-codec crate boundary for deterministic cross-language message serialization.
+- `source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs` - cross-language codec fixture test boundary.
 
 ## Layer 5 - Research Governance & Operations
 

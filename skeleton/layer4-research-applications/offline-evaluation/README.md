@@ -10,5 +10,7 @@ Reviewable responsibilities:
 - closed-trade economic pass/fail gates
 - replay hash and manifest checks
 
-Implementation replay code, market data, fills, orders, and strategy rules are not published.
+Review surface:
+
+- replay code, market data, fills, orders, and strategy rules are represented through replay contracts, closed-ledger boundaries, cost evidence, and sanitized runtime capability files
 

@@ -2,6 +2,36 @@
 
 Only source-shaped files retained for architecture review are listed.
 
+- `source/rust/omni_alpha_ops_py/src/lib.rs`
+- `source/rust/omni_bus_iceoryx2/src/bin/recorder.rs`
+- `source/rust/omni_bus_iceoryx2/src/journal.rs`
+- `source/rust/omni_bus_iceoryx2/src/lib.rs`
+- `source/rust/omni_bus_iceoryx2/src/proof_atomic.rs`
+- `source/rust/omni_bus_iceoryx2/src/seq_watermark.rs`
+- `source/rust/omni_clock/src/lib.rs`
+- `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs`
+- `source/rust/omni_datafusion_query/src/lib.rs`
+- `source/rust/omni_datafusion_query/src/main.rs`
+- `source/rust/omni_expr_compiler_py/src/lib.rs`
+- `source/rust/omni_features_stream/benches/stream_engine.rs`
+- `source/rust/omni_features_stream/src/lib.rs`
+- `source/rust/omni_features_stream/src/validate.rs`
+- `source/rust/omni_features_stream/tests/validate_ir.rs`
+- `source/rust/omni_features_stream_py/src/lib.rs`
+- `source/rust/omni_inference_actor/src/lib.rs`
+- `source/rust/omni_inference_actor/src/tvm_backend/contract.rs`
+- `source/rust/omni_market_gateway/src/frame.rs`
+- `source/rust/omni_market_gateway/src/lib.rs`
+- `source/rust/omni_market_gateway/src/replay.rs`
+- `source/rust/omni_microstructure_sim/src/lib.rs`
+- `source/rust/omni_observability/src/lib.rs`
+- `source/rust/omni_prof/src/lib.rs`
+- `source/rust/omni_rules/src/lib.rs`
+- `source/rust/omni_tick_matcher_py/src/lib.rs`
+- `source/rust/omni_uring_recorder/src/buffer_pool.rs`
+- `source/rust/omni_wire/src/bin/codec_capability_probe.rs`
+- `source/rust/omni_wire/src/lib.rs`
+- `source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs`
 - `source/gpm/__init__.py`
 - `source/gpm/adapters/__init__.py`
 - `source/gpm/adapters/backtest_adapter_stub.py`

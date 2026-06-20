@@ -18,7 +18,7 @@ Each directory contains README-only architecture nodes. The nodes describe respo
 - Layer 5 owns authority, route state, review decisions, and operator-visible governance.
 - Layer 4 owns researcher-facing applications and research workflow stages.
 - Layer 3 owns contracts, evidence DAGs, manifest authority, budgets, and gate semantics.
-- Layer 2 owns reusable provider, model, replay, decision, and portfolio engines.
-- Layer 1 owns data layout, artifact storage, compute substrate, cache, checkpoints, and progress telemetry.
+- Layer 2 owns reusable provider, model, replay, decision, portfolio, and Rust engine bridge contracts.
+- Layer 1 owns data layout, artifact storage, Rust-native compute/runtime surfaces, cache, checkpoints, and progress telemetry.
 
 The skeleton is intentionally aligned with `docs/architecture/five-layer-architecture.md` and the source-shaped inventory under `source/`.

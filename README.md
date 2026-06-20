@@ -12,7 +12,7 @@ OmniStation follows the Research OS layer model from the full-system design base
 2. Layer 4 - Research Applications: Idea Intake, Mechanism Memo, Data & Panel Contract, Feature / Factor Foundry, Discovery, Review & Freeze, Confirmation, Decision Score, Economic Replay, Portfolio Utility, Closure, Memory, and Quarantine apps.
 3. Layer 3 - Evidence / Contract / DAG Kernel: ResearchContractCompiler, EvidenceEnvelope, EvidenceDAG, ArtifactManifestStore, RouteAuthorityRegistry, TrialBudgetLedger, DiscoverySeal, ConfirmatorySpec, and ClosureArbitration.
 4. Layer 2 - Provider / Model / Runtime Engines: FeatureProvider, ExternalFactorProvider, SignalStateProvider, EconomicStateProvider, LabelOracle, ModelZoo, Calibration/OOD, DecisionRuntime, ExecutionReplayEngine, and PortfolioEngine.
-5. Layer 1 - Data / Compute / Artifact Infrastructure: market-data inputs, Parquet/Arrow/manifests, cache, partitioning, atomic writes, station runners, progress events, local compute, native kernels, and GPU-ready training surfaces.
+5. Layer 1 - Data / Compute / Artifact Infrastructure: market-data inputs, Parquet/Arrow/manifests, cache, partitioning, atomic writes, station runners, progress events, Rust-native compute surfaces, local compute, and GPU-ready training surfaces.
 
 ## Architecture Review Focus
 
@@ -24,7 +24,19 @@ This repository is organized so a technical reviewer can evaluate:
 - how leakage controls, fold-local policies, multiple-testing discipline, and fail-closed gates are represented at system boundaries;
 - how decision runtime, execution replay, cost/capacity, and order-management boundaries remain separated from research evidence;
 - how operator-facing read models expose stage, blocker, allowed action, evidence state, and review results without requiring direct access to runtime internals;
-- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, cache lifecycle, checkpoint semantics, native kernels, and progress telemetry.
+- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, cache lifecycle, checkpoint semantics, Rust/native kernel boundaries, cross-language parity checks, and progress telemetry.
+
+## Rust / Native Compute Surface
+
+The repository now includes a source-shaped Rust surface under `source/rust/`. It preserves selected crate and file names where they demonstrate engineering scope without exposing implementation bodies. The retained paths cover:
+
+- wire-codec and cross-language fixture boundaries;
+- low-latency bus, journal, recorder, and replay surfaces;
+- feature-stream validation and benchmark harnesses;
+- DataFusion-style query entrypoints and PyO3 bridges used by Python orchestration;
+- counterfactual execution, microstructure simulation, inference contracts, market-gateway frame/replay logic, observability, profiling, and deterministic rules surfaces.
+
+The review signal is not that Rust exists as a label. The signal is that performance-sensitive work is split into contract-bound native crates, parity-tested language bridges, explicit memory and IO boundaries, and evidence-producing benchmarks or validation harnesses.
 
 ## Evidence Boundary
 
@@ -35,7 +47,7 @@ This boundary is part of the engineering design: the review surface should demon
 ## Repository Map
 
 ```text
-source/                 Source-shaped module tree with architecture placeholder bodies
+source/                 Source-shaped Python, TypeScript, and Rust module tree with architecture placeholder bodies
 redacted_capabilities/  Sanitized capability boundary placeholders
 skeleton/               Five-layer Research OS skeleton with README-only boundary nodes
 docs/
@@ -52,7 +64,7 @@ examples/                Synthetic work orders, manifests, and gate reports
 
 ## Source-Shaped Module Tree
 
-The `source/` tree gives reviewers a navigable map of selected real modules across Research OS governance, application contracts, evidence kernel modules, provider/runtime engines, data-plane infrastructure, UI/read-model surfaces, and test contracts.
+The `source/` tree gives reviewers a navigable map of selected real modules across Research OS governance, application contracts, evidence kernel modules, provider/runtime engines, data-plane infrastructure, Rust-native crates, UI/read-model surfaces, and test contracts.
 
 Each placeholder file contains:
 
@@ -78,7 +90,7 @@ The design should be evaluated on:
 - fail-closed behavior for missing lineage, stale inputs, unsupported claims, or incomplete validation;
 - separation between offline research evidence, promotion review, and live-capable runtime surfaces;
 - reviewable artifacts instead of informal notebooks, ad hoc scripts, or latest-file conventions;
-- physical execution awareness in data layout, materialization, cache policy, native execution, and progress reporting.
+- physical execution awareness in data layout, materialization, cache policy, Rust/native execution, bridge parity, memory ownership, and progress reporting.
 
 ## Suggested Reading Order
 

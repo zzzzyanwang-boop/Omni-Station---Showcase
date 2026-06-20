@@ -12,7 +12,7 @@ This repository focuses on system architecture and decision flow. It provides a 
 - Fail-closed handling for missing data, unsupported claims, and incomplete evidence.
 - Review gates that make system state auditable before any downstream promotion.
 - Feature, label, OOF, replay, risk, and inference artifacts treated as governed data products.
-- Performance work tied to physical execution shape: scan count, projection width, materialization cost, cache lifecycle, and native-kernel boundaries.
+- Performance work tied to physical execution shape: scan count, projection width, materialization cost, cache lifecycle, Rust-native boundaries, bridge parity, and kernel telemetry.
 
 ## System Themes
 

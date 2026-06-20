@@ -12,5 +12,7 @@ Reviewable responsibilities:
 - leakage sentinel results
 - claim admission or block decision
 
-Source bodies, formulas, feature definitions, and production metrics remain outside the review surface.
+Review surface:
+
+- formulas and production metrics are represented through sanitized capability boundaries, manifests, and gate semantics rather than executable logic
 

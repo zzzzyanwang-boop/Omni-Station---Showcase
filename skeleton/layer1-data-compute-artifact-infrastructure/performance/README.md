@@ -7,9 +7,10 @@ Reviewable responsibilities:
 - column projection before scan and materialization
 - columnar storage and partition policy
 - vectorized engine boundaries
-- native/Rust/GPU-ready hot paths
+- Rust-native and GPU-ready hot paths with explicit bridge contracts
 - cache lifecycle and manifest-bound reuse
 - stage timing and bottleneck reports
+- parity and regression gates before replacing reference implementations
+- claimed speedups tied to fewer scans, fewer allocations/copies, smaller materializations, lower bridge overhead, or native kernel time reduction
 
 Kernels, benchmarks, runtime logs, and hardware-specific traces remain outside the review surface.
-

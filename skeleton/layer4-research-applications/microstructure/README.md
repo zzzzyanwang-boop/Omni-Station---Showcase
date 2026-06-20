@@ -10,5 +10,7 @@ Reviewable responsibilities:
 - spread and depth feature boundaries
 - execution-conditioning feature classification
 
-Implementation feed schemas, vendor data, raw data, and execution logic are not published.
+Review surface:
+
+- feed schemas, vendor-specific details, raw data, and execution logic are represented through input contracts, replay contracts, and sanitized capability boundaries
 

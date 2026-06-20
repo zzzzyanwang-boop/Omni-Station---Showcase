@@ -8,6 +8,7 @@ Review focus:
 - ModelZoo and calibration/OOD engines
 - decision runtime and score resolution
 - execution replay and portfolio engines
+- Rust/PyO3 bridge contracts for native engine calls
 - runtime mode and inference eligibility boundaries
 
 Representative nodes:
@@ -19,5 +20,6 @@ Representative nodes:
 - `execution-replay-engine/`
 - `portfolio-engine/`
 - `engines/`
+- `rust-engine-bridges/`
 - `inference/`
 - `runtime/`

@@ -4,9 +4,8 @@ Application owners bind a research route to contracts, engines, and review outpu
 
 Typical responsibilities:
 
-- accept a work order
-- resolve the correct research contract
-- call approved engines
-- publish manifests and evidence envelopes
-- hand results to review gates
-
+- accept a WorkOrder only when Layer 5 route authority allows the stage
+- resolve the correct research contract and reject unowned routes
+- call approved Layer 2 engines with manifest-bound inputs and declared failure modes
+- publish ArtifactManifest and EvidenceEnvelope outputs rather than local files
+- hand results to Layer 3 gates with explicit admitted, blocked, and diagnostic claims

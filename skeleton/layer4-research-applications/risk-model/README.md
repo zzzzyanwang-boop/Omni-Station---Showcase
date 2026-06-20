@@ -10,5 +10,7 @@ Reviewable responsibilities:
 - risk proxy and liquidity-state separation
 - blocked pure-alpha claims when controls are incomplete
 
-Implementation risk model implementation, exposures, covariance estimates, and factor values are not published.
+Review surface:
+
+- risk model implementation, exposures, covariance estimates, and factor values are represented through attribution contracts, sidecar summaries, blocked-claim semantics, and sanitized examples
 

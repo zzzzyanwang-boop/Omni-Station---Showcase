@@ -120,11 +120,13 @@ Representative review artifacts:
 - `source/omni_station/research_os/engines/research_core_native.py`
 - `source/omni_station/research/features/external_projection/runtime/materialization.py`
 - `source/gpm/expr/hybrid_executor.py`
+- `source/rust/omni_expr_compiler_py/src/lib.rs`
+- `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs`
 - `redacted_capabilities/evidence_contract_dag_kernel/out_of_fold_prediction_store.py`
 
 ## Layer 1: Data / Compute / Artifact Infrastructure
 
-Purpose: own the physical infrastructure: data layout, compute substrate, artifact storage, cache lifecycle, atomic writes, progress events, and local/native/GPU execution surfaces.
+Purpose: own the physical infrastructure: data layout, compute substrate, artifact storage, cache lifecycle, atomic writes, progress events, and local/Rust-native/GPU execution surfaces.
 
 Infrastructure areas:
 
@@ -133,14 +135,19 @@ Infrastructure areas:
 - cache and partition policy
 - atomic writes
 - station runner and progress events
-- local compute
+- local compute orchestration
+- Rust-native bus, codec, query, stream, replay, profiling, and bridge surfaces
 - native and GPU-ready training surfaces
+- parity/equivalence gates between native outputs and reference artifacts
 
 Representative review artifacts:
 
 - `source/omni_station/research_os/data_plane/manifest.py`
 - `source/omni_station/research/data/arrow_utils.py`
 - `source/gpm/artifact/io.py`
+- `source/rust/omni_bus_iceoryx2/src/lib.rs`
+- `source/rust/omni_features_stream/src/lib.rs`
+- `source/rust/omni_datafusion_query/src/lib.rs`
 - `redacted_capabilities/native_compute_infrastructure/cache_checkpoint_telemetry.py`
 
 ## Research Lifecycle

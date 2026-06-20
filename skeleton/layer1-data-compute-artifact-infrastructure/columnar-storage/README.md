@@ -4,7 +4,8 @@ Columnar storage keeps row-level research artifacts scan-efficient and reproduci
 
 Reviewable responsibilities:
 
-- Parquet/Arrow primary layout
-- partition policy
-- projection width control
-- scan amplification control
+- Parquet/Arrow primary layout for high-volume offline tables
+- partition policy by stable research dimensions rather than ad hoc output folders
+- projection width control before scan and materialization
+- scan amplification control for repeated feature, replay, and validation passes
+- Arrow-compatible memory handoff into Rust/native kernels where zero-copy or low-copy execution is required

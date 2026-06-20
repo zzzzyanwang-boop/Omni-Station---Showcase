@@ -4,11 +4,9 @@ Inference is treated as a separate production boundary, not a direct extension o
 
 Reviewable responsibilities:
 
-- model artifact eligibility
-- calibration and registry checks
-- offline/live parity review
-- monitoring readiness
-- blocked serving posture when evidence is incomplete
-
-Implementation services, endpoints, deployment configuration, and model artifacts are not published.
-
+- model artifact eligibility tied to a frozen ResearchContract, model registry record, and promotion packet
+- calibration and registry checks before a score can be considered serving-eligible
+- offline/runtime parity review across schema, feature availability, null policy, and output contract
+- native inference contract checks for TVM/compiled-model style boundaries when applicable
+- monitoring readiness for input drift, output distribution, latency, and blocked inference posture
+- blocked serving posture when evidence, replay, calibration, or runtime authority is incomplete

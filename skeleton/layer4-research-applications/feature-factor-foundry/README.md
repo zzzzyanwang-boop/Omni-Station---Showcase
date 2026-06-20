@@ -4,8 +4,9 @@ Feature and Factor Foundry owns candidate feature, factor, and state constructio
 
 Reviewable responsibilities:
 
-- feature and factor candidate lifecycle
-- feature/label contract binding
-- leakage and redundancy control
-- fold-local admission boundary
-- handoff to Layer 2 providers and Layer 3 evidence contracts
+- feature and factor candidate lifecycle from idea, mechanism, source contract, profiling, admission, rejection, and reuse
+- feature/label contract binding before a candidate can enter training, OOF, replay, or promotion review
+- leakage, redundancy, coverage, stability, and risk-identity controls
+- fold-local admission boundary so selection and transformation state remain train-fold local
+- handoff to Layer 2 providers and Layer 3 evidence contracts with manifest-ready artifacts
+- optional native materialization path only when parity, schema, and lineage evidence are attached

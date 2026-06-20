@@ -4,9 +4,9 @@ This repository is an architecture review package for OmniStation. It is scoped 
 
 ## Artifact Counts
 
-- Source-shaped retained module placeholders: 781
+- Source-shaped retained module placeholders: 811
 - Sanitized capability boundary placeholders: 34
-- Five-layer Research OS skeleton nodes: 52 README files
+- Five-layer Research OS skeleton nodes: 54 README files
 - Architecture and flow documents: system-design summaries
 - Pseudocode: language-neutral workflow sketches
 - Examples: synthetic contract fixtures
@@ -16,8 +16,8 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Layer 5 governance/operations, Research Mission Control, route authority, and stage state.
 - Layer 4 research applications such as intake, mechanism framing, data/panel contracts, foundry, discovery, review/freeze, confirmation, replay, closure, and memory.
 - Layer 3 evidence/contracts/DAG kernel, semantic kernel, manifest store concepts, conformance, and route authority.
-- Layer 2 provider/model/runtime engines, including feature providers, model validation, replay/economic engines, and runtime services.
-- Layer 1 data/compute/artifact infrastructure, including manifests, cache, partitions, atomic writes, and progress evidence.
+- Layer 2 provider/model/runtime engines, including feature providers, model validation, native bridge contracts, replay/economic engines, and runtime services.
+- Layer 1 data/compute/artifact infrastructure, including manifests, cache, partitions, atomic writes, Rust-native crates, and progress evidence.
 - Research foundry concepts: evidence, adversarial checks, decision runtime, economics, external-factor governance.
 - Feature/label/data lineage, source quality, manifest stores, checkpoints, materialization boundaries.
 - ML validation, OOF/CPCV, fold-local controls, calibration, leakage and multiple-testing controls.
@@ -34,7 +34,7 @@ Some capability areas are represented through `redacted_capabilities/` instead o
 - strategy/economic evidence with sensitive naming;
 - execution and order-management implementation boundaries;
 - vendor/data-specific repair paths;
-- native/performance work tied to non-public datasets or benchmarks.
+- native/performance work tied to non-public datasets, kernel internals, or benchmarks.
 
 ## Boundary Controls
 
@@ -52,6 +52,7 @@ The repository is complete when a reviewer can understand:
 - the official Research OS five-layer architecture;
 - how research moves from WorkOrder to Research Application, compiled contract, evidence DAG, engines, artifacts, review, closure, and memory;
 - where data lineage, leakage control, OOF/CPCV, model governance, risk/replay, freeze/confirmation, and UI surfaces fit;
+- where Rust-native bus, codec, feature-stream, query, bridge, inference, replay, observability, and profiling surfaces fit;
 - which areas use sanitized capability boundaries and why.
 
 Completeness is measured by architecture coverage and reviewability, not by mirroring every implementation file.

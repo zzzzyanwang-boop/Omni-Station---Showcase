@@ -4,8 +4,8 @@ Discovery and confirmation separate exploratory diagnostics from decision-grade 
 
 Reviewable responsibilities:
 
-- discovery-stage result isolation
-- confirmation spec binding
-- OOF and CPCV readiness
-- trial budget awareness
-- review handoff
+- discovery-stage result isolation so exploratory findings cannot become decision-grade claims
+- confirmation spec binding before OOF, CPCV, or replay validation begins
+- OOF and CPCV readiness checks tied to fold policy, embargo, label horizon, and sample scope
+- trial budget awareness for repeated searches, requalification, and waiver handling
+- review handoff that names admitted diagnostics, blocked claims, and required confirmation artifacts
