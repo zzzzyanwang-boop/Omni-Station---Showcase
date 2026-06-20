@@ -6,6 +6,7 @@ This repository is an architecture review package for OmniStation. It is scoped 
 
 - Source-shaped retained module placeholders: 781
 - Sanitized capability boundary placeholders: 34
+- Five-layer Research OS skeleton nodes: 52 README files
 - Architecture and flow documents: system-design summaries
 - Pseudocode: language-neutral workflow sketches
 - Examples: synthetic contract fixtures

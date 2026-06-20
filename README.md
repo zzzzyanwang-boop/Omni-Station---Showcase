@@ -37,6 +37,7 @@ This boundary is part of the engineering design: the review surface should demon
 ```text
 source/                 Source-shaped module tree with architecture placeholder bodies
 redacted_capabilities/  Sanitized capability boundary placeholders
+skeleton/               Five-layer Research OS skeleton with README-only boundary nodes
 docs/
   architecture/          Five-layer architecture, contracts, lineage, and validation notes
   flows/                 Research workflow and evidence flow notes
@@ -82,16 +83,17 @@ The design should be evaluated on:
 ## Suggested Reading Order
 
 1. `docs/architecture/five-layer-architecture.md`
-2. `source/README.md`
-3. `docs/capability-coverage.md`
-4. `docs/source-inventory.md`
-5. `docs/redaction-policy.md`
-6. `docs/redacted-capability-inventory.md`
-7. `redacted_capabilities/README.md`
-8. `diagrams/five-layer-architecture.mmd`
-9. `docs/flows/research-workflow.md`
-10. `pseudocode/research_run_orchestrator.md`
-11. `examples/`
+2. `skeleton/`
+3. `source/README.md`
+4. `docs/capability-coverage.md`
+5. `docs/source-inventory.md`
+6. `docs/redaction-policy.md`
+7. `docs/redacted-capability-inventory.md`
+8. `redacted_capabilities/README.md`
+9. `diagrams/five-layer-architecture.mmd`
+10. `docs/flows/research-workflow.md`
+11. `pseudocode/research_run_orchestrator.md`
+12. `examples/`
 
 ## Fixture Semantics
 
