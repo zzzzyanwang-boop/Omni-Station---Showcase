@@ -15,6 +15,7 @@ Representative nodes:
 - `idea-intake/`
 - `mechanism-memo/`
 - `data-panel-contract/`
+- `source-label-stage1-trainable/`
 - `feature-factor-foundry/`
 - `discovery-confirmation/`
 - `economic-replay/`

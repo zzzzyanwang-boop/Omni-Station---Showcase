@@ -12,7 +12,8 @@ This repository focuses on system architecture and decision flow. It provides a 
 - Fail-closed handling for missing data, unsupported claims, and incomplete evidence.
 - Review gates that make system state auditable before any downstream promotion.
 - Feature, label, OOF, replay, risk, and inference artifacts treated as governed data products.
-- Performance work tied to physical execution shape: scan count, projection width, materialization cost, cache lifecycle, Rust-native boundaries, bridge parity, and kernel telemetry.
+- Performance work tied to physical execution shape: scan count, projection width, materialization cost, source-backed views, date-level cache scheduling, cache lifecycle, Rust-native boundaries, bridge parity, and kernel telemetry.
+- Formal OOF launch readiness tied to manifest-bound source scope, sequence batch stability, and source-boundary rebinding gates.
 
 ## System Themes
 
@@ -20,6 +21,7 @@ This repository focuses on system architecture and decision flow. It provides a 
 - ML research is framed as a validation problem: fold-local selection, OOF binding, calibration, model registry, and blocked promotion when evidence is incomplete.
 - Market microstructure work is framed as an execution problem: order-book inputs, replay determinism, fill/slippage/latency cost evidence, and economic pass/fail gates.
 - Risk work is framed as an attribution problem: beta, sector/style controls, factor identity, and explicit separation between raw signal and neutralized alpha.
+- Full-market research is framed as a source-boundary problem: downstream labels, trainable matrices, OOF run specs, and confirmation readiness must carry compatible source-boundary evidence.
 
 ## Review Standard
 

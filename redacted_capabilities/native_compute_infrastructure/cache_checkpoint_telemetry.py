@@ -23,7 +23,7 @@ Contract shape:
 - Outputs: sanitized gate decision, evidence packet, review packet, replay summary, or operator-facing state projection.
 
 Implementation details intentionally omitted:
-- exact cache keys and runtime roots.
+- exact cache keys and local runtime directories.
 - operator logs, machine paths, and queue identifiers.
 - benchmark traces and hardware-specific counters.
 - production source code, exact formulas, thresholds, raw data, credentials, local paths, and real run identifiers.

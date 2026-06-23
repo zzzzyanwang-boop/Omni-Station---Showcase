@@ -8,6 +8,8 @@ Reviewable responsibilities:
 - training-run contract
 - fold policy and sample scope
 - OOF prediction manifest
+- formal OOF run-spec rebinding to the active source boundary
+- coalesced fixed-shape sequence batches for sequence-model OOF stability
 - calibration artifact
 - model registry candidate
 - inference eligibility gate

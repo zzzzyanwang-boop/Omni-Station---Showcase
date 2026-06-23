@@ -56,6 +56,7 @@ Application families:
 - Mechanism Memo Studio
 - Data & Panel Contract Studio
 - Feature / Factor Foundry
+- Source / Label Panel Materialization
 - SignalState Lab
 - Model Zoo Workbench
 - Discovery Factory
@@ -71,6 +72,9 @@ Application families:
 Representative review artifacts:
 
 - `source/omni_station/research_os/applications/contracts.py`
+- `source/omni_station/research_os/applications/setup_d_confirmation_readiness.py`
+- `source/omni_station/research/pipeline/full_market_source_label_panel_materialization.py`
+- `source/omni_station/research/pipeline/high_frequency_factor_line_stage1_active_boundary.py`
 - `source/omni_station/research_foundry/compiler/feature_compiler.py`
 - `source/omni_station/research_to_live/candidate_freeze_readiness_gate.py`
 - `redacted_capabilities/research_line_a/promotion_packet.py`
@@ -90,11 +94,13 @@ Kernel objects:
 - `DiscoverySeal`
 - `ConfirmatorySpec`
 - `ClosureArbitration`
+- `FullMarketOOFRebindingGate`
 
 Representative review artifacts:
 
 - `source/omni_station/research_os/kernel/spine.py`
 - `source/omni_station/research_os/semantic_kernel/gates.py`
+- `source/omni_station/research/pipeline/model_branch_oof_run_spec.py`
 - `source/omni_station/research_foundry/evidence/proof_graph.py`
 - `pseudocode/research_run_orchestrator.md`
 
@@ -114,12 +120,17 @@ Engine families:
 - DecisionRuntime
 - ExecutionReplayEngine
 - PortfolioEngine
+- Full-manifest OOF executor
+- Sequence tensor native kernel bridge
 
 Representative review artifacts:
 
 - `source/omni_station/research_os/engines/research_core_native.py`
+- `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py`
+- `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py`
 - `source/omni_station/research/features/external_projection/runtime/materialization.py`
 - `source/gpm/expr/hybrid_executor.py`
+- `source/rust/omni_sequence_tensor_kernel_py/src/lib.rs`
 - `source/rust/omni_expr_compiler_py/src/lib.rs`
 - `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs`
 - `redacted_capabilities/evidence_contract_dag_kernel/out_of_fold_prediction_store.py`
@@ -132,6 +143,8 @@ Infrastructure areas:
 
 - completed-bar and market-data inputs
 - Parquet / Arrow / manifest-backed storage
+- source-backed formula views
+- date-level prepared label caches
 - cache and partition policy
 - atomic writes
 - station runner and progress events
@@ -143,6 +156,7 @@ Infrastructure areas:
 Representative review artifacts:
 
 - `source/omni_station/research_os/data_plane/manifest.py`
+- `source/omni_station/research/data/full_market_source_contract.py`
 - `source/omni_station/research/data/arrow_utils.py`
 - `source/gpm/artifact/io.py`
 - `source/rust/omni_bus_iceoryx2/src/lib.rs`

@@ -2,6 +2,22 @@
 
 Only source-shaped files retained for architecture review are listed.
 
+Recent optimization additions:
+
+- `source/omni_station/research/data/full_market_source_contract.py`
+- `source/omni_station/research/pipeline/full_market_source_label_panel_materialization.py`
+- `source/omni_station/research/pipeline/high_frequency_factor_line_stage1_active_boundary.py`
+- `source/omni_station/research/pipeline/model_branch_oof_run_spec.py`
+- `source/omni_station/research_os/applications/setup_d_confirmation_readiness.py`
+- `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py`
+- `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py`
+- `source/rust/omni_sequence_tensor_kernel_py/src/lib.rs`
+- `source/tests/research/pipeline/test_full_market_source_label_panel_materialization.py`
+- `source/tests/research/pipeline/test_high_frequency_factor_line_stage1_active_boundary.py`
+- `source/tests/research/pipeline/test_model_branch_oof_execution_runner.py`
+- `source/tests/research/pipeline/test_model_branch_oof_run_spec.py`
+- `source/tests/research_os/test_setup_d_confirmation_readiness.py`
+
 - `source/rust/omni_alpha_ops_py/src/lib.rs`
 - `source/rust/omni_bus_iceoryx2/src/bin/recorder.rs`
 - `source/rust/omni_bus_iceoryx2/src/journal.rs`

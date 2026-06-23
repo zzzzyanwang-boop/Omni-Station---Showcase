@@ -8,6 +8,7 @@ The retained Rust paths demonstrate:
 - low-latency bus, journal, recorder, replay, and proof/watermark surfaces
 - feature-stream validation and benchmark ownership
 - DataFusion-style query and PyO3 bridge surfaces used by Python orchestration
+- sequence tensor PyO3 kernel contracts for fixed-shape OOF batch assembly and sequence-model stability
 - counterfactual execution, microstructure simulation, inference contracts, market-gateway frame/replay logic, observability, profiling, and deterministic rules boundaries
 
 These files are architecture evidence. They are not buildable Rust modules.

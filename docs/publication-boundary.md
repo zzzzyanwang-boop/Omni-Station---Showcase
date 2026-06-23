@@ -16,7 +16,7 @@ The repository is generated as a curated architecture export. It is not produced
 - No production source bodies.
 - No runtime configuration, task state, handoff state, run logs, or queue state.
 - No data artifacts, model output, feature matrices, labels, OOF predictions, or replay reports.
-- No local filesystem paths, usernames, or runtime roots.
+- No local filesystem paths, usernames, or local runtime directories.
 - No strategy detail that would make research logic reproducible.
 - No original filename when the filename itself reveals research direction, execution posture, vendor detail, or unpublished result history.
 

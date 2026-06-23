@@ -4,9 +4,9 @@ This repository is an architecture review package for OmniStation. It is scoped 
 
 ## Artifact Counts
 
-- Source-shaped retained module placeholders: 811
-- Sanitized capability boundary placeholders: 34
-- Five-layer Research OS skeleton nodes: 54 README files
+- Source-shaped retained module placeholders: 824
+- Sanitized capability boundary placeholders: 38
+- Five-layer Research OS skeleton nodes: 55 README files
 - Architecture and flow documents: system-design summaries
 - Pseudocode: language-neutral workflow sketches
 - Examples: synthetic contract fixtures
@@ -20,7 +20,9 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Layer 1 data/compute/artifact infrastructure, including manifests, cache, partitions, atomic writes, Rust-native crates, and progress evidence.
 - Research foundry concepts: evidence, adversarial checks, decision runtime, economics, external-factor governance.
 - Feature/label/data lineage, source quality, manifest stores, checkpoints, materialization boundaries.
+- Source-boundary label panels, source-backed formula views, Stage1 fused trainable joins, and prepared date label cache scheduling.
 - ML validation, OOF/CPCV, fold-local controls, calibration, leakage and multiple-testing controls.
+- Sequence OOF physical stability, native tensor kernel bridge contracts, and formal OOF source-boundary rebinding gates.
 - Risk/economic/replay evidence, freeze decisions, closure state, and runtime boundary contracts.
 - UI gateway and operator-facing read-model surfaces.
 - Tests that demonstrate fail-closed boundaries and validation contracts.
@@ -53,6 +55,7 @@ The repository is complete when a reviewer can understand:
 - how research moves from WorkOrder to Research Application, compiled contract, evidence DAG, engines, artifacts, review, closure, and memory;
 - where data lineage, leakage control, OOF/CPCV, model governance, risk/replay, freeze/confirmation, and UI surfaces fit;
 - where Rust-native bus, codec, feature-stream, query, bridge, inference, replay, observability, and profiling surfaces fit;
+- where source-backed label views, Stage1 trainable joins, sequence batch planning, and OOF rebinding gates fit;
 - which areas use sanitized capability boundaries and why.
 
 Completeness is measured by architecture coverage and reviewability, not by mirroring every implementation file.

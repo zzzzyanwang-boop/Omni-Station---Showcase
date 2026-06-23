@@ -5,6 +5,8 @@ Performance work is evaluated by physical computation removed, not by wrapper co
 Reviewable responsibilities:
 
 - column projection before scan and materialization
+- source-backed formula views when label semantics can be preserved without dense row-level writes
+- date-level prepared label caches and scheduler caches when repeated trainable joins share source-bound inputs
 - columnar storage and partition policy
 - vectorized engine boundaries
 - Rust-native and GPU-ready hot paths with explicit bridge contracts

@@ -24,7 +24,7 @@ This repository is organized so a technical reviewer can evaluate:
 - how leakage controls, fold-local policies, multiple-testing discipline, and fail-closed gates are represented at system boundaries;
 - how decision runtime, execution replay, cost/capacity, and order-management boundaries remain separated from research evidence;
 - how operator-facing read models expose stage, blocker, allowed action, evidence state, and review results without requiring direct access to runtime internals;
-- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, cache lifecycle, checkpoint semantics, Rust/native kernel boundaries, cross-language parity checks, and progress telemetry.
+- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, source-backed formula views, date-level scheduler caches, checkpoint semantics, Rust/native kernel boundaries, cross-language parity checks, and progress telemetry.
 
 ## Rust / Native Compute Surface
 
@@ -37,6 +37,19 @@ The repository now includes a source-shaped Rust surface under `source/rust/`. I
 - counterfactual execution, microstructure simulation, inference contracts, market-gateway frame/replay logic, observability, profiling, and deterministic rules surfaces.
 
 The review signal is not that Rust exists as a label. The signal is that performance-sensitive work is split into contract-bound native crates, parity-tested language bridges, explicit memory and IO boundaries, and evidence-producing benchmarks or validation harnesses.
+
+## Recent Optimization Surface
+
+The showcase now includes the newest reviewable optimization surfaces:
+
+- source-boundary-bound full-market source/label panel materialization;
+- source-backed formula views that avoid dense row-level label materialization;
+- manifest-aware Stage1 label/factor joins that keep source-backed labels lazy and stream matched trainable rows to columnar output;
+- date-level prepared label cache scheduling for repeated same-date factor joins;
+- formal OOF run-spec rebinding gates that block stale or narrow-universe artifacts from claiming broader source-boundary authority;
+- coalesced fixed-shape sequence batch planning and Rust/PyO3 sequence tensor kernel contracts for sequence-model OOF stability.
+
+These are presented as architecture and contract evidence only. Exact market-data counts, local runtime directories, performance traces, formulas, certificate hashes, and model outputs are not part of the review surface.
 
 ## Evidence Boundary
 
@@ -79,7 +92,7 @@ Each placeholder file contains:
 
 The `redacted_capabilities/` tree documents capabilities whose exact module names would reveal more than the architecture needs to prove. The directory uses neutral boundary names such as `research_line_a`, `runtime_engine_boundary`, `order_management_boundary`, and `native_compute_infrastructure`.
 
-These placeholders cover candidate lifecycles, feature/label contracts, OOF/CPCV validation, model governance, risk and replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces.
+These placeholders cover candidate lifecycles, feature/label contracts, source-backed label views, OOF/CPCV validation, model governance, risk and replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces.
 
 ## Technical Review Criteria
 

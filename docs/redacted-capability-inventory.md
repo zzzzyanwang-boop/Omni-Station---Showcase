@@ -1,6 +1,6 @@
 # Redacted Capability Inventory
 
-Redacted placeholder files: 34
+Redacted placeholder files: 38
 
 These files use neutral capability names for modules whose original paths would over-disclose research direction, strategy posture, vendor detail, execution posture, or unpublished result history.
 
@@ -10,7 +10,9 @@ These files use neutral capability names for modules whose original paths would 
 | `redacted_capabilities/data_compute_artifact_infrastructure/feature_store_materialization.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Feature-store materialization | Feature-store materialization boundary |
 | `redacted_capabilities/data_compute_artifact_infrastructure/lineage_manifest_store.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Lineage and manifest store | Lineage manifest and evidence reference store |
 | `redacted_capabilities/data_compute_artifact_infrastructure/market_data_identity_contract.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Market-data identity | Data identity and source contract |
+| `redacted_capabilities/data_compute_artifact_infrastructure/source_backed_label_formula_view.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Source-backed label view | Formula-view boundary that keeps labels source-bound without exposing row-level label artifacts |
 | `redacted_capabilities/data_compute_artifact_infrastructure/source_quality_certificate.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | PIT source quality | Point-in-time source quality certificate |
+| `redacted_capabilities/data_compute_artifact_infrastructure/stage1_source_backed_join_scheduler.py` | Layer 1 - Data / Compute / Artifact Infrastructure | data_compute_artifact_infrastructure | Stage1 join scheduler | Date-resolved label/factor join scheduler and prepared label cache boundary |
 | `redacted_capabilities/runtime_engine_boundary/action_intent_contract.py` | Layer 2 - Provider / Model / Runtime Engines | runtime_engine_boundary | Execution safety boundary | Action intent contract before any executable route |
 | `redacted_capabilities/runtime_engine_boundary/cost_capacity_model.py` | Layer 2 - Provider / Model / Runtime Engines | runtime_engine_boundary | Cost and capacity | Cost and capacity model interface |
 | `redacted_capabilities/runtime_engine_boundary/offline_execution_replay.py` | Layer 2 - Provider / Model / Runtime Engines | runtime_engine_boundary | Execution replay | Offline execution replay contract |
@@ -19,12 +21,14 @@ These files use neutral capability names for modules whose original paths would 
 | `redacted_capabilities/runtime_engine_boundary/runtime_mode_token_contract.py` | Layer 2 - Provider / Model / Runtime Engines | runtime_engine_boundary | Runtime posture control | Runtime mode token contract for safety posture |
 | `redacted_capabilities/evidence_contract_dag_kernel/cpcv_trial_registry.py` | Layer 3 - Evidence / Contract / DAG Kernel | evidence_contract_dag_kernel | CPCV / multiple testing | Trial registry and CPCV evidence boundary |
 | `redacted_capabilities/evidence_contract_dag_kernel/forbidden_feature_audit.py` | Layer 3 - Evidence / Contract / DAG Kernel | evidence_contract_dag_kernel | Leakage audit | Forbidden feature and future-data linter |
+| `redacted_capabilities/evidence_contract_dag_kernel/full_market_oof_rebinding_gate.py` | Layer 3 - Evidence / Contract / DAG Kernel | evidence_contract_dag_kernel | Full-market OOF rebinding | Gate that blocks stale or narrow-scope OOF evidence from claiming broader source-boundary authority |
 | `redacted_capabilities/evidence_contract_dag_kernel/model_challenger_governance.py` | Layer 3 - Evidence / Contract / DAG Kernel | evidence_contract_dag_kernel | Model governance | Challenger/default eligibility governance |
 | `redacted_capabilities/evidence_contract_dag_kernel/out_of_fold_prediction_store.py` | Layer 3 - Evidence / Contract / DAG Kernel | evidence_contract_dag_kernel | OOF prediction lifecycle | OOF prediction store contract |
 | `redacted_capabilities/evidence_contract_dag_kernel/score_calibration_contract.py` | Layer 3 - Evidence / Contract / DAG Kernel | evidence_contract_dag_kernel | Calibration | Score and rank calibration contract |
 | `redacted_capabilities/native_compute_infrastructure/cache_checkpoint_telemetry.py` | Layer 1 - Data / Compute / Artifact Infrastructure | native_compute_infrastructure | Cache and telemetry | Cache, checkpoint, and progress telemetry contract |
 | `redacted_capabilities/native_compute_infrastructure/fused_factor_kernel.py` | Layer 1 - Data / Compute / Artifact Infrastructure | native_compute_infrastructure | Fused factor compute | Fused feature/factor compute boundary |
 | `redacted_capabilities/native_compute_infrastructure/native_candidate_materialization.py` | Layer 1 - Data / Compute / Artifact Infrastructure | native_compute_infrastructure | Native materialization | Native candidate materialization boundary |
+| `redacted_capabilities/native_compute_infrastructure/sequence_tensor_native_kernel_bridge.py` | Layer 2 - Provider / Model / Runtime Engines | native_compute_infrastructure | Sequence tensor native bridge | Rust/PyO3 sequence tensor kernel bridge for fixed-shape OOF batch assembly and diagnostics |
 | `redacted_capabilities/native_compute_infrastructure/streaming_state_backend.py` | Layer 1 - Data / Compute / Artifact Infrastructure | native_compute_infrastructure | Streaming state backend | Streaming state-machine backend decision boundary |
 | `redacted_capabilities/research_line_a/candidate_lifecycle.py` | Layer 4 - Research Applications | research_line_a | Alpha / factor research line | Candidate lifecycle from hypothesis intake to frozen review packet |
 | `redacted_capabilities/research_line_a/feature_label_contract.py` | Layer 4 - Research Applications | research_line_a | Feature and label fabric | Feature/label contract for a sanitized research-line boundary |

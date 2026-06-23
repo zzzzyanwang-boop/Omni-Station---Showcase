@@ -1,6 +1,6 @@
 # Source-Shaped Inventory
 
-Exported placeholder files: 811
+Exported placeholder files: 824
 
 This inventory lists source-shaped files retained for architecture review. Implementation content is omitted; each file contains only a role summary and sanitized contract notes.
 
@@ -11,6 +11,22 @@ Layer names follow the Research OS design baseline:
 - Layer 3 - Evidence / Contract / DAG Kernel
 - Layer 2 - Provider / Model / Runtime Engines
 - Layer 1 - Data / Compute / Artifact Infrastructure
+
+## Recent Source-Boundary, Stage1, OOF, and Sequence Surfaces
+
+- `source/omni_station/research/data/full_market_source_contract.py` - full-market source-boundary contract, scope binding, and source certificate compatibility boundary.
+- `source/omni_station/research/pipeline/full_market_source_label_panel_materialization.py` - source-backed label-panel materialization runner with manifest-bound formula views and offline-only posture.
+- `source/omni_station/research/pipeline/high_frequency_factor_line_stage1_active_boundary.py` - Stage1 trainable boundary for source-backed label/factor alignment, date-level scheduling, and streaming columnar output.
+- `source/omni_station/research/pipeline/model_branch_oof_run_spec.py` - formal OOF run-spec compiler and blocker surface for stale, narrow, or source-incompatible trainable manifests.
+- `source/omni_station/research_os/applications/setup_d_confirmation_readiness.py` - confirmation-readiness preflight for source-boundary evidence, full-scope trainable inputs, and OOF-before-CPCV ordering.
+- `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py` - full-manifest OOF executor with coalesced fixed-shape descriptor-run batch planning and fail-closed sequence-shape checks.
+- `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py` - Python contract boundary for Rust/PyO3 sequence tensor assembly and non-finite diagnostic metadata.
+- `source/rust/omni_sequence_tensor_kernel_py/src/lib.rs` - native sequence tensor kernel placeholder for feature-validity packing, contiguous anchor runs, and fixed-shape batch assembly.
+- `source/tests/research/pipeline/test_full_market_source_label_panel_materialization.py` - contract tests for source-backed label-panel materialization and source-boundary posture.
+- `source/tests/research/pipeline/test_high_frequency_factor_line_stage1_active_boundary.py` - contract tests for Stage1 source-backed joins, prepared label cache policy, and compact reject evidence.
+- `source/tests/research/pipeline/test_model_branch_oof_execution_runner.py` - contract tests for coalesced sequence OOF batching, shape stability, and fail-closed non-finite handling.
+- `source/tests/research/pipeline/test_model_branch_oof_run_spec.py` - contract tests for formal OOF run-spec rebinding, stale-scope blocking, and full-scope evidence requirements.
+- `source/tests/research_os/test_setup_d_confirmation_readiness.py` - contract tests for confirmation readiness, source-boundary certificates, and OOF/CPCV ordering.
 
 ## Rust Native Source-Shaped Surface
 
@@ -39,6 +55,7 @@ Layer names follow the Research OS design baseline:
 - `source/rust/omni_observability/src/lib.rs` - native observability crate boundary for metrics, traces, and runtime counters.
 - `source/rust/omni_prof/src/lib.rs` - profiling support boundary for native hot-path measurement.
 - `source/rust/omni_rules/src/lib.rs` - deterministic rules crate boundary for policy/rule evaluation.
+- `source/rust/omni_sequence_tensor_kernel_py/src/lib.rs` - PyO3 bridge for fixed-shape sequence tensor assembly and sequence-model OOF stability controls.
 - `source/rust/omni_tick_matcher_py/src/lib.rs` - PyO3 bridge for high-volume tick/event matching.
 - `source/rust/omni_uring_recorder/src/buffer_pool.rs` - native buffer-pool boundary for high-throughput recorder IO.
 - `source/rust/omni_wire/src/bin/codec_capability_probe.rs` - executable probe for codec feature negotiation and runtime compatibility checks.

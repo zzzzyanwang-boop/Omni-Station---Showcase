@@ -1,10 +1,10 @@
 # Artifact Storage
 
-Artifact storage owns physical artifact roots and atomic publication.
+Artifact storage owns physical storage locations and atomic publication.
 
 Reviewable responsibilities:
 
-- artifact root ownership tied to a compiled contract and route authority
+- storage-location ownership tied to a compiled contract and route authority
 - atomic writer semantics for temporary output, fsync/commit, and publish visibility
 - manifest publication boundary with schema hash, content hash, row count, and producer version
 - stale and partial output rejection before evidence gates can consume results

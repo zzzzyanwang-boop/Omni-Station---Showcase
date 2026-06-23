@@ -6,6 +6,7 @@ Review focus:
 
 - feature and external-factor providers
 - ModelZoo and calibration/OOD engines
+- source-backed formula-view readers and prepared label-cache schedulers
 - decision runtime and score resolution
 - execution replay and portfolio engines
 - Rust/PyO3 bridge contracts for native engine calls
