@@ -4,6 +4,16 @@ OmniStation is a quantitative research operating system for turning research int
 
 The repository is designed for technical architecture review, not runtime execution. Implementation bodies are replaced with module-level responsibility summaries so the design can be inspected through ownership, contracts, failure boundaries, validation posture, data lineage, and operational controls.
 
+Current review surface:
+
+- 824 source-shaped module placeholders
+- 38 sanitized capability placeholders
+- 55 five-layer skeleton README nodes
+- 28 architecture and flow documents
+- 17 synthetic examples
+- 9 pseudocode sketches
+- 7 Mermaid diagrams
+
 ## Research OS Five-Layer Architecture
 
 OmniStation follows the Research OS layer model from the full-system design baseline:
@@ -25,6 +35,7 @@ This repository is organized so a technical reviewer can evaluate:
 - how decision runtime, execution replay, cost/capacity, and order-management boundaries remain separated from research evidence;
 - how operator-facing read models expose stage, blocker, allowed action, evidence state, and review results without requiring direct access to runtime internals;
 - how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, source-backed formula views, date-level scheduler caches, checkpoint semantics, Rust/native kernel boundaries, cross-language parity checks, and progress telemetry.
+- how the application catalog, evidence-kernel contracts, engine fabric, pseudocode, and synthetic manifests connect into one reviewable path from source-bound data to OOF evidence.
 
 ## Rust / Native Compute Surface
 
@@ -66,6 +77,7 @@ skeleton/               Five-layer Research OS skeleton with README-only boundar
 docs/
   architecture/          Five-layer architecture, contracts, lineage, and validation notes
   flows/                 Research workflow and evidence flow notes
+  technical-review-map.md
   capability-coverage.md
   redacted-capability-inventory.md
   redaction-policy.md
@@ -108,17 +120,22 @@ The design should be evaluated on:
 ## Suggested Reading Order
 
 1. `docs/architecture/five-layer-architecture.md`
-2. `skeleton/`
-3. `source/README.md`
-4. `docs/capability-coverage.md`
-5. `docs/source-inventory.md`
-6. `docs/redaction-policy.md`
-7. `docs/redacted-capability-inventory.md`
-8. `redacted_capabilities/README.md`
-9. `diagrams/five-layer-architecture.mmd`
-10. `docs/flows/research-workflow.md`
-11. `pseudocode/research_run_orchestrator.md`
-12. `examples/`
+2. `docs/technical-review-map.md`
+3. `docs/architecture/research-application-catalog.md`
+4. `docs/architecture/evidence-kernel-contracts.md`
+5. `docs/architecture/engine-fabric.md`
+6. `docs/flows/source-label-stage1-oof-flow.md`
+7. `skeleton/`
+8. `source/README.md`
+9. `docs/capability-coverage.md`
+10. `docs/source-inventory.md`
+11. `docs/redaction-policy.md`
+12. `docs/redacted-capability-inventory.md`
+13. `redacted_capabilities/README.md`
+14. `diagrams/five-layer-architecture.mmd`
+15. `diagrams/source-to-oof-flow.mmd`
+16. `pseudocode/research_run_orchestrator.md`
+17. `examples/`
 
 ## Fixture Semantics
 

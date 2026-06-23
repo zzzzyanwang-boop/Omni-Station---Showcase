@@ -1,0 +1,38 @@
+{
+  "dag_id": "synthetic_evidence_dag_001",
+  "contract_ref": "synthetic_contract_source_oof_001",
+  "nodes": [
+    {
+      "node_id": "source_boundary",
+      "node_type": "source_audit",
+      "outputs": ["synthetic_source_boundary_packet"]
+    },
+    {
+      "node_id": "label_view",
+      "node_type": "source_backed_label_view",
+      "inputs": ["synthetic_source_boundary_packet"],
+      "outputs": ["synthetic_label_view_manifest"]
+    },
+    {
+      "node_id": "stage1_trainable",
+      "node_type": "trainable_join",
+      "inputs": ["synthetic_label_view_manifest", "synthetic_factor_manifest"],
+      "outputs": ["synthetic_stage1_trainable_manifest"]
+    },
+    {
+      "node_id": "oof_rebinding",
+      "node_type": "gate",
+      "inputs": ["synthetic_stage1_trainable_manifest"],
+      "outputs": ["synthetic_oof_run_spec"]
+    }
+  ],
+  "edges": [
+    ["source_boundary", "label_view"],
+    ["label_view", "stage1_trainable"],
+    ["stage1_trainable", "oof_rebinding"]
+  ],
+  "failure_policy": {
+    "fail_closed": true,
+    "latest_file_lookup_allowed": false
+  }
+}

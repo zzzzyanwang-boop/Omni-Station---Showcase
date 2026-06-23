@@ -1,0 +1,28 @@
+{
+  "oof_run_spec_id": "synthetic_oof_run_spec",
+  "contract_ref": "synthetic_contract_source_oof_001",
+  "trainable_manifest_ref": "synthetic_stage1_trainable_manifest",
+  "source_boundary_ref": "synthetic_source_boundary_packet",
+  "model_policy_ref": "synthetic_model_policy_oof",
+  "fold_policy_ref": "synthetic_fold_policy",
+  "runtime_posture": {
+    "offline_only": true,
+    "paper": false,
+    "live": false,
+    "broker": false,
+    "oms": false
+  },
+  "rebinding_gate": {
+    "status": "passed",
+    "blocked_conditions": [
+      "stale_trainable_manifest",
+      "narrow_scope_manifest",
+      "source_boundary_mismatch",
+      "fold_policy_mismatch"
+    ]
+  },
+  "blocked_until_oof_passes": [
+    "cpcv_validation",
+    "runtime_surface"
+  ]
+}

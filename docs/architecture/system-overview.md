@@ -29,9 +29,9 @@ Idea Intake -> Mechanism Framing -> Research Charter -> Data / Panel Contract
 | Domain | What It Demonstrates | Review Artifact Examples |
 | --- | --- | --- |
 | Governance and operations | WorkOrder authority, stage state, allowed next action, blockers, review board state | `docs/architecture/five-layer-architecture.md`, `redacted_capabilities/governance_operations_surface/evidence_console_read_model.py` |
-| Research applications | OS apps that own the research workflow rather than raw scripts or stations | `source/omni_station/research_os/applications/contracts.py`, `redacted_capabilities/research_line_a/candidate_lifecycle.py` |
-| Evidence kernel | Evidence DAGs, contracts, manifests, route authority, trial budgets, closure arbitration | `source/omni_station/research_os/kernel/spine.py`, `source/omni_station/research_foundry/evidence/proof_graph.py` |
-| Providers and engines | Feature, factor, model, calibration, replay, decision runtime, portfolio engines, OOF executors, and native bridge contracts | `source/gpm/expr/engine_planner.py`, `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py`, `redacted_capabilities/native_compute_infrastructure/fused_factor_kernel.py` |
+| Research applications | OS apps that own the research workflow rather than raw scripts or stations | `docs/architecture/research-application-catalog.md`, `source/omni_station/research_os/applications/contracts.py`, `redacted_capabilities/research_line_a/candidate_lifecycle.py` |
+| Evidence kernel | Evidence DAGs, contracts, manifests, route authority, trial budgets, closure arbitration | `docs/architecture/evidence-kernel-contracts.md`, `source/omni_station/research_os/kernel/spine.py`, `source/omni_station/research_foundry/evidence/proof_graph.py` |
+| Providers and engines | Feature, factor, model, calibration, replay, decision runtime, portfolio engines, OOF executors, and native bridge contracts | `docs/architecture/engine-fabric.md`, `source/gpm/expr/engine_planner.py`, `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py`, `redacted_capabilities/native_compute_infrastructure/fused_factor_kernel.py` |
 | Infrastructure | Physical storage, compute, source-backed views, artifacts, cache, checkpoints, progress, Rust-native bus/codec/query surfaces, and atomic writes | `source/gpm/artifact/manifest.py`, `source/rust/omni_datafusion_query/src/lib.rs`, `redacted_capabilities/data_compute_artifact_infrastructure/source_backed_label_formula_view.py` |
 
 ## Design Posture

@@ -1,0 +1,22 @@
+{
+  "artifact_id": "synthetic_label_view_manifest",
+  "artifact_kind": "source_backed_label_view",
+  "contract_ref": "synthetic_contract_source_oof_001",
+  "source_boundary_ref": "synthetic_source_boundary_packet",
+  "label_policy_ref": "synthetic_label_policy_source_backed",
+  "formula_ref": "synthetic_formula_id",
+  "horizon_policy": "synthetic_horizon_policy",
+  "cost_dimension": "synthetic_cost_dimension",
+  "materialization_policy": "logical_view",
+  "source_part_ledger_ref": "synthetic_source_part_ledger",
+  "schema_hash": "synthetic_schema_hash",
+  "content_hash": "synthetic_content_hash",
+  "claim_limits": {
+    "scope": "synthetic_full_scope",
+    "evidence_tier": "contract_bound"
+  },
+  "blocked_consumers": [
+    "direct_label_part_glob",
+    "runtime_surface"
+  ]
+}

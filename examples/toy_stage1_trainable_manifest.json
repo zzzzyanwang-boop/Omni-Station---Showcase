@@ -1,0 +1,31 @@
+{
+  "artifact_id": "synthetic_stage1_trainable_manifest",
+  "artifact_kind": "stage1_trainable_matrix",
+  "contract_ref": "synthetic_contract_source_oof_001",
+  "factor_manifest_ref": "synthetic_factor_manifest",
+  "label_view_manifest_ref": "synthetic_label_view_manifest",
+  "label_reader_mode": "source_backed",
+  "join_policy_ref": "synthetic_join_policy",
+  "prepared_date_cache_policy": "manifest_bound_when_reused",
+  "output_layout": {
+    "format": "parquet",
+    "write_mode": "streaming_parts",
+    "compression": "synthetic_columnar_policy"
+  },
+  "reject_ledger": {
+    "mode": "compact_counts",
+    "reason_codes": [
+      "missing_label",
+      "join_key_mismatch",
+      "source_scope_blocked"
+    ]
+  },
+  "claim_limits": {
+    "scope": "synthetic_full_scope",
+    "fold_policy": "synthetic_fold_policy"
+  },
+  "consumer_permissions": {
+    "oof_run_spec_compiler": "allowed",
+    "runtime_surface": "blocked"
+  }
+}

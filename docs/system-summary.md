@@ -14,6 +14,7 @@ This repository focuses on system architecture and decision flow. It provides a 
 - Feature, label, OOF, replay, risk, and inference artifacts treated as governed data products.
 - Performance work tied to physical execution shape: scan count, projection width, materialization cost, source-backed views, date-level cache scheduling, cache lifecycle, Rust-native boundaries, bridge parity, and kernel telemetry.
 - Formal OOF launch readiness tied to manifest-bound source scope, sequence batch stability, and source-boundary rebinding gates.
+- Review path expanded through an application catalog, evidence-kernel contract detail, engine-fabric detail, source-to-OOF flow, pseudocode, and synthetic manifests.
 
 ## System Themes
 
@@ -22,6 +23,7 @@ This repository focuses on system architecture and decision flow. It provides a 
 - Market microstructure work is framed as an execution problem: order-book inputs, replay determinism, fill/slippage/latency cost evidence, and economic pass/fail gates.
 - Risk work is framed as an attribution problem: beta, sector/style controls, factor identity, and explicit separation between raw signal and neutralized alpha.
 - Full-market research is framed as a source-boundary problem: downstream labels, trainable matrices, OOF run specs, and confirmation readiness must carry compatible source-boundary evidence.
+- Model validation is framed as a binding problem: OOF, sequence batches, source scope, fold policy, and runtime posture must agree before broader validation can consume results.
 
 ## Review Standard
 

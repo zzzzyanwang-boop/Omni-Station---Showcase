@@ -1,0 +1,26 @@
+flowchart TD
+  WO["ResearchWorkOrder"]
+  RC["ResearchContract"]
+  SB["Source Boundary Contract"]
+  LV["Source-Backed Label View"]
+  JN["Stage1 Label/Factor Join"]
+  TM["Trainable Manifest"]
+  OOF["Formal OOF Run Spec"]
+  SQ["Sequence Batch Planner"]
+  EV["OOF Evidence Envelope"]
+  GT["Confirmation Readiness Gate"]
+
+  WO --> RC
+  RC --> SB
+  SB --> LV
+  LV --> JN
+  JN --> TM
+  TM --> OOF
+  OOF --> SQ
+  SQ --> EV
+  EV --> GT
+
+  SB -. blocks .-> B1["stale or narrow source scope"]
+  JN -. blocks .-> B2["missing label reader mode"]
+  OOF -. blocks .-> B3["source-boundary mismatch"]
+  SQ -. blocks .-> B4["sequence shape instability"]

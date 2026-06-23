@@ -7,9 +7,10 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Source-shaped retained module placeholders: 824
 - Sanitized capability boundary placeholders: 38
 - Five-layer Research OS skeleton nodes: 55 README files
-- Architecture and flow documents: system-design summaries
-- Pseudocode: language-neutral workflow sketches
-- Examples: synthetic contract fixtures
+- Architecture and flow documents: 28 files
+- Pseudocode: 9 language-neutral workflow sketches, including source-backed label views, Stage1 joins, sequence OOF planning, and OOF rebinding
+- Examples: 17 synthetic contract fixtures for WorkOrders, manifests, gate results, source-backed labels, Stage1 trainable output, OOF specs, and sequence batch plans
+- Diagrams: 7 Mermaid diagrams
 
 ## Review Surfaces
 
@@ -26,6 +27,7 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Risk/economic/replay evidence, freeze decisions, closure state, and runtime boundary contracts.
 - UI gateway and operator-facing read-model surfaces.
 - Tests that demonstrate fail-closed boundaries and validation contracts.
+- Reviewer navigation material that connects the application catalog, evidence-kernel contracts, engine fabric, source-to-OOF flow, pseudocode, and synthetic manifests.
 
 ## Sanitized Boundary Surfaces
 
@@ -56,6 +58,7 @@ The repository is complete when a reviewer can understand:
 - where data lineage, leakage control, OOF/CPCV, model governance, risk/replay, freeze/confirmation, and UI surfaces fit;
 - where Rust-native bus, codec, feature-stream, query, bridge, inference, replay, observability, and profiling surfaces fit;
 - where source-backed label views, Stage1 trainable joins, sequence batch planning, and OOF rebinding gates fit;
+- how a reviewer can trace one source-bound research path through application contracts, EvidenceDAG nodes, engine calls, manifests, gates, pseudocode, and synthetic fixtures;
 - which areas use sanitized capability boundaries and why.
 
 Completeness is measured by architecture coverage and reviewability, not by mirroring every implementation file.

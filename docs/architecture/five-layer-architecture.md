@@ -4,6 +4,13 @@ This document is the architecture map for OmniStation Research OS. It follows th
 
 The design is a top-down Research Operating System, not a bottom-up script collection. Research begins with governance and WorkOrders, flows through applications and evidence contracts, calls engines, and lands on data/compute/artifact infrastructure.
 
+Companion detail:
+
+- `docs/architecture/research-application-catalog.md` expands Layer 4 applications.
+- `docs/architecture/evidence-kernel-contracts.md` expands Layer 3 contracts and gates.
+- `docs/architecture/engine-fabric.md` expands Layer 2 engines and native boundaries.
+- `docs/flows/source-label-stage1-oof-flow.md` traces a source-bound path into OOF evidence.
+
 ```text
 Layer 5 - Research Governance & Operations
 Layer 4 - Research Applications
@@ -186,6 +193,20 @@ The layered architecture supports one unified lifecycle:
 14. Closure Committee
 15. Research Memory / Retirement
 ```
+
+## Lifecycle Evidence Outputs
+
+| Lifecycle Area | Typical Evidence Output | Consumed By |
+| --- | --- | --- |
+| Idea and mechanism | work order, mechanism memo, hypothesis graph | route charter and contract compiler |
+| Data and panel | source contract, panel contract, source-boundary packet | feature, label, trainable, OOF, replay apps |
+| Feature/factor/state | feature manifest, factor profile, leakage proof, redundancy report | discovery, freeze, confirmation |
+| Label/outcome | label contract, source-backed label view, label quality packet | trainable builder and OOF run spec |
+| Discovery | candidate evidence, trial ledger update, rejection ledger | evidence review and freeze board |
+| Freeze | frozen subset, immutable evidence refs, allowed confirmatory plan | confirmation and statistical validation |
+| Confirmation/OOF | OOF manifest, fold policy proof, source-boundary rebinding gate | CPCV and broader validation |
+| Decision/economic/replay | decision-score packet, replay packet, cost/capacity evidence | portfolio utility and closure |
+| Closure/memory | closure case, admitted/blocked claims, memory entry | future route planning and invalidation |
 
 ## Cross-Layer Invariant
 

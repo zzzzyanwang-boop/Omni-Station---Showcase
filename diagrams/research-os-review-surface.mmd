@@ -1,0 +1,20 @@
+flowchart LR
+  L5["Layer 5 Governance"]
+  L4["Layer 4 Applications"]
+  L3["Layer 3 Evidence Kernel"]
+  L2["Layer 2 Engine Fabric"]
+  L1["Layer 1 Data/Compute"]
+  R["Reviewer"]
+
+  R --> L5
+  R --> L4
+  R --> L3
+  R --> L2
+  R --> L1
+
+  L5 -->|WorkOrder and authority| L4
+  L4 -->|application contract| L3
+  L3 -->|EvidenceDAG node| L2
+  L2 -->|bounded engine request| L1
+  L1 -->|manifest and hashes| L3
+  L3 -->|gate result| L5

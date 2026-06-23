@@ -1,0 +1,24 @@
+{
+  "sequence_batch_plan_id": "synthetic_sequence_batch_plan",
+  "oof_run_spec_ref": "synthetic_oof_run_spec",
+  "native_kernel_ref": "synthetic_sequence_tensor_kernel",
+  "shape_policy": {
+    "fixed_shape_required": true,
+    "padding_allowed": false,
+    "silent_drop_allowed": false
+  },
+  "descriptor_run_policy": {
+    "coalesce_contiguous_runs": true,
+    "shard_by_coalesced_batch_ordinal": true
+  },
+  "diagnostics": {
+    "capture_batch_shape": true,
+    "capture_non_finite_summary": true,
+    "capture_native_kernel_metadata": true
+  },
+  "failure_policy": {
+    "incomplete_batch": "blocked",
+    "shape_drift": "blocked",
+    "native_kernel_mismatch": "blocked"
+  }
+}

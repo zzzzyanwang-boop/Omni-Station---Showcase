@@ -1,0 +1,32 @@
+{
+  "contract_id": "synthetic_contract_source_oof_001",
+  "work_order_ref": "synthetic_work_order_001",
+  "route_id": "synthetic_research_route",
+  "application_owner": "source_label_stage1_trainable",
+  "strategy_family": "synthetic_factor_research",
+  "scope_policy_ref": "synthetic_scope_policy_full",
+  "data_policy_ref": "synthetic_data_policy_pit",
+  "panel_policy_ref": "synthetic_panel_policy",
+  "feature_factor_policy_ref": "synthetic_feature_policy",
+  "label_policy_ref": "synthetic_label_policy_source_backed",
+  "model_policy_ref": "synthetic_model_policy_oof",
+  "statistical_policy_ref": "synthetic_statistical_policy",
+  "trial_budget_ref": "synthetic_trial_budget",
+  "allowed_consumers": [
+    "source_label_panel_materialization",
+    "stage1_trainable_builder",
+    "full_manifest_oof_executor"
+  ],
+  "forbidden_consumers": [
+    "runtime_action",
+    "order_management"
+  ],
+  "runtime_posture": {
+    "offline_only": true,
+    "paper": false,
+    "live": false,
+    "broker": false,
+    "oms": false
+  },
+  "blockers": []
+}
