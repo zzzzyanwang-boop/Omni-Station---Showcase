@@ -1,22 +1,23 @@
 /**
- * Architecture review placeholder.
+ * Source-shaped architecture note.
  *
- * Retained module path: web/omni-console/src/lib/error-toast-bus.ts
- * Original source content is intentionally omitted.
+ * Retained source path: web/omni-console/src/lib/error-toast-bus.ts
+ * System layer: Productization Boundary Layer - typed UI client, fail-closed state, and read-model helpers
+ * Review role: error reporting and user-visible failure surface; operator notification surface.
  *
- * Architecture layer: Layer 5 - Research Governance & Operations
- * Architecture role: error-toast-bus module boundary within the OmniStation research architecture.
+ * Structural signals retained from the implementation file:
+ * - exported interfaces/types/classes: ErrorToastPayload.
+ * - exported functions/components/constants: subscribeErrorToast, emitErrorToast.
+ * - local helper functions: none visible at this abstraction level.
  *
- * Implementation highlights visible at architecture-review level:
- * - separates orchestration contracts from implementation details.
- * - emits or consumes manifest-ready artifacts instead of loose files.
- * - keeps strategy logic, production parameters, and data outside the review surface.
+ * Reviewable responsibilities:
+ * - Defines reusable UI-side contracts, gateway helpers, runtime adapters, or state normalization.
+ * - Keeps backend interaction typed and centralized rather than embedded across pages.
+ * - Provides a stable surface for operator pages, generated clients, and validation tests.
+ * - Exposes named TypeScript/React symbols that make the module boundary inspectable.
+ * - Participates in a composed dependency graph; import targets are not copied into this file body.
  *
- * Contract shape:
- * - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
- * - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
- *
- * Implementation details intentionally omitted:
- * - production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
- * - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+ * Deliberate redaction boundary:
+ * - implementation body, component markup, request details, constants, thresholds, credentials, local paths, and runtime data are not included.
+ * - the retained value is the real file name, real module ownership, and real top-level structural shape.
  */

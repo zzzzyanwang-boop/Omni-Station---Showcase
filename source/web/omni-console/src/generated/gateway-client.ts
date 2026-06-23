@@ -1,23 +1,23 @@
 /**
- * Architecture review placeholder.
+ * Source-shaped architecture note.
  *
- * Retained module path: web/omni-console/src/generated/gateway-client.ts
- * Original source content is intentionally omitted.
+ * Retained source path: web/omni-console/src/generated/gateway-client.ts
+ * System layer: Productization Boundary Layer - generated API/read-model contracts
+ * Review role: gateway client and backend contract boundary; generated or typed client boundary.
  *
- * Architecture layer: Layer 5 - Research Governance & Operations
- * Architecture role: gateway-client module boundary within the OmniStation research architecture.
+ * Structural signals retained from the implementation file:
+ * - exported interfaces/types/classes: OperationSpec, InvokeOperationOptions, GatewayClientConfig, GatewaySuccess, GatewayErrorBody, HttpMethod, RiskLevel, OperationId, Primitive, QueryValue, PathParams, QueryParams, plus 2 more.
+ * - exported functions/components/constants: OPERATIONS, OPERATION_IDS, HIGH_RISK_OPERATION_IDS.
+ * - local helper functions: normalizeBaseUrl, resolveFetchImpl, buildPath, buildQuery, safeJsonParse.
  *
- * Implementation highlights visible at architecture-review level:
- * - fail-closed admission gate with explicit pass/fail evidence.
- * - separates orchestration contracts from implementation details.
- * - emits or consumes manifest-ready artifacts instead of loose files.
- * - keeps strategy logic, production parameters, and data outside the review surface.
+ * Reviewable responsibilities:
+ * - Represents generated client or catalog surface used by the console.
+ * - Keeps API shape reviewable without exposing backend implementation logic.
+ * - Separates generated read-model access from hand-written page behavior.
+ * - Exposes named TypeScript/React symbols that make the module boundary inspectable.
+ * - Uses local helpers behind the exported boundary; helper names are retained only as structural signals.
  *
- * Contract shape:
- * - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
- * - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
- *
- * Implementation details intentionally omitted:
- * - production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
- * - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+ * Deliberate redaction boundary:
+ * - implementation body, component markup, request details, constants, thresholds, credentials, local paths, and runtime data are not included.
+ * - the retained value is the real file name, real module ownership, and real top-level structural shape.
  */

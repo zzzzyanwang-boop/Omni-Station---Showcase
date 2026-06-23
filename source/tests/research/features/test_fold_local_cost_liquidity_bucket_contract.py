@@ -4,21 +4,34 @@ Architecture review placeholder.
 Retained module path: tests/research/features/test_fold_local_cost_liquidity_bucket_contract.py
 Original source content is intentionally omitted.
 
-Architecture layer: Validation Evidence - Test Contracts
-Architecture role: factor materialization, source ownership, leakage gates, and feature-store publishing.
+Architecture layer: Layer 3 - Evidence / Contract / DAG Kernel
+Architecture role: typed contract and invariant enforcement.
 
-Implementation highlights visible at architecture-review level:
-- fold-local semantics to prevent leakage across train/validation boundaries.
-- execution cost and capacity-aware evaluation hooks.
-- read-model contract exposed to the operator console.
-- typed boundary contract and public invariant definitions.
-- regression test for fail-closed behavior and boundary invariants.
+Current source-shaped status:
+- actual source file exists at the retained path in the working system.
+- this placeholder preserves the file name and module ownership while replacing implementation code with a structural summary.
+- the file belongs to the contract test and no-bypass verification surface.
+- implementation behavior, algorithms, parameters, thresholds, and data access details are not included.
+
+Actual structural signals (parsed from retained top-level symbols):
+Top-level classes:
+- none exposed at top level or intentionally omitted
+
+Top-level functions:
+- `_frame`
+- `test_fold_local_bucket_contract_uses_train_cutpoints_for_validation`
+- `test_fold_local_bucket_contract_has_no_pnl_based_buckets`
+
+Reviewable responsibilities inferred from source location and file name:
+- maintain the boundary implied by the retained module path.
+- exchange data through contracts, manifests, packets, read models, or typed helper APIs rather than loose runtime state.
+- support the surrounding Research OS layer without becoming an unowned side path.
+- fail closed or produce explicit blockers where the surrounding layer requires evidence.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: sanitized contract, manifest, policy, state, request, or artifact references appropriate to this module boundary.
+- Outputs: sanitized packet, manifest update, read model, gate result, helper result, or blocker.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production source code, function bodies, algorithms, formulas, thresholds, credentials, data paths, local configuration, runtime state, and unpublished results.
 """

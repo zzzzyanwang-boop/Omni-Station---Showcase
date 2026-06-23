@@ -7,6 +7,13 @@ Original source content is intentionally omitted.
 Architecture layer: Layer 2 - Provider / Model / Runtime Engines
 Architecture role: Python-side contract wrapper for the Rust/PyO3 sequence tensor native kernel.
 
+Current public-review status:
+- engine wrapper for the sequence tensor native crate, with explicit `off`, `optional`, and `required` modes.
+- validates module identity, version, runtime posture, operation availability, encoding, row counts, lookback, shapes, and non-finite targets.
+- native path can accelerate feature-validity packing, contiguous anchor-run discovery, and sequence batch gather.
+- optional mode may record an explicit fallback reason; required mode fails closed if the native path is unavailable or incompatible.
+- exists to make native execution auditable rather than hidden behind model-training code.
+
 Implementation highlights visible at architecture-review level:
 - validates native kernel id, version, runtime posture, and supported execution mode before use.
 - exposes native feature-validity packing, contiguous anchor-run discovery, and sequence-batch gather operations.

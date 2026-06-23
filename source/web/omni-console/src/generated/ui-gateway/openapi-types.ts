@@ -1,24 +1,22 @@
 /**
- * Architecture review placeholder.
+ * Source-shaped architecture note.
  *
- * Retained module path: web/omni-console/src/generated/ui-gateway/openapi-types.ts
- * Original source content is intentionally omitted.
+ * Retained source path: web/omni-console/src/generated/ui-gateway/openapi-types.ts
+ * System layer: Productization Boundary Layer - generated API/read-model contracts
+ * Review role: gateway client and backend contract boundary; generated OpenAPI type boundary.
  *
- * Architecture layer: Layer 5 - Research Governance & Operations
- * Architecture role: openapi-types module boundary within the OmniStation research architecture.
+ * Structural signals retained from the implementation file:
+ * - exported interfaces/types/classes: paths, components, operations, webhooks, $defs.
+ * - exported functions/components/constants: none visible at this abstraction level.
+ * - local helper functions: none visible at this abstraction level.
  *
- * Implementation highlights visible at architecture-review level:
- * - fail-closed admission gate with explicit pass/fail evidence.
- * - read-model contract exposed to the operator console.
- * - separates orchestration contracts from implementation details.
- * - emits or consumes manifest-ready artifacts instead of loose files.
- * - keeps strategy logic, production parameters, and data outside the review surface.
+ * Reviewable responsibilities:
+ * - Represents generated client or catalog surface used by the console.
+ * - Keeps API shape reviewable without exposing backend implementation logic.
+ * - Separates generated read-model access from hand-written page behavior.
+ * - Exposes named TypeScript/React symbols that make the module boundary inspectable.
  *
- * Contract shape:
- * - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
- * - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
- *
- * Implementation details intentionally omitted:
- * - production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
- * - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+ * Deliberate redaction boundary:
+ * - implementation body, component markup, request details, constants, thresholds, credentials, local paths, and runtime data are not included.
+ * - the retained value is the real file name, real module ownership, and real top-level structural shape.
  */

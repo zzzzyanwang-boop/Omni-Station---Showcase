@@ -1,23 +1,24 @@
 /**
- * Architecture review placeholder.
+ * Source-shaped architecture note.
  *
- * Retained module path: web/omni-console/src/lib/control-plane-contract.ts
- * Original source content is intentionally omitted.
+ * Retained source path: web/omni-console/src/lib/control-plane-contract.ts
+ * System layer: Productization Boundary Layer - typed UI client, fail-closed state, and read-model helpers
+ * Review role: typed contract boundary and invariant surface; control-plane API and read-model boundary.
  *
- * Architecture layer: Layer 5 - Research Governance & Operations
- * Architecture role: control-plane-contract module boundary within the OmniStation research architecture.
+ * Structural signals retained from the implementation file:
+ * - exported interfaces/types/classes: ContractFetchSuccess, ContractFetchFailure, ContractFetchResult.
+ * - exported functions/components/constants: buildQueryString, fetchCanonicalContract, fetchWithLegacyFallback.
+ * - local helper functions: normalizeBaseUrl, readJson, extractErrorText, isAbortLikeError.
  *
- * Implementation highlights visible at architecture-review level:
- * - typed boundary contract and public invariant definitions.
- * - separates orchestration contracts from implementation details.
- * - emits or consumes manifest-ready artifacts instead of loose files.
- * - keeps strategy logic, production parameters, and data outside the review surface.
+ * Reviewable responsibilities:
+ * - Defines reusable UI-side contracts, gateway helpers, runtime adapters, or state normalization.
+ * - Keeps backend interaction typed and centralized rather than embedded across pages.
+ * - Provides a stable surface for operator pages, generated clients, and validation tests.
+ * - Exposes named TypeScript/React symbols that make the module boundary inspectable.
+ * - Uses local helpers behind the exported boundary; helper names are retained only as structural signals.
+ * - Participates in a composed dependency graph; import targets are not copied into this file body.
  *
- * Contract shape:
- * - Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
- * - Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
- *
- * Implementation details intentionally omitted:
- * - production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
- * - exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+ * Deliberate redaction boundary:
+ * - implementation body, component markup, request details, constants, thresholds, credentials, local paths, and runtime data are not included.
+ * - the retained value is the real file name, real module ownership, and real top-level structural shape.
  */

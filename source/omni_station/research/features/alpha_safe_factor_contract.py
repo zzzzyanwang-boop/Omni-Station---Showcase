@@ -4,21 +4,35 @@ Architecture review placeholder.
 Retained module path: omni_station/research/features/alpha_safe_factor_contract.py
 Original source content is intentionally omitted.
 
-Architecture layer: Layer 2 - Provider / Model / Runtime Engines
-Architecture role: factor materialization, source ownership, leakage gates, and feature-store publishing.
+Architecture layer: Layer 4 - Research Applications
+Architecture role: factor lifecycle and governance; typed contract and invariant enforcement.
 
-Implementation highlights visible at architecture-review level:
-- factor identity, source ownership, materialization, and family governance.
-- typed boundary contract and public invariant definitions.
-- separates orchestration contracts from implementation details.
-- emits or consumes manifest-ready artifacts instead of loose files.
-- keeps strategy logic, production parameters, and data outside the review surface.
+Current source-shaped status:
+- actual source file exists at the retained path in the working system.
+- this placeholder preserves the file name and module ownership while replacing implementation code with a structural summary.
+- the file belongs to the feature/factor foundry and external projection surface.
+- implementation behavior, algorithms, parameters, thresholds, and data access details are not included.
+
+Actual structural signals (parsed from retained top-level symbols):
+Top-level classes:
+- none exposed at top level or intentionally omitted
+
+Top-level functions:
+- `forbidden_column_matches`
+- `validate_factor_inputs`
+- `validate_factor_declarations`
+- `build_alpha_safe_factor_contract`
+
+Reviewable responsibilities inferred from source location and file name:
+- maintain the boundary implied by the retained module path.
+- exchange data through contracts, manifests, packets, read models, or typed helper APIs rather than loose runtime state.
+- support the surrounding Research OS layer without becoming an unowned side path.
+- fail closed or produce explicit blockers where the surrounding layer requires evidence.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: sanitized contract, manifest, policy, state, request, or artifact references appropriate to this module boundary.
+- Outputs: sanitized packet, manifest update, read model, gate result, helper result, or blocker.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production source code, function bodies, algorithms, formulas, thresholds, credentials, data paths, local configuration, runtime state, and unpublished results.
 """

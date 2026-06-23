@@ -15,3 +15,16 @@ Layer labels follow the Research OS design baseline:
 - Layer 1 - Data / Compute / Artifact Infrastructure
 
 Each placeholder describes the module's architecture role, contract shape, and implementation highlights at system-design level. Runtime data, generated artifacts, local configuration, credentials, strategy-specific labels, and implementation logic are outside this review tree by construction.
+
+## Source-Local Status Cards
+
+Some architecture-critical directories include local `README.md` files that explain the actual state represented by nearby placeholders. These are intended to make the source-shaped tree itself reviewable without requiring a reader to infer status from separate documentation.
+
+Status language used in the source tree:
+
+- `active boundary`: a real system boundary represented by retained module names and contract summaries
+- `gate / preflight`: a module whose main role is blocking, authorizing, or preparing downstream execution
+- `engine boundary`: a reusable compute or training capability called through Research OS contracts
+- `compatibility path`: a retained path that exists for migration, audit, or backward compatibility but is not the preferred decision-grade route
+- `diagnostic-only`: a surface that can help inspect or debug but cannot produce decision-grade claims
+- `redacted capability`: an actual capability area whose original names would over-disclose research or runtime details
