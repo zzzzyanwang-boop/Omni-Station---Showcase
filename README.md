@@ -9,10 +9,10 @@ Current review surface:
 - 824 source-shaped module placeholders
 - 38 sanitized capability placeholders
 - 55 five-layer skeleton README nodes
-- 28 architecture and flow documents
-- 17 synthetic examples
-- 9 pseudocode sketches
-- 7 Mermaid diagrams
+- 33 architecture and flow documents
+- 21 synthetic examples
+- 12 pseudocode sketches
+- 8 Mermaid diagrams
 
 ## Research OS Five-Layer Architecture
 
@@ -34,8 +34,9 @@ This repository is organized so a technical reviewer can evaluate:
 - how leakage controls, fold-local policies, multiple-testing discipline, and fail-closed gates are represented at system boundaries;
 - how decision runtime, execution replay, cost/capacity, and order-management boundaries remain separated from research evidence;
 - how operator-facing read models expose stage, blocker, allowed action, evidence state, and review results without requiring direct access to runtime internals;
-- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, source-backed formula views, date-level scheduler caches, checkpoint semantics, Rust/native kernel boundaries, cross-language parity checks, and progress telemetry.
-- how the application catalog, evidence-kernel contracts, engine fabric, pseudocode, and synthetic manifests connect into one reviewable path from source-bound data to OOF evidence.
+- how performance-sensitive paths are shaped around columnar artifacts, projection width, scan count, source-backed formula views, date-level scheduler caches, checkpoint semantics, Rust/native kernel boundaries, cross-language parity checks, and progress telemetry;
+- how the application catalog, evidence-kernel contracts, engine fabric, pseudocode, and synthetic manifests connect into one reviewable path from source-bound data to OOF evidence;
+- how capability rationale, failure modes, quant validation controls, performance physical plans, and selected source paths demonstrate engineering reasoning without publishing implementation code.
 
 ## Rust / Native Compute Surface
 
@@ -121,21 +122,27 @@ The design should be evaluated on:
 
 1. `docs/architecture/five-layer-architecture.md`
 2. `docs/technical-review-map.md`
-3. `docs/architecture/research-application-catalog.md`
-4. `docs/architecture/evidence-kernel-contracts.md`
-5. `docs/architecture/engine-fabric.md`
-6. `docs/flows/source-label-stage1-oof-flow.md`
-7. `skeleton/`
-8. `source/README.md`
-9. `docs/capability-coverage.md`
-10. `docs/source-inventory.md`
-11. `docs/redaction-policy.md`
-12. `docs/redacted-capability-inventory.md`
-13. `redacted_capabilities/README.md`
-14. `diagrams/five-layer-architecture.mmd`
-15. `diagrams/source-to-oof-flow.mmd`
-16. `pseudocode/research_run_orchestrator.md`
-17. `examples/`
+3. `docs/capability-rationale.md`
+4. `docs/architecture/research-application-catalog.md`
+5. `docs/architecture/evidence-kernel-contracts.md`
+6. `docs/architecture/engine-fabric.md`
+7. `docs/architecture/failure-mode-matrix.md`
+8. `docs/architecture/selected-source-path-guide.md`
+9. `docs/flows/source-label-stage1-oof-flow.md`
+10. `docs/flows/quant-research-validation-playbook.md`
+11. `docs/flows/performance-optimization-playbook.md`
+12. `skeleton/`
+13. `source/README.md`
+14. `docs/capability-coverage.md`
+15. `docs/source-inventory.md`
+16. `docs/redaction-policy.md`
+17. `docs/redacted-capability-inventory.md`
+18. `redacted_capabilities/README.md`
+19. `diagrams/five-layer-architecture.mmd`
+20. `diagrams/source-to-oof-flow.mmd`
+21. `diagrams/capability-rationale-map.mmd`
+22. `pseudocode/research_run_orchestrator.md`
+23. `examples/`
 
 ## Fixture Semantics
 

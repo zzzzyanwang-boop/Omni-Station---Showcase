@@ -7,10 +7,10 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Source-shaped retained module placeholders: 824
 - Sanitized capability boundary placeholders: 38
 - Five-layer Research OS skeleton nodes: 55 README files
-- Architecture and flow documents: 28 files
-- Pseudocode: 9 language-neutral workflow sketches, including source-backed label views, Stage1 joins, sequence OOF planning, and OOF rebinding
-- Examples: 17 synthetic contract fixtures for WorkOrders, manifests, gate results, source-backed labels, Stage1 trainable output, OOF specs, and sequence batch plans
-- Diagrams: 7 Mermaid diagrams
+- Architecture and flow documents: 33 files
+- Pseudocode: 12 language-neutral workflow sketches, including source-backed label views, Stage1 joins, sequence OOF planning, OOF rebinding, gate evaluation, performance physical planning, and closure cases
+- Examples: 21 synthetic contract fixtures for WorkOrders, manifests, gate results, source-backed labels, Stage1 trainable output, OOF specs, sequence batch plans, blocker matrices, performance profiles, capability review packets, and closure cases
+- Diagrams: 8 Mermaid diagrams
 
 ## Review Surfaces
 
@@ -28,6 +28,7 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - UI gateway and operator-facing read-model surfaces.
 - Tests that demonstrate fail-closed boundaries and validation contracts.
 - Reviewer navigation material that connects the application catalog, evidence-kernel contracts, engine fabric, source-to-OOF flow, pseudocode, and synthetic manifests.
+- Capability rationale material that explains problem framing, design responses, failure modes, quant validation controls, physical performance reasoning, selected source paths, and closure logic.
 
 ## Sanitized Boundary Surfaces
 

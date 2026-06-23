@@ -1,0 +1,29 @@
+{
+  "profile_id": "synthetic_physical_plan_profile",
+  "contract_ref": "synthetic_contract_source_oof_001",
+  "baseline_shape": {
+    "dominant_cost": "dense_materialization",
+    "source_scans": "synthetic_count",
+    "projected_columns": "synthetic_count",
+    "intermediate_materializations": "synthetic_count",
+    "native_kernel_used": false
+  },
+  "target_shape": {
+    "removed_work": [
+      "dense_label_write",
+      "repeated_label_side_preparation",
+      "full_join_collect"
+    ],
+    "source_backed_view": true,
+    "streaming_writer": true,
+    "prepared_date_cache": "manifest_bound_when_reused",
+    "native_kernel_used": true
+  },
+  "required_gates": [
+    "semantic_equivalence",
+    "source_boundary_compatibility",
+    "manifest_bound_cache_identity",
+    "no_runtime_posture_change"
+  ],
+  "remaining_bottleneck_report_required": true
+}

@@ -1,0 +1,26 @@
+{
+  "packet_id": "synthetic_capability_review_packet",
+  "capability": "source_backed_stage1_oof_path",
+  "problem": "Build model-ready evidence without loose data reads, dense label write amplification, or stale OOF scope.",
+  "design_response": [
+    "source-boundary contract",
+    "source-backed label view",
+    "Stage1 streaming trainable join",
+    "formal OOF run-spec rebinding",
+    "fixed-shape sequence batch planner"
+  ],
+  "review_evidence": [
+    "synthetic_label_view_manifest",
+    "synthetic_stage1_trainable_manifest",
+    "synthetic_oof_run_spec",
+    "synthetic_sequence_batch_plan"
+  ],
+  "omitted_material": [
+    "formulas",
+    "raw data",
+    "feature values",
+    "model weights",
+    "scores",
+    "runtime configuration"
+  ]
+}

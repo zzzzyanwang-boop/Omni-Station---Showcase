@@ -15,6 +15,7 @@ This repository focuses on system architecture and decision flow. It provides a 
 - Performance work tied to physical execution shape: scan count, projection width, materialization cost, source-backed views, date-level cache scheduling, cache lifecycle, Rust-native boundaries, bridge parity, and kernel telemetry.
 - Formal OOF launch readiness tied to manifest-bound source scope, sequence batch stability, and source-boundary rebinding gates.
 - Review path expanded through an application catalog, evidence-kernel contract detail, engine-fabric detail, source-to-OOF flow, pseudocode, and synthetic manifests.
+- Capability rationale expanded through problem/design/evidence mapping, failure-mode handling, selected source path grouping, quant validation reasoning, and performance physical-plan reasoning.
 
 ## System Themes
 

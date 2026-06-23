@@ -120,3 +120,49 @@ What to verify:
 - research artifacts cannot directly become executable actions
 - credentials, broker wiring, account identifiers, and execution rules are outside the review package
 
+## 8. Can a Reviewer See the Design Rationale?
+
+Inspect:
+
+- `docs/capability-rationale.md`
+- `docs/architecture/failure-mode-matrix.md`
+- `docs/architecture/selected-source-path-guide.md`
+- `examples/toy_capability_review_packet.json`
+- `diagrams/capability-rationale-map.mmd`
+
+What to verify:
+
+- each capability is explained as a problem, design response, evidence surface, and boundary control
+- predictable failure modes have explicit blockers rather than hidden fallback paths
+- representative source paths are grouped by governance, applications, evidence kernel, engines, infrastructure, Rust, and tests
+- synthetic packets explain capability reasoning without exposing formulas, raw data, model internals, or runtime configuration
+
+## 9. Is Quant Validation Reasoning Explicit?
+
+Inspect:
+
+- `docs/flows/quant-research-validation-playbook.md`
+- `pseudocode/gate_engine_claim_evaluator.md`
+- `pseudocode/closure_case_builder.md`
+- `examples/toy_blocker_matrix.json`
+- `examples/toy_closure_case.json`
+
+What to verify:
+
+- discovery, freeze, OOF, CPCV, replay, and closure have separate evidence roles
+- leakage, trial budget, fold contamination, calibration, replay accounting, and runtime boundary risks are called out
+- closure consumes admitted, blocked, and deferred claims rather than only positive metrics
+
+## 10. Is Performance Reasoning Explicit?
+
+Inspect:
+
+- `docs/flows/performance-optimization-playbook.md`
+- `pseudocode/performance_physical_plan.md`
+- `examples/toy_physical_plan_profile.json`
+
+What to verify:
+
+- performance claims are tied to physical work removed
+- source scans, projection width, materialization, joins, memory, cache identity, native bridge use, parity, and telemetry are all reviewable
+- cache, checkpoint, and manifest controls are treated as evidence constraints unless they actually remove computation

@@ -1,0 +1,23 @@
+flowchart TD
+  P["Research Problem"]
+  O["Owner and WorkOrder"]
+  C["Typed Contract"]
+  D["EvidenceDAG"]
+  E["Engine Call"]
+  A["ArtifactManifest"]
+  V["EvidenceEnvelope"]
+  G["Gate Decision"]
+  M["Closure or Memory"]
+
+  P --> O
+  O --> C
+  C --> D
+  D --> E
+  E --> A
+  A --> V
+  V --> G
+  G --> M
+
+  G -. blocks .-> B["Unsupported Claim"]
+  E -. profiles .-> R["Physical Work Removed"]
+  A -. binds .-> L["Lineage and Scope"]

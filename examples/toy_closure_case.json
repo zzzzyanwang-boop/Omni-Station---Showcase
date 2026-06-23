@@ -1,0 +1,32 @@
+{
+  "closure_case_id": "synthetic_closure_case",
+  "route_id": "synthetic_research_route",
+  "status": "review_ready",
+  "admitted_claims": [
+    {
+      "claim": "synthetic_claim_with_declared_scope",
+      "evidence_refs": ["synthetic_oof_evidence_envelope"],
+      "scope_limits": "synthetic_scope_limits"
+    }
+  ],
+  "blocked_claims": [
+    {
+      "claim": "synthetic_runtime_claim",
+      "reason_code": "runtime_consumer_not_authorized"
+    }
+  ],
+  "deferred_claims": [
+    {
+      "claim": "synthetic_economic_claim",
+      "reason_code": "missing_replay_packet"
+    }
+  ],
+  "residual_risks": [
+    "synthetic_scope_limit",
+    "synthetic_robustness_followup"
+  ],
+  "memory_entry": {
+    "store": true,
+    "future_reuse_policy": "requires_contract_revalidation"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "matrix_id": "synthetic_blocker_matrix",
+  "contract_ref": "synthetic_contract_source_oof_001",
+  "blockers": [
+    {
+      "reason_code": "source_boundary_mismatch",
+      "layer": "Layer 3",
+      "blocked_consumers": ["oof_executor", "confirmation_lab"],
+      "review_note": "Source scope does not support the requested claim."
+    },
+    {
+      "reason_code": "label_policy_missing",
+      "layer": "Layer 4",
+      "blocked_consumers": ["stage1_trainable_builder"],
+      "review_note": "Label formula, horizon, or cost dimension is not contract-bound."
+    },
+    {
+      "reason_code": "sequence_shape_instability",
+      "layer": "Layer 2",
+      "blocked_consumers": ["sequence_oof_executor"],
+      "review_note": "Fixed-shape sequence batch contract is not satisfied."
+    },
+    {
+      "reason_code": "runtime_consumer_not_authorized",
+      "layer": "Layer 5",
+      "blocked_consumers": ["runtime_surface"],
+      "review_note": "Offline evidence cannot be consumed as runtime authority."
+    }
+  ]
+}
