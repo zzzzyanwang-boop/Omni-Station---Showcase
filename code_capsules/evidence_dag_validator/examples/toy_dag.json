@@ -1,0 +1,50 @@
+{
+  "nodes": [
+    {
+      "id": "source_manifest",
+      "type": "source",
+      "depends_on": [],
+      "artifacts": [
+        {
+          "artifact_id": "toy.source_manifest.v1",
+          "schema_hash": "sha256:source-schema",
+          "content_hash": "sha256:source-content"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "id": "trainable_manifest",
+      "type": "artifact",
+      "depends_on": ["source_manifest"],
+      "artifacts": [
+        {
+          "artifact_id": "toy.trainable_manifest.v1",
+          "schema_hash": "sha256:trainable-schema",
+          "content_hash": "sha256:trainable-content"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "trainable_lineage_bound",
+          "scope": "diagnostic",
+          "supported_by": ["toy.source_manifest.v1", "toy.trainable_manifest.v1"]
+        }
+      ]
+    },
+    {
+      "id": "oof_gate",
+      "type": "gate",
+      "depends_on": ["trainable_manifest"],
+      "artifacts": [],
+      "gate_decision": "pass",
+      "claims": [
+        {
+          "claim_id": "oof_inputs_ready",
+          "scope": "decision_grade",
+          "supported_by": ["toy.trainable_manifest.v1"]
+        }
+      ]
+    }
+  ]
+}

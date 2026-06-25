@@ -1,0 +1,22 @@
+[
+  {
+    "row_id": "train-1",
+    "entity_id": "AAA",
+    "fold_id": "fold-2025-01",
+    "split": "train",
+    "as_of": "2025-01-03T16:00:00",
+    "feature_available_at": "2025-01-03T16:00:00",
+    "label_window_start": "2025-01-03T16:00:01",
+    "label_window_end": "2025-01-05T16:00:00"
+  },
+  {
+    "row_id": "valid-1",
+    "entity_id": "AAA",
+    "fold_id": "fold-2025-01",
+    "split": "validation",
+    "as_of": "2025-01-08T16:00:00",
+    "feature_available_at": "2025-01-08T16:00:00",
+    "label_window_start": "2025-01-08T16:00:01",
+    "label_window_end": "2025-01-10T16:00:00"
+  }
+]

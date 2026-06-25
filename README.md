@@ -13,6 +13,7 @@ Current review surface:
 - 21 synthetic examples
 - 12 pseudocode sketches
 - 8 Mermaid diagrams
+- 5 runnable public-safe code capsules
 
 ## Research OS Five-Layer Architecture
 
@@ -86,6 +87,7 @@ docs/
 diagrams/                Mermaid diagrams for system and evidence flows
 pseudocode/              Language-neutral sketches of core workflows
 examples/                Synthetic work orders, manifests, and gate reports
+code_capsules/           Small runnable public-safe implementations with tests
 ```
 
 ## Source-Shaped Module Tree
@@ -106,6 +108,12 @@ Each placeholder file contains:
 The `redacted_capabilities/` tree documents capabilities whose exact module names would reveal more than the architecture needs to prove. The directory uses neutral boundary names such as `research_line_a`, `runtime_engine_boundary`, `order_management_boundary`, and `native_compute_infrastructure`.
 
 These placeholders cover candidate lifecycles, feature/label contracts, source-backed label views, OOF/CPCV validation, model governance, risk and replay economics, promotion freeze gates, execution safety, order-management boundaries, source quality, native performance work, and operator-facing evidence surfaces.
+
+## Runnable Code Capsules
+
+The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, source-backed label view planning, grouped OOF metric aggregation, and a Rust sequence-tensor native-kernel shape.
+
+Run the Python capsules with `python -m unittest discover code_capsules -p "test_*.py"`. Run the Rust capsule with `cargo test --manifest-path code_capsules/rust_sequence_tensor_kernel/Cargo.toml`.
 
 ## Technical Review Criteria
 
@@ -142,7 +150,8 @@ The design should be evaluated on:
 20. `diagrams/source-to-oof-flow.mmd`
 21. `diagrams/capability-rationale-map.mmd`
 22. `pseudocode/research_run_orchestrator.md`
-23. `examples/`
+23. `code_capsules/README.md`
+24. `examples/`
 
 ## Fixture Semantics
 

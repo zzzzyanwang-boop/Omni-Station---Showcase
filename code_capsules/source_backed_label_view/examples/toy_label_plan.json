@@ -1,0 +1,23 @@
+{
+  "source_manifest": {
+    "dataset_id": "toy_market_bars",
+    "entity_key": "symbol",
+    "time_key": "bar_time",
+    "partition_keys": ["trade_date"],
+    "estimated_rows": 1000,
+    "columns": [
+      {"name": "symbol", "point_in_time_safe": true},
+      {"name": "bar_time", "point_in_time_safe": true},
+      {"name": "trade_date", "point_in_time_safe": true},
+      {"name": "close", "point_in_time_safe": true},
+      {"name": "volume", "point_in_time_safe": true}
+    ]
+  },
+  "label_spec": {
+    "label_id": "toy_forward_return",
+    "expression": "forward_return(close, horizon=5)",
+    "required_columns": ["close"],
+    "horizon_rows": 5,
+    "materialization_policy": "source_backed_view"
+  }
+}

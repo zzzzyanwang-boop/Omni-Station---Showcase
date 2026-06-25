@@ -1,0 +1,9 @@
+[package]
+name = "rust_sequence_tensor_kernel"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "rust_sequence_tensor_kernel"
+path = "src/lib.rs"

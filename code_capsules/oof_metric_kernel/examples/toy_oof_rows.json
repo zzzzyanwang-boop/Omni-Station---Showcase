@@ -1,0 +1,8 @@
+[
+  {"fold": "f1", "regime": "calm", "score": 0.10, "label": 0.02},
+  {"fold": "f1", "regime": "calm", "score": 0.30, "label": 0.05},
+  {"fold": "f1", "regime": "calm", "score": 0.20, "label": 0.03},
+  {"fold": "f2", "regime": "volatile", "score": -0.10, "label": -0.04},
+  {"fold": "f2", "regime": "volatile", "score": 0.05, "label": 0.01},
+  {"fold": "f2", "regime": "volatile", "score": 0.40, "label": 0.07}
+]

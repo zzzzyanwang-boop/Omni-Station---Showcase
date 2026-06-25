@@ -1,4 +1,4 @@
-# This showcase repository is documentation-only.
+# This showcase repository contains architecture review material and public-safe code capsules.
 # Keep private source, data, runtime output, credentials, and generated artifacts out.
 
 .env
@@ -19,6 +19,7 @@ venv/
 node_modules/
 dist/
 build/
+target/
 
 data/
 datasets/
@@ -40,4 +41,3 @@ _scratch/
 *.7z
 *.tar
 *.gz
-
