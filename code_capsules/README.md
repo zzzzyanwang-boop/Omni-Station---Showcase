@@ -9,11 +9,13 @@ Each capsule uses synthetic inputs and focuses on one reviewable engineering pro
 - `source_backed_label_view`: a source-backed label view planner that avoids unnecessary dense label materialization.
 - `oof_metric_kernel`: grouped OOF metric aggregation using sufficient statistics and segmented rank IC.
 - `rust_sequence_tensor_kernel`: a Rust toy native kernel for validity bitmap packing, contiguous anchor runs, and sequence batch gathering.
+- `e2e_toy_research_flow`: an executable toy source-to-OOF gate flow that connects the Python capsules.
 
 Run the Python capsules:
 
 ```powershell
 python -m unittest discover code_capsules -p "test_*.py"
+python -m code_capsules.e2e_toy_research_flow.src.toy_research_flow
 ```
 
 Run the Rust capsule:

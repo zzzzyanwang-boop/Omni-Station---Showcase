@@ -6,14 +6,14 @@ The repository is designed for technical architecture review, not runtime execut
 
 Current review surface:
 
-- 824 source-shaped module placeholders
+- 831 source-shaped module placeholders
 - 38 sanitized capability placeholders
 - 55 five-layer skeleton README nodes
 - 33 architecture and flow documents
 - 21 synthetic examples
 - 12 pseudocode sketches
 - 8 Mermaid diagrams
-- 5 runnable public-safe code capsules
+- 5 runnable public-safe code capsules plus 1 toy end-to-end verification flow
 
 ## Research OS Five-Layer Architecture
 
@@ -88,6 +88,8 @@ diagrams/                Mermaid diagrams for system and evidence flows
 pseudocode/              Language-neutral sketches of core workflows
 examples/                Synthetic work orders, manifests, and gate reports
 code_capsules/           Small runnable public-safe implementations with tests
+scripts/                 Repository verification script used by CI
+.github/workflows/       CI workflow for tests, path checks, redaction scan, and hygiene
 ```
 
 ## Source-Shaped Module Tree
@@ -111,9 +113,9 @@ These placeholders cover candidate lifecycles, feature/label contracts, source-b
 
 ## Runnable Code Capsules
 
-The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, source-backed label view planning, grouped OOF metric aggregation, and a Rust sequence-tensor native-kernel shape.
+The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, source-backed label view planning, grouped OOF metric aggregation, a Rust sequence-tensor native-kernel shape, and one toy end-to-end source-to-OOF gate flow.
 
-Run the Python capsules with `python -m unittest discover code_capsules -p "test_*.py"`. Run the Rust capsule with `cargo test --manifest-path code_capsules/rust_sequence_tensor_kernel/Cargo.toml`.
+Run `python scripts/verify_showcase.py` to execute the same checks used by CI.
 
 ## Technical Review Criteria
 
@@ -151,7 +153,8 @@ The design should be evaluated on:
 21. `diagrams/capability-rationale-map.mmd`
 22. `pseudocode/research_run_orchestrator.md`
 23. `code_capsules/README.md`
-24. `examples/`
+24. `REVIEW_CHECKLIST.md`
+25. `examples/`
 
 ## Fixture Semantics
 

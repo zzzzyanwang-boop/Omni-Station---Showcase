@@ -1,6 +1,6 @@
 # Selected Source Path Guide
 
-The `source/` tree contains 824 source-shaped placeholders. This guide highlights representative paths and explains what each group demonstrates. It is not a full file inventory; the full list is in `docs/source-inventory.md`.
+The `source/` tree contains source-shaped placeholders. This guide highlights representative paths and explains what each group demonstrates. It is not a full file inventory; the full list is in `docs/source-inventory.md`.
 
 ## Governance and UI Read Models
 
@@ -55,9 +55,9 @@ The `source/` tree contains 824 source-shaped placeholders. This guide highlight
 
 | Path | What It Demonstrates |
 | --- | --- |
-| `source/omni_station/research_to_live/runtime_mode_token_contract.py` | runtime posture control before live-capable surfaces |
-| `source/omni_station/research_to_live/candidate_freeze_readiness_gate.py` | freeze and promotion readiness boundary |
-| `source/omni_station/research_to_live/live_path_guard.py` | live-path guardrail and blocked runtime posture |
+| `redacted_capabilities/runtime_engine_boundary/runtime_mode_token_contract.py` | runtime posture control before live-capable surfaces |
+| `redacted_capabilities/runtime_engine_boundary/promotion_freeze_gate.py` | freeze and promotion readiness boundary |
+| `source/omni_station/apps/ui_gateway/high_risk_policy.py` | UI-facing high-risk action guardrail and blocked runtime posture |
 | `source/omni_station/research_os/engines/execution_replay_native.py` | execution replay engine boundary |
 | `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs` | native counterfactual replay bridge |
 
@@ -90,4 +90,3 @@ The `source/` tree contains 824 source-shaped placeholders. This guide highlight
 | `source/tests/research/pipeline/test_model_branch_oof_execution_runner.py` | sequence OOF fixed-shape and non-finite behavior tests |
 | `source/tests/research/features/test_fold_local_factor_selector_train_only.py` | fold-local feature selection discipline |
 | `source/tests/research/performance/test_hotpath_ranker_no_high_confidence_without_measurement.py` | performance evidence must be measured before strong claims |
-

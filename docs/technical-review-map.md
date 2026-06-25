@@ -111,7 +111,8 @@ Inspect:
 - `docs/architecture/system-overview.md`
 - `docs/capability-coverage.md`
 - `redacted_capabilities/runtime_engine_boundary/`
-- `source/omni_station/research_to_live/runtime_mode_token_contract.py`
+- `redacted_capabilities/runtime_engine_boundary/runtime_mode_token_contract.py`
+- `source/omni_station/apps/ui_gateway/high_risk_policy.py`
 
 What to verify:
 
