@@ -1,0 +1,15 @@
+{
+  "benchmark_id": "toy_capsule_physical_plan_smoke_v1",
+  "bounded_timing_smoke": {
+    "reason": "timing is recorded for review shape only; CI gates correctness and report schema",
+    "threshold_enforced": false
+  },
+  "ci_policy": "correctness_and_shape_only",
+  "dense_materialization_avoided": true,
+  "dense_rows_written": 0,
+  "projection_width": 4,
+  "rust_python_parity": "pass",
+  "source_backed_view_rows": 2,
+  "source_scan_count": 1
+}
+

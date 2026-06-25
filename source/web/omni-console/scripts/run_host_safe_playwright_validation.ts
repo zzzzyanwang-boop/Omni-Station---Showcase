@@ -17,6 +17,9 @@
  * - Uses local helpers behind the exported boundary; helper names are retained only as structural signals.
  * - Participates in a composed dependency graph; import targets are not copied into this file body.
  *
+ * Contract shape:
+ * - Inputs: typed request state, read-model payload, operator action, route parameter, or gateway response fixture.
+ * - Outputs: normalized UI state, typed client result, fail-closed error state, validation signal, or reviewable read-model update.
  * Deliberate redaction boundary:
  * - implementation body, component markup, request details, constants, thresholds, credentials, local paths, and runtime data are not included.
  * - the retained value is the real file name, real module ownership, and real top-level structural shape.

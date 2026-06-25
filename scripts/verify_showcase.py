@@ -8,6 +8,7 @@ and repository hygiene checks.
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import shutil
@@ -120,11 +121,11 @@ EXPECTED_COUNTS = {
     "source_files": 831,
     "redacted_files": 39,
     "skeleton_readmes": 55,
-    "docs_files": 33,
-    "examples_files": 23,
+    "docs_files": 35,
+    "examples_files": 24,
     "pseudocode_files": 12,
     "diagram_files": 8,
-    "code_capsule_roots": 6,
+    "code_capsule_roots": 9,
 }
 
 COUNT_REFERENCE_SPECS = (
@@ -135,6 +136,7 @@ COUNT_REFERENCE_SPECS = (
     ("README.md", "examples_files", r"-\s+(\d+)\s+synthetic examples"),
     ("README.md", "pseudocode_files", r"-\s+(\d+)\s+pseudocode sketches"),
     ("README.md", "diagram_files", r"-\s+(\d+)\s+Mermaid diagrams"),
+    ("README.md", "code_capsule_roots", r"-\s+(\d+)\s+runnable public-safe code capsule roots"),
     ("docs/export-coverage.md", "source_files", r"Source-shaped retained module placeholders:\s+(\d+)"),
     ("docs/export-coverage.md", "redacted_files", r"Sanitized capability boundary placeholders:\s+(\d+)"),
     ("docs/export-coverage.md", "skeleton_readmes", r"Five-layer Research OS skeleton nodes:\s+(\d+)"),
@@ -142,9 +144,34 @@ COUNT_REFERENCE_SPECS = (
     ("docs/export-coverage.md", "pseudocode_files", r"Pseudocode:\s+(\d+)"),
     ("docs/export-coverage.md", "examples_files", r"Examples:\s+(\d+)"),
     ("docs/export-coverage.md", "diagram_files", r"Diagrams:\s+(\d+)"),
+    ("docs/export-coverage.md", "code_capsule_roots", r"Runnable code capsule roots:\s+(\d+)"),
     ("docs/source-inventory.md", "source_files", r"Exported placeholder files:\s+(\d+)"),
     ("docs/redacted-capability-inventory.md", "redacted_files", r"Redacted placeholder files:\s+(\d+)"),
 )
+
+SOURCE_PLACEHOLDER_FIELDS = {
+    "retained_path": ("Retained module path:", "Retained source path:", "Retained Rust path:"),
+    "layer": ("Architecture layer:", "Research OS layer:", "System layer:"),
+    "role": ("Architecture role:", "Review role:"),
+    "inputs": ("Inputs:",),
+    "outputs": ("Outputs:",),
+    "omission_boundary": (
+        "Implementation details intentionally omitted:",
+        "Implementation body removed",
+        "Deliberate redaction boundary:",
+    ),
+    "failure_or_boundary": (
+        "fail-closed",
+        "Failure",
+        "blocker",
+        "blocked",
+        "validation error",
+        "reject",
+        "gate",
+        "boundary",
+        "regression",
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -176,6 +203,9 @@ def main() -> int:
         check_tracked_hygiene(root),
         check_inventory(root),
         check_count_metadata(root),
+        check_source_placeholder_schema(root),
+        check_traceability_matrix(root),
+        check_benchmark_smoke(root),
     ]
     if not args.skip_rust:
         if shutil.which("cargo") is None:
@@ -314,11 +344,14 @@ def check_inventory(root: Path) -> CheckResult:
         if path.is_dir() and not path.name.startswith("__")
     ]
     required = {
+        "artifact_manifest_hasher",
         "evidence_dag_validator",
         "leakage_fold_checker",
         "source_backed_label_view",
         "oof_metric_kernel",
+        "purged_cpcv_splitter",
         "rust_sequence_tensor_kernel",
+        "source_joinability_gate",
         "e2e_toy_research_flow",
     }
     names = {path.name for path in capsule_roots}
@@ -379,6 +412,105 @@ def count_files(path: Path, pattern: str = "*") -> int:
     if not path.exists():
         return 0
     return sum(1 for candidate in path.rglob(pattern) if candidate.is_file())
+
+
+def check_source_placeholder_schema(root: Path) -> CheckResult:
+    source_root = root / "source"
+    source_files = [
+        path for path in source_root.rglob("*")
+        if path.is_file() and path.suffix.lower() in {".py", ".ts", ".tsx", ".rs"}
+    ]
+    failures: list[str] = []
+    for path in source_files:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        missing = [
+            field for field, markers in SOURCE_PLACEHOLDER_FIELDS.items()
+            if not any(marker in text for marker in markers)
+        ]
+        if missing:
+            failures.append(f"{path.relative_to(root).as_posix()} missing {','.join(missing)}")
+    if failures:
+        return CheckResult("source placeholder schema", False, "; ".join(failures[:10]))
+    return CheckResult("source placeholder schema", True, f"checked {len(source_files)} source placeholder files")
+
+
+def check_traceability_matrix(root: Path) -> CheckResult:
+    path = root / "docs" / "review-traceability.md"
+    if not path.exists():
+        return CheckResult("traceability matrix", False, "docs/review-traceability.md is missing")
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    rows = [
+        line for line in text.splitlines()
+        if line.startswith("| `source/") and "|" in line
+    ]
+    failures: list[str] = []
+    if len(rows) < 30:
+        failures.append(f"expected at least 30 traceability rows, found {len(rows)}")
+    for line in rows:
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) != 4:
+            failures.append(f"malformed row: {line[:120]}")
+            continue
+        source_path = _first_backtick_value(cells[0])
+        if source_path is None or not (root / source_path).exists():
+            failures.append(f"missing source path: {cells[0]}")
+        if not cells[1].startswith("Layer "):
+            failures.append(f"invalid layer cell: {cells[1]}")
+        if len(cells[2]) < 12:
+            failures.append(f"capability too terse: {source_path}")
+        proof_paths = re.findall(r"`([^`]+)`", cells[3])
+        if not proof_paths:
+            failures.append(f"missing proof path: {source_path}")
+        for proof_path in proof_paths:
+            if looks_like_repo_path(proof_path) and not (root / proof_path).exists():
+                failures.append(f"missing proof path: {proof_path}")
+    if failures:
+        return CheckResult("traceability matrix", False, "; ".join(failures[:10]))
+    return CheckResult("traceability matrix", True, f"checked {len(rows)} source-to-proof rows")
+
+
+def check_benchmark_smoke(root: Path) -> CheckResult:
+    completed = subprocess.run(
+        [sys.executable, "scripts/benchmark_capsules.py"],
+        cwd=str(root),
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+    if completed.returncode != 0:
+        return CheckResult("capsule benchmark smoke", False, completed.stdout.strip()[-500:])
+    try:
+        report = json.loads(completed.stdout)
+    except json.JSONDecodeError as exc:
+        return CheckResult("capsule benchmark smoke", False, f"benchmark did not emit JSON: {exc}")
+    required = {
+        "benchmark_id",
+        "projection_width",
+        "source_scan_count",
+        "dense_rows_written",
+        "source_backed_view_rows",
+        "dense_materialization_avoided",
+        "rust_python_parity",
+        "bounded_timing_smoke",
+    }
+    missing = sorted(required - set(report))
+    if missing:
+        return CheckResult("capsule benchmark smoke", False, f"missing fields: {', '.join(missing)}")
+    if report["projection_width"] != 4 or report["source_scan_count"] != 1:
+        return CheckResult("capsule benchmark smoke", False, "unexpected source-backed label physical plan")
+    if report["dense_rows_written"] != 0 or report["dense_materialization_avoided"] is not True:
+        return CheckResult("capsule benchmark smoke", False, "dense materialization was not avoided")
+    if report["rust_python_parity"] not in {"pass", "skipped_no_cargo"}:
+        return CheckResult("capsule benchmark smoke", False, "rust kernel parity smoke failed")
+    timing = report["bounded_timing_smoke"]
+    if not isinstance(timing, dict) or timing.get("threshold_enforced") is not False:
+        return CheckResult("capsule benchmark smoke", False, "benchmark timing policy is not review-safe")
+    return CheckResult("capsule benchmark smoke", True, "source-backed physical-plan smoke report is valid")
+
+
+def _first_backtick_value(text: str) -> str | None:
+    match = re.search(r"`([^`]+)`", text)
+    return match.group(1) if match else None
 
 
 if __name__ == "__main__":

@@ -12,18 +12,20 @@ Run the same checks used by CI before reviewing the architecture:
 python scripts/verify_showcase.py
 ```
 
-The verifier runs all public-safe Python code capsules, the toy source-to-OOF gate flow, the Rust capsule tests, markdown path checks, redaction scans, tracked-file hygiene checks, inventory checks, and count-metadata drift checks. The toy end-to-end flow is pinned against both pass and blocked golden reports under `examples/`.
+For a fast technical review, start with `docs/review-in-10-minutes.md`. For source-to-proof mapping, use `docs/review-traceability.md`.
+
+The verifier runs all public-safe Python code capsules, the toy source-to-OOF gate flow, the Rust capsule tests, markdown path checks, redaction scans, tracked-file hygiene checks, inventory checks, count-metadata drift checks, source placeholder schema lint, traceability checks, and benchmark smoke checks. The toy end-to-end flow is pinned against both pass and blocked golden reports under `examples/`.
 
 Current review surface:
 
 - 831 source-shaped module placeholders
 - 39 sanitized capability placeholders
 - 55 five-layer skeleton README nodes
-- 33 architecture and flow documents
-- 23 synthetic examples
+- 35 architecture and flow documents
+- 24 synthetic examples
 - 12 pseudocode sketches
 - 8 Mermaid diagrams
-- 5 runnable public-safe code capsules plus 1 toy end-to-end verification flow
+- 9 runnable public-safe code capsule roots
 
 ## Research OS Five-Layer Architecture
 
@@ -123,7 +125,7 @@ These placeholders cover candidate lifecycles, feature/label contracts, source-b
 
 ## Runnable Code Capsules
 
-The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, source-backed label view planning, grouped OOF metric aggregation, a Rust sequence-tensor native-kernel shape, and one toy end-to-end source-to-OOF gate flow with pass and blocked golden reports.
+The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, purged CPCV split validation, source-backed label view planning, grouped OOF metric aggregation, artifact manifest hashing, source-part joinability gating, a Rust sequence-tensor native-kernel shape, and one toy end-to-end source-to-OOF gate flow with pass and blocked golden reports.
 
 Run `python scripts/verify_showcase.py` to execute the same checks used by CI.
 
@@ -140,31 +142,33 @@ The design should be evaluated on:
 
 ## Suggested Reading Order
 
-1. `docs/architecture/five-layer-architecture.md`
-2. `docs/technical-review-map.md`
-3. `docs/capability-rationale.md`
-4. `docs/architecture/research-application-catalog.md`
-5. `docs/architecture/evidence-kernel-contracts.md`
-6. `docs/architecture/engine-fabric.md`
-7. `docs/architecture/failure-mode-matrix.md`
-8. `docs/architecture/selected-source-path-guide.md`
-9. `docs/flows/source-label-stage1-oof-flow.md`
-10. `docs/flows/quant-research-validation-playbook.md`
-11. `docs/flows/performance-optimization-playbook.md`
-12. `skeleton/`
-13. `source/README.md`
-14. `docs/capability-coverage.md`
-15. `docs/source-inventory.md`
-16. `docs/redaction-policy.md`
-17. `docs/redacted-capability-inventory.md`
-18. `redacted_capabilities/README.md`
-19. `diagrams/five-layer-architecture.mmd`
-20. `diagrams/source-to-oof-flow.mmd`
-21. `diagrams/capability-rationale-map.mmd`
-22. `pseudocode/research_run_orchestrator.md`
-23. `code_capsules/README.md`
-24. `REVIEW_CHECKLIST.md`
-25. `examples/`
+1. `docs/review-in-10-minutes.md`
+2. `docs/review-traceability.md`
+3. `docs/architecture/five-layer-architecture.md`
+4. `docs/technical-review-map.md`
+5. `docs/capability-rationale.md`
+6. `docs/architecture/research-application-catalog.md`
+7. `docs/architecture/evidence-kernel-contracts.md`
+8. `docs/architecture/engine-fabric.md`
+9. `docs/architecture/failure-mode-matrix.md`
+10. `docs/architecture/selected-source-path-guide.md`
+11. `docs/flows/source-label-stage1-oof-flow.md`
+12. `docs/flows/quant-research-validation-playbook.md`
+13. `docs/flows/performance-optimization-playbook.md`
+14. `skeleton/`
+15. `source/README.md`
+16. `docs/capability-coverage.md`
+17. `docs/source-inventory.md`
+18. `docs/redaction-policy.md`
+19. `docs/redacted-capability-inventory.md`
+20. `redacted_capabilities/README.md`
+21. `diagrams/five-layer-architecture.mmd`
+22. `diagrams/source-to-oof-flow.mmd`
+23. `diagrams/capability-rationale-map.mmd`
+24. `pseudocode/research_run_orchestrator.md`
+25. `code_capsules/README.md`
+26. `REVIEW_CHECKLIST.md`
+27. `examples/`
 
 ## Fixture Semantics
 
