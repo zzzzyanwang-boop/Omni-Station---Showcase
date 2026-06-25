@@ -12,6 +12,33 @@ Layer names follow the Research OS design baseline:
 - Layer 2 - Provider / Model / Runtime Engines
 - Layer 1 - Data / Compute / Artifact Infrastructure
 
+Reviewer note: the long inventory is a navigation surface, not a proof claim. High-signal rows are mapped to executable or fixture-backed evidence in `docs/review-traceability.md`; generic entries below are retained so reviewers can inspect ownership shape without seeing implementation bodies.
+
+## High-Signal Reviewer Index
+
+- `source/omni_station/research/data/full_market_source_contract.py` - binds source scope, source certificates, manifest compatibility, and stale-source rejection.
+- `source/omni_station/research/pipeline/full_market_source_label_panel_materialization.py` - shows source-backed label views, manifest-bound outputs, and dense-materialization avoidance.
+- `source/omni_station/research/pipeline/high_frequency_factor_line_stage1_active_boundary.py` - represents factor/label join preflight, source-part overlap checks, and streaming trainable output.
+- `source/omni_station/research/pipeline/model_branch_oof_run_spec.py` - defines OOF run-spec rebinding, source-boundary compatibility, and stale/narrow artifact blocking.
+- `source/omni_station/research_os/applications/setup_d_confirmation_readiness.py` - coordinates readiness gates, blocker posture, OOF-before-CPCV sequencing, and allowed next actions.
+- `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py` - captures batch-shape stability, fixed-shape sequence planning, and fail-closed non-finite handling.
+- `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py` - marks the Python contract boundary around Rust/PyO3 tensor assembly and parity evidence.
+- `source/omni_station/research_os/data_plane/manifest.py` - represents schema hash, content hash, lineage hash, cache policy, and stale artifact rejection.
+- `source/omni_station/research_os/semantic_kernel/evidence.py` - represents evidence-DAG ancestry, support closure, and unsupported-claim blocking.
+- `source/omni_station/research_os/semantic_kernel/gates.py` - shows pass/block decision semantics and fail-closed claim evaluation.
+- `source/omni_station/research_os/experiment_validation/contracts.py` - captures gate-ready evidence contracts, review scope, and validation obligations.
+- `source/omni_station/research/finml/diagnostics/trials_registry.py` - marks trial accounting and multiple-testing controls.
+- `source/omni_station/research/features/external_projection/quality_gates.py` - shows source-part joinability checks and rejects date-only coverage shortcuts.
+- `source/omni_station/research_os/engines/execution_replay_native.py` - separates offline replay evidence from live-capable runtime boundaries.
+- `source/omni_station/research_os/factor_evidence/risk_adjusted_identity.py` - anchors risk attribution sidecars and identity-linked evidence.
+- `source/omni_station/apps/ui_gateway/proof_graph_ops_page.py` - exposes reviewable evidence graph state to operators without leaking runtime internals.
+- `source/omni_station/apps/ui_gateway/research_workflow_policy.py` - defines allowed actions, blocker visibility, and fail-closed operator policy.
+- `source/web/omni-console/src/lib/gateway-fail-closed.ts` - marks UI-side policy enforcement for incomplete or unsupported evidence.
+- `source/rust/omni_sequence_tensor_kernel_py/src/lib.rs` - demonstrates native fixed-shape tensor assembly and cross-language boundary design.
+- `source/rust/omni_datafusion_query/src/lib.rs` - marks columnar scan/projection ownership for physical-plan control.
+- `source/rust/omni_features_stream/tests/validate_ir.rs` - shows native feature-stream IR validation as a first-class test surface.
+- `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs` - marks replay/counterfactual execution as a native kernel boundary.
+
 ## Recent Source-Boundary, Stage1, OOF, and Sequence Surfaces
 
 - `source/omni_station/research/data/full_market_source_contract.py` - full-market source-boundary contract, scope binding, and source certificate compatibility boundary.

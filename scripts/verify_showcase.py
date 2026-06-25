@@ -173,6 +173,27 @@ SOURCE_PLACEHOLDER_FIELDS = {
     ),
 }
 
+ALLOWED_LAYER_MARKERS = (
+    "Layer 5 - Research Governance & Operations",
+    "Layer 4 - Research Applications",
+    "Layer 3 - Evidence / Contract / DAG Kernel",
+    "Layer 2 - Provider / Model / Runtime Engines",
+    "Layer 1 - Data / Compute / Artifact Infrastructure",
+    "Validation Evidence - Test Contracts",
+    "Productization Boundary Layer",
+    "Validation Layer",
+)
+
+STRONG_TRACEABILITY_PROOF_PREFIXES = (
+    "code_capsules/",
+    "examples/",
+)
+
+STRONG_TRACEABILITY_PROOF_FILES = {
+    "scripts/benchmark_capsules.py",
+    "scripts/verify_showcase.py",
+}
+
 
 @dataclass(frozen=True)
 class CheckResult:
@@ -429,6 +450,17 @@ def check_source_placeholder_schema(root: Path) -> CheckResult:
         ]
         if missing:
             failures.append(f"{path.relative_to(root).as_posix()} missing {','.join(missing)}")
+            continue
+        retained_path = _extract_retained_path(text)
+        actual_path = path.relative_to(root / "source").as_posix()
+        if retained_path != actual_path:
+            failures.append(f"{path.relative_to(root).as_posix()} retained path {retained_path!r} != actual {actual_path!r}")
+        layer = _extract_line_value(text, ("Architecture layer:", "Research OS layer:", "System layer:"))
+        if layer is None or not any(marker in layer for marker in ALLOWED_LAYER_MARKERS):
+            failures.append(f"{path.relative_to(root).as_posix()} has invalid layer {layer!r}")
+        role = _extract_line_value(text, ("Architecture role:", "Review role:"))
+        if role is None or len(role.split()) < 3:
+            failures.append(f"{path.relative_to(root).as_posix()} has under-specified role {role!r}")
     if failures:
         return CheckResult("source placeholder schema", False, "; ".join(failures[:10]))
     return CheckResult("source placeholder schema", True, f"checked {len(source_files)} source placeholder files")
@@ -461,6 +493,10 @@ def check_traceability_matrix(root: Path) -> CheckResult:
         proof_paths = re.findall(r"`([^`]+)`", cells[3])
         if not proof_paths:
             failures.append(f"missing proof path: {source_path}")
+        if source_path in proof_paths:
+            failures.append(f"source path cannot prove itself: {source_path}")
+        if not any(_is_strong_traceability_proof(proof_path) for proof_path in proof_paths):
+            failures.append(f"missing executable or fixture proof: {source_path}")
         for proof_path in proof_paths:
             if looks_like_repo_path(proof_path) and not (root / proof_path).exists():
                 failures.append(f"missing proof path: {proof_path}")
@@ -485,32 +521,74 @@ def check_benchmark_smoke(root: Path) -> CheckResult:
         return CheckResult("capsule benchmark smoke", False, f"benchmark did not emit JSON: {exc}")
     required = {
         "benchmark_id",
-        "projection_width",
-        "source_scan_count",
-        "dense_rows_written",
-        "source_backed_view_rows",
-        "dense_materialization_avoided",
+        "source_backed_label_plan",
+        "dense_label_baseline",
+        "physical_delta",
+        "capsule_coverage",
         "rust_python_parity",
         "bounded_timing_smoke",
     }
     missing = sorted(required - set(report))
     if missing:
         return CheckResult("capsule benchmark smoke", False, f"missing fields: {', '.join(missing)}")
-    if report["projection_width"] != 4 or report["source_scan_count"] != 1:
+    label_plan = report["source_backed_label_plan"]
+    baseline = report["dense_label_baseline"]
+    delta = report["physical_delta"]
+    coverage = report["capsule_coverage"]
+    if label_plan["projection_width"] != 4 or label_plan["source_scan_count"] != 1:
         return CheckResult("capsule benchmark smoke", False, "unexpected source-backed label physical plan")
-    if report["dense_rows_written"] != 0 or report["dense_materialization_avoided"] is not True:
+    if baseline["dense_rows_written"] <= 0:
+        return CheckResult("capsule benchmark smoke", False, "dense baseline did not materialize rows")
+    if label_plan["dense_rows_written"] != 0 or delta["dense_materialization_avoided"] is not True:
         return CheckResult("capsule benchmark smoke", False, "dense materialization was not avoided")
+    if delta["avoided_dense_rows"] != baseline["dense_rows_written"]:
+        return CheckResult("capsule benchmark smoke", False, "dense-row delta does not match baseline")
+    if coverage["cpcv_split_count"] != 6 or coverage["joinability_pair_count"] != 1 or coverage["oof_group_count"] != 2:
+        return CheckResult("capsule benchmark smoke", False, "capsule coverage counters drifted")
     if report["rust_python_parity"] not in {"pass", "skipped_no_cargo"}:
         return CheckResult("capsule benchmark smoke", False, "rust kernel parity smoke failed")
     timing = report["bounded_timing_smoke"]
     if not isinstance(timing, dict) or timing.get("threshold_enforced") is not False:
         return CheckResult("capsule benchmark smoke", False, "benchmark timing policy is not review-safe")
+    golden_path = root / "examples" / "capsule_benchmark_report.json"
+    golden = json.loads(golden_path.read_text(encoding="utf-8"))
+    if _normalize_benchmark_report(report) != _normalize_benchmark_report(golden):
+        return CheckResult("capsule benchmark smoke", False, "generated benchmark report does not match golden shape")
     return CheckResult("capsule benchmark smoke", True, "source-backed physical-plan smoke report is valid")
 
 
 def _first_backtick_value(text: str) -> str | None:
     match = re.search(r"`([^`]+)`", text)
     return match.group(1) if match else None
+
+
+def _extract_retained_path(text: str) -> str | None:
+    for marker in ("Retained module path:", "Retained source path:", "Retained Rust path:"):
+        value = _extract_line_value(text, (marker,))
+        if value is not None:
+            return value
+    return None
+
+
+def _extract_line_value(text: str, markers: tuple[str, ...]) -> str | None:
+    for line in text.splitlines():
+        stripped = line.strip().lstrip("*").strip()
+        for marker in markers:
+            if stripped.startswith(marker):
+                return stripped[len(marker):].strip()
+    return None
+
+
+def _is_strong_traceability_proof(path: str) -> bool:
+    return path in STRONG_TRACEABILITY_PROOF_FILES or path.startswith(STRONG_TRACEABILITY_PROOF_PREFIXES)
+
+
+def _normalize_benchmark_report(report: dict[str, object]) -> dict[str, object]:
+    normalized = json.loads(json.dumps(report, sort_keys=True))
+    timing = normalized.get("bounded_timing_smoke")
+    if isinstance(timing, dict):
+        timing.pop("elapsed_ms", None)
+    return normalized
 
 
 if __name__ == "__main__":

@@ -27,22 +27,22 @@ This matrix maps representative source-shaped paths to the public proof surface.
 | `source/omni_station/research_os/semantic_kernel/evidence.py` | Layer 3 | Evidence DAG ancestry and support validation | `code_capsules/evidence_dag_validator/src/evidence_dag_validator.py` |
 | `source/omni_station/research_os/data_plane/manifest.py` | Layer 3 | Schema/content hash and lineage reference boundary | `code_capsules/artifact_manifest_hasher/src/artifact_manifest_hasher.py` |
 | `source/omni_station/research_os/semantic_kernel/gates.py` | Layer 3 | Pass/block gate semantics and supported decision claims | `pseudocode/gate_engine_claim_evaluator.md`; `code_capsules/evidence_dag_validator` |
-| `source/omni_station/research/finml/diagnostics/trials_registry.py` | Layer 3 | Multiple-testing and trial accounting boundary | `docs/flows/quant-research-validation-playbook.md` |
+| `source/omni_station/research/finml/diagnostics/trials_registry.py` | Layer 3 | Multiple-testing and trial accounting boundary | `docs/flows/quant-research-validation-playbook.md`; `examples/toy_gate_result.json` |
 | `source/omni_station/research_foundry/governance/confirmatory_production_closure.py` | Layer 4 | Closure case and research memory handoff | `pseudocode/closure_case_builder.md`; `examples/toy_closure_case.json` |
 | `source/omni_station/research_os/engines/execution_replay_native.py` | Layer 2 | Offline economic replay boundary | `pseudocode/replay_cost_gate.md`; `examples/toy_offline_evaluation_report.json` |
 | `source/omni_station/research_os/factor_evidence/risk_adjusted_identity.py` | Layer 2 | Risk identity, attribution, and sidecar evidence | `examples/toy_risk_identity_ledger.json` |
 | `source/omni_station/apps/ui_gateway/proof_graph_ops_page.py` | Layer 5 | Operator-visible evidence graph state | `examples/toy_page_contract.json`; `diagrams/evidence-flow.mmd` |
-| `source/omni_station/apps/ui_gateway/factor_registry_governance_lifecycle.py` | Layer 5 | Governance lifecycle and review-state read models | `docs/architecture/research-application-catalog.md` |
-| `source/omni_station/apps/ui_gateway/research_workflow_policy.py` | Layer 5 | Allowed action and fail-closed operator policy | `docs/architecture/failure-mode-matrix.md` |
-| `source/web/omni-console/src/lib/gateway-fail-closed.ts` | Layer 5 | UI-side fail-closed gateway behavior | `source/web/omni-console/src/lib/gateway-fail-closed.ts` |
-| `source/web/omni-console/src/components/pages/ui009-promotion.tsx` | Layer 5 | Promotion review UI boundary | `redacted_capabilities/governance_operations_surface/promotion_review_page.py` |
-| `source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs` | Layer 1 | Cross-language wire fixture validation | `source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs` |
-| `source/rust/omni_features_stream/tests/validate_ir.rs` | Layer 1 | Native feature-stream IR validation boundary | `source/rust/omni_features_stream/tests/validate_ir.rs` |
-| `source/rust/omni_bus_iceoryx2/src/journal.rs` | Layer 1 | Replayable native event journal boundary | `source/rust/omni_bus_iceoryx2/src/journal.rs` |
+| `source/omni_station/apps/ui_gateway/factor_registry_governance_lifecycle.py` | Layer 5 | Governance lifecycle and review-state read models | `docs/architecture/research-application-catalog.md`; `examples/toy_capability_review_packet.json` |
+| `source/omni_station/apps/ui_gateway/research_workflow_policy.py` | Layer 5 | Allowed action and fail-closed operator policy | `docs/architecture/failure-mode-matrix.md`; `examples/toy_blocker_matrix.json` |
+| `source/web/omni-console/src/lib/gateway-fail-closed.ts` | Layer 5 | UI-side fail-closed gateway behavior | `examples/toy_page_contract.json`; `examples/toy_blocker_matrix.json` |
+| `source/web/omni-console/src/components/pages/ui009-promotion.tsx` | Layer 5 | Promotion review UI boundary | `redacted_capabilities/governance_operations_surface/promotion_review_page.py`; `examples/toy_capability_review_packet.json` |
+| `source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs` | Layer 1 | Cross-language wire fixture validation | `code_capsules/rust_sequence_tensor_kernel/src/lib.rs`; `examples/capsule_benchmark_report.json` |
+| `source/rust/omni_features_stream/tests/validate_ir.rs` | Layer 1 | Native feature-stream IR validation boundary | `code_capsules/rust_sequence_tensor_kernel/src/lib.rs`; `examples/capsule_benchmark_report.json` |
+| `source/rust/omni_bus_iceoryx2/src/journal.rs` | Layer 1 | Replayable native event journal boundary | `code_capsules/rust_sequence_tensor_kernel/src/lib.rs`; `examples/capsule_benchmark_report.json` |
 | `source/rust/omni_datafusion_query/src/lib.rs` | Layer 1 | Columnar scan/projection control boundary | `pseudocode/performance_physical_plan.md`; `examples/toy_physical_plan_profile.json` |
-| `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs` | Layer 2 | Native counterfactual execution kernel boundary | `pseudocode/replay_cost_gate.md` |
-| `source/tests/research/pipeline/test_model_branch_oof_run_spec.py` | Layer 4 | Formal OOF source-boundary compatibility tests | `examples/toy_oof_run_spec.json` |
-| `source/tests/research/pipeline/test_high_frequency_factor_line_stage1_active_boundary.py` | Layer 1 | Source-backed Stage1 trainable join tests | `pseudocode/stage1_trainable_join.md` |
+| `source/rust/omni_counterfactual_execution_kernel_py/src/lib.rs` | Layer 2 | Native counterfactual execution kernel boundary | `pseudocode/replay_cost_gate.md`; `examples/toy_offline_evaluation_report.json` |
+| `source/tests/research/pipeline/test_model_branch_oof_run_spec.py` | Layer 4 | Formal OOF source-boundary compatibility tests | `examples/toy_oof_run_spec.json`; `code_capsules/source_backed_label_view` |
+| `source/tests/research/pipeline/test_high_frequency_factor_line_stage1_active_boundary.py` | Layer 1 | Source-backed Stage1 trainable join tests | `pseudocode/stage1_trainable_join.md`; `examples/toy_stage1_trainable_manifest.json` |
 | `source/tests/research/pipeline/test_full_market_source_label_panel_materialization.py` | Layer 1 | Source-backed label view tests | `code_capsules/source_backed_label_view/tests/test_source_backed_label_view.py` |
 
 Review interpretation:

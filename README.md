@@ -1,5 +1,7 @@
 # OmniStation Research OS Architecture Review
 
+[![Showcase CI](https://github.com/zzzzyanwang-boop/Omni-Station---Showcase/actions/workflows/showcase-ci.yml/badge.svg)](https://github.com/zzzzyanwang-boop/Omni-Station---Showcase/actions/workflows/showcase-ci.yml)
+
 OmniStation is a quantitative research operating system for turning research intent into governed evidence, reproducible artifacts, and reviewable promotion decisions. This repository presents the architecture surface of the system: retained module paths, sanitized capability boundaries, diagrams, pseudocode, and synthetic contract fixtures.
 
 The repository is designed for technical architecture review, not production runtime execution or strategy reproduction. In the source-shaped tree, implementation bodies are replaced with module-level responsibility summaries so the design can be inspected through ownership, contracts, failure boundaries, validation posture, data lineage, and operational controls. Compact code capsules are included separately where a public-safe implementation is useful for verification.
@@ -63,9 +65,9 @@ The repository now includes a source-shaped Rust surface under `source/rust/`. I
 
 The review signal is not that Rust exists as a label. The signal is that performance-sensitive work is split into contract-bound native crates, parity-tested language bridges, explicit memory and IO boundaries, and evidence-producing benchmarks or validation harnesses.
 
-## Recent Optimization Surface
+## Recent Source-Shaped Review Surface
 
-The showcase now includes the newest reviewable optimization surfaces:
+The showcase includes recent source-shaped review surfaces that are useful for inspecting system ownership, contracts, and failure boundaries:
 
 - source-boundary-bound full-market source/label panel materialization;
 - source-backed formula views that avoid dense row-level label materialization;
@@ -74,7 +76,7 @@ The showcase now includes the newest reviewable optimization surfaces:
 - formal OOF run-spec rebinding gates that block stale or narrow-universe artifacts from claiming broader source-boundary authority;
 - coalesced fixed-shape sequence batch planning and Rust/PyO3 sequence tensor kernel contracts for sequence-model OOF stability.
 
-These are presented as architecture and contract evidence only. Exact market-data counts, local runtime directories, performance traces, formulas, certificate hashes, and model outputs are not part of the review surface.
+These are presented as architecture and contract evidence only. Executable proof in this repository is limited to the public-safe code capsules and synthetic fixtures. Exact market-data counts, local runtime directories, performance traces, formulas, certificate hashes, and model outputs are not part of the review surface.
 
 ## Evidence Boundary
 

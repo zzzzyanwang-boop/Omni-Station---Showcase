@@ -14,6 +14,7 @@ class JoinabilityReport:
     issues: tuple[str, ...]
     checked_left_parts: int
     checked_right_parts: int
+    join_policy: str
 
 
 class JoinabilityError(ValueError):
@@ -25,6 +26,7 @@ def check_source_joinability(
     right_parts: list[dict[str, Any]],
     *,
     require_row_count_proof: bool = True,
+    join_policy: str = "asof_backward_or_exact",
 ) -> JoinabilityReport:
     """Check whether synthetic source parts are joinable at part level."""
 
@@ -39,6 +41,12 @@ def check_source_joinability(
             continue
         matched = False
         for right in same_date:
+            if left["publisher"] != right["publisher"]:
+                issues.append(f"publisher_mismatch:{left['part_id']}:{right['part_id']}")
+                continue
+            if left["_timezone_state"] != right["_timezone_state"]:
+                issues.append(f"timezone_policy_mismatch:{left['part_id']}:{right['part_id']}")
+                continue
             has_symbol_overlap = _range_overlap(left["symbol_start"], left["symbol_end"], right["symbol_start"], right["symbol_end"])
             has_time_overlap = _range_overlap(left["time_start"], left["time_end"], right["time_start"], right["time_end"])
             has_row_count_proof = left["row_count"] > 0 and right["row_count"] > 0
@@ -56,15 +64,18 @@ def check_source_joinability(
         issues=tuple(issues),
         checked_left_parts=len(parsed_left),
         checked_right_parts=len(parsed_right),
+        join_policy=join_policy,
     )
 
 
 def _parse_part(part: dict[str, Any]) -> dict[str, Any]:
     parsed = {
         "part_id": _required_string(part, "part_id"),
+        "dataset_id": _required_string(part, "dataset_id"),
+        "publisher": _required_string(part, "publisher"),
         "date": _required_string(part, "date"),
-        "symbol_start": _required_string(part, "symbol_start"),
-        "symbol_end": _required_string(part, "symbol_end"),
+        "symbol_start": _required_string(part, "symbol_start").upper(),
+        "symbol_end": _required_string(part, "symbol_end").upper(),
         "time_start": _parse_ts(part.get("time_start")),
         "time_end": _parse_ts(part.get("time_end")),
         "row_count": part.get("row_count"),
@@ -73,7 +84,10 @@ def _parse_part(part: dict[str, Any]) -> dict[str, Any]:
         raise JoinabilityError("symbol range must be ordered")
     if parsed["time_start"] > parsed["time_end"]:
         raise JoinabilityError("time range must be ordered")
-    if not isinstance(parsed["row_count"], int):
+    if _timezone_state(parsed["time_start"]) != _timezone_state(parsed["time_end"]):
+        raise JoinabilityError("time_start and time_end must use the same timezone-awareness policy")
+    parsed["_timezone_state"] = _timezone_state(parsed["time_start"])
+    if not isinstance(parsed["row_count"], int) or isinstance(parsed["row_count"], bool):
         parsed["row_count"] = 0
     return parsed
 
@@ -97,3 +111,6 @@ def _parse_ts(value: Any) -> datetime:
     except ValueError as exc:
         raise JoinabilityError("time fields must be valid ISO strings") from exc
 
+
+def _timezone_state(value: datetime) -> str:
+    return "aware" if value.tzinfo is not None and value.utcoffset() is not None else "naive"

@@ -69,12 +69,15 @@ def validate_artifact_support(claim: dict[str, Any], manifests: dict[str, Artifa
 
     scope = claim.get("scope")
     supporting_ids = claim.get("supported_by")
-    expected_hashes = claim.get("expected_content_hashes", {})
+    expected_hashes = claim.get("expected_hashes", {})
+    legacy_content_hashes = claim.get("expected_content_hashes", {})
     if scope not in {"diagnostic", "decision_grade"}:
         raise ManifestError("claim scope must be diagnostic or decision_grade")
     if not isinstance(supporting_ids, list) or not supporting_ids:
         raise ManifestError("claim must declare supported_by artifact ids")
     if not isinstance(expected_hashes, dict):
+        raise ManifestError("expected_hashes must be a mapping when provided")
+    if not isinstance(legacy_content_hashes, dict):
         raise ManifestError("expected_content_hashes must be a mapping when provided")
     for artifact_id in supporting_ids:
         if not isinstance(artifact_id, str) or not artifact_id:
@@ -82,14 +85,41 @@ def validate_artifact_support(claim: dict[str, Any], manifests: dict[str, Artifa
         manifest = manifests.get(artifact_id)
         if manifest is None:
             raise ManifestError(f"missing supporting artifact {artifact_id!r}")
-        expected_hash = expected_hashes.get(artifact_id)
-        if expected_hash is not None and expected_hash != manifest.content_hash:
-            raise ManifestError(f"stale supporting artifact {artifact_id!r}")
+        expected = expected_hashes.get(artifact_id)
+        if expected is None and artifact_id in legacy_content_hashes:
+            expected = {"content_hash": legacy_content_hashes[artifact_id]}
+        if expected is not None and not isinstance(expected, dict):
+            raise ManifestError(f"expected hashes for {artifact_id!r} must be a mapping")
+        if scope == "decision_grade" and expected is None:
+            raise ManifestError(f"decision-grade claim must pin schema, content, and lineage hashes for {artifact_id!r}")
+        if expected is not None:
+            _validate_expected_hashes(artifact_id, manifest, expected, require_all=scope == "decision_grade")
         if scope == "decision_grade" and (manifest.diagnostic_only or manifest.artifact_role != "decision"):
             raise ManifestError(f"diagnostic artifact {artifact_id!r} cannot support decision-grade claim")
+
+
+def _validate_expected_hashes(
+    artifact_id: str,
+    manifest: ArtifactManifest,
+    expected: dict[str, Any],
+    *,
+    require_all: bool,
+) -> None:
+    required_keys = ("schema_hash", "content_hash", "lineage_hash")
+    if require_all:
+        missing = [key for key in required_keys if key not in expected]
+        if missing:
+            raise ManifestError(f"decision-grade claim is missing {', '.join(missing)} for {artifact_id!r}")
+    for key in required_keys:
+        expected_hash = expected.get(key)
+        if expected_hash is None:
+            continue
+        if not isinstance(expected_hash, str) or not expected_hash.startswith("sha256:"):
+            raise ManifestError(f"{key} for {artifact_id!r} must be a sha256 hash")
+        if expected_hash != getattr(manifest, key):
+            raise ManifestError(f"stale supporting artifact {artifact_id!r}")
 
 
 def _hash_payload(payload: Any) -> str:
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
     return "sha256:" + hashlib.sha256(encoded).hexdigest()
-

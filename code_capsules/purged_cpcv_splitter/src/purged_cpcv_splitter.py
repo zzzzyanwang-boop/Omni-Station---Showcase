@@ -11,6 +11,7 @@ from typing import Any
 @dataclass(frozen=True)
 class SplitPlan:
     split_id: str
+    path_key: str
     validation_folds: tuple[int, ...]
     train_row_ids: tuple[str, ...]
     validation_row_ids: tuple[str, ...]
@@ -40,10 +41,13 @@ def build_purged_cpcv_splits(
         raise SplitPlanError("embargo_seconds cannot be negative")
 
     parsed = [_parse_row(row, group_field) for row in rows]
+    row_ids = [row["row_id"] for row in parsed]
+    if len(row_ids) != len(set(row_ids)):
+        raise SplitPlanError("row_id values must be unique")
     folds = {row["fold"] for row in parsed}
     expected_folds = set(range(fold_count))
-    if not folds.issubset(expected_folds):
-        raise SplitPlanError("rows contain a fold outside declared fold_count")
+    if folds != expected_folds:
+        raise SplitPlanError("rows must cover exactly the declared fold range")
 
     split_plans: list[SplitPlan] = []
     embargo = timedelta(seconds=embargo_seconds)
@@ -69,6 +73,7 @@ def build_purged_cpcv_splits(
             raise SplitPlanError(f"split {index} has no safe training rows after purging")
         plan = SplitPlan(
             split_id=f"cpcv_{index:02d}",
+            path_key="folds:" + ",".join(str(fold) for fold in validation_folds),
             validation_folds=tuple(validation_folds),
             train_row_ids=tuple(train_ids),
             validation_row_ids=tuple(row["row_id"] for row in validation),
@@ -99,6 +104,8 @@ def validate_split_plan(
     validation = [_required_row(by_id, row_id) for row_id in plan.validation_row_ids]
     if not train or not validation:
         raise SplitPlanError("split must contain train and validation rows")
+    if tuple(sorted({row["fold"] for row in validation})) != tuple(sorted(plan.validation_folds)):
+        raise SplitPlanError("validation_folds must match validation row fold ids")
     if set(plan.train_row_ids) & set(plan.validation_row_ids):
         raise SplitPlanError("train and validation row ids must be disjoint")
     train_groups = {row[group_field] for row in train}
@@ -118,8 +125,13 @@ def _parse_row(row: dict[str, Any], group_field: str) -> dict[str, Any]:
     fold = row.get("fold")
     if not isinstance(fold, int) or fold < 0:
         raise SplitPlanError("fold must be a non-negative integer")
+    as_of = _parse_ts(row.get("as_of"))
     label_start = _parse_ts(row.get("label_window_start"))
     label_end = _parse_ts(row.get("label_window_end"))
+    if len({_timezone_state(as_of), _timezone_state(label_start), _timezone_state(label_end)}) != 1:
+        raise SplitPlanError("all timestamps in a row must use the same timezone-awareness policy")
+    if label_start < as_of:
+        raise SplitPlanError("label_window_start must be at or after as_of")
     if label_end < label_start:
         raise SplitPlanError("label_window_end must be at or after label_window_start")
     return {
@@ -127,6 +139,7 @@ def _parse_row(row: dict[str, Any], group_field: str) -> dict[str, Any]:
         "row_id": row_id,
         group_field: group,
         "fold": fold,
+        "as_of": as_of,
         "label_window_start": label_start,
         "label_window_end": label_end,
     }
@@ -162,3 +175,6 @@ def _parse_ts(value: Any) -> datetime:
     except ValueError as exc:
         raise SplitPlanError("timestamps must be valid ISO strings") from exc
 
+
+def _timezone_state(value: datetime) -> str:
+    return "aware" if value.tzinfo is not None and value.utcoffset() is not None else "naive"
