@@ -118,6 +118,44 @@ class EvidenceDagValidatorTests(unittest.TestCase):
         self.assertFalse(report.ok)
         self.assertIn("non_ancestor_supporting_artifact", {issue.code for issue in report.issues})
 
+    def test_blocked_gate_cannot_publish_decision_grade_claim(self) -> None:
+        packet = {
+            "nodes": [
+                {
+                    "id": "artifact",
+                    "type": "artifact",
+                    "depends_on": [],
+                    "artifacts": [
+                        {
+                            "artifact_id": "toy.artifact.v1",
+                            "schema_hash": "sha256:schema",
+                            "content_hash": "sha256:content",
+                        }
+                    ],
+                    "claims": [],
+                },
+                {
+                    "id": "blocked_gate",
+                    "type": "gate",
+                    "depends_on": ["artifact"],
+                    "gate_decision": "block",
+                    "artifacts": [],
+                    "claims": [
+                        {
+                            "claim_id": "must_not_publish",
+                            "scope": "decision_grade",
+                            "supported_by": ["toy.artifact.v1"],
+                        }
+                    ],
+                },
+            ]
+        }
+
+        report = validate_evidence_dag(packet)
+
+        self.assertFalse(report.ok)
+        self.assertIn("blocked_gate_with_decision_claim", {issue.code for issue in report.issues})
+
 
 if __name__ == "__main__":
     unittest.main()

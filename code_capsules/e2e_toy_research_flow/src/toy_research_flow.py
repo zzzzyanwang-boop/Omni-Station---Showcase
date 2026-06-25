@@ -15,11 +15,17 @@ from code_capsules.source_backed_label_view import build_label_view_plan
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def run_toy_research_flow() -> dict[str, Any]:
+def run_toy_research_flow(
+    *,
+    inject_leakage_failure: bool = False,
+    inject_bad_artifact_support: bool = False,
+) -> dict[str, Any]:
     label_fixture = _load_json(ROOT / "source_backed_label_view" / "examples" / "toy_label_plan.json")
     label_plan = build_label_view_plan(label_fixture["source_manifest"], label_fixture["label_spec"])
 
     fold_rows = _load_json(ROOT / "leakage_fold_checker" / "examples" / "toy_rows.json")
+    if inject_leakage_failure:
+        fold_rows[0]["label_window_end"] = fold_rows[1]["as_of"]
     leakage_report = validate_rows(fold_rows, embargo_seconds=24 * 60 * 60)
 
     oof_rows = _load_json(ROOT / "oof_metric_kernel" / "examples" / "toy_oof_rows.json")
@@ -29,6 +35,7 @@ def run_toy_research_flow() -> dict[str, Any]:
         label_plan_ok=label_plan.materialization_policy == "source_backed_view",
         leakage_ok=leakage_report.ok,
         oof_group_count=len(oof_metrics),
+        inject_bad_artifact_support=inject_bad_artifact_support,
     )
     dag_report = validate_evidence_dag(dag_packet)
     gate_status = "pass" if dag_report.ok and leakage_report.ok and oof_metrics else "block"
@@ -55,8 +62,33 @@ def run_toy_research_flow() -> dict[str, Any]:
     }
 
 
-def _build_evidence_packet(label_plan_ok: bool, leakage_ok: bool, oof_group_count: int) -> dict[str, Any]:
+def _build_evidence_packet(
+    label_plan_ok: bool,
+    leakage_ok: bool,
+    oof_group_count: int,
+    *,
+    inject_bad_artifact_support: bool = False,
+) -> dict[str, Any]:
     gate_decision = "pass" if label_plan_ok and leakage_ok and oof_group_count > 0 else "block"
+    fold_claims = [
+        {
+            "claim_id": "toy_rows_pass_pit_and_embargo",
+            "scope": "decision_grade",
+            "supported_by": ["toy.label_plan.v1", "toy.leakage_report.v1"],
+        }
+    ] if leakage_ok else []
+    review_claims = [
+        {
+            "claim_id": "toy_flow_reviewable",
+            "scope": "decision_grade",
+            "supported_by": [
+                "toy.source_manifest.v1",
+                "toy.label_plan.v1",
+                "toy.leakage_report.v1",
+                "toy.oof_metrics.v1" if not inject_bad_artifact_support else "toy.missing_oof_metrics.v1",
+            ],
+        }
+    ] if gate_decision == "pass" else []
     return {
         "nodes": [
             {
@@ -85,13 +117,7 @@ def _build_evidence_packet(label_plan_ok: bool, leakage_ok: bool, oof_group_coun
                 "depends_on": ["label_plan"],
                 "gate_decision": "pass" if leakage_ok else "block",
                 "artifacts": [_artifact("toy.leakage_report.v1")],
-                "claims": [
-                    {
-                        "claim_id": "toy_rows_pass_pit_and_embargo",
-                        "scope": "decision_grade",
-                        "supported_by": ["toy.label_plan.v1", "toy.leakage_report.v1"],
-                    }
-                ],
+                "claims": fold_claims,
             },
             {
                 "id": "oof_metric_kernel",
@@ -112,18 +138,7 @@ def _build_evidence_packet(label_plan_ok: bool, leakage_ok: bool, oof_group_coun
                 "depends_on": ["oof_metric_kernel"],
                 "gate_decision": gate_decision,
                 "artifacts": [],
-                "claims": [
-                    {
-                        "claim_id": "toy_flow_reviewable",
-                        "scope": "decision_grade",
-                        "supported_by": [
-                            "toy.source_manifest.v1",
-                            "toy.label_plan.v1",
-                            "toy.leakage_report.v1",
-                            "toy.oof_metrics.v1",
-                        ],
-                    }
-                ],
+                "claims": review_claims,
             },
         ]
     }

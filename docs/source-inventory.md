@@ -1,6 +1,6 @@
 # Source-Shaped Inventory
 
-Exported placeholder files: 824
+Exported placeholder files: 831
 
 This inventory lists source-shaped files retained for architecture review. Implementation content is omitted; each file contains only a role summary and sanitized contract notes.
 

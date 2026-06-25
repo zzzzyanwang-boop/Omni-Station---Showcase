@@ -70,6 +70,80 @@ FORBIDDEN_TRACKED_PARTS = (
     "target",
     "node_modules",
     ".venv",
+    "dist",
+    "build",
+)
+
+FORBIDDEN_TRACKED_NAMES = (
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".npmrc",
+    ".pypirc",
+    "credentials.json",
+    "secrets.json",
+    "token.json",
+    "id_rsa",
+    "id_ed25519",
+    "known_hosts",
+)
+
+FORBIDDEN_TRACKED_SUFFIXES = (
+    ".pyc",
+    ".pyo",
+    ".pyd",
+    ".parquet",
+    ".feather",
+    ".duckdb",
+    ".sqlite",
+    ".db",
+    ".csv",
+    ".zip",
+    ".7z",
+    ".tar",
+    ".gz",
+    ".pem",
+    ".key",
+    ".p12",
+    ".pfx",
+    ".token",
+    ".secret",
+    ".pkl",
+    ".pickle",
+    ".onnx",
+    ".pt",
+    ".pth",
+    ".ckpt",
+)
+
+EXPECTED_COUNTS = {
+    "source_files": 831,
+    "redacted_files": 39,
+    "skeleton_readmes": 55,
+    "docs_files": 33,
+    "examples_files": 23,
+    "pseudocode_files": 12,
+    "diagram_files": 8,
+    "code_capsule_roots": 6,
+}
+
+COUNT_REFERENCE_SPECS = (
+    ("README.md", "source_files", r"-\s+(\d+)\s+source-shaped module placeholders"),
+    ("README.md", "redacted_files", r"-\s+(\d+)\s+sanitized capability placeholders"),
+    ("README.md", "skeleton_readmes", r"-\s+(\d+)\s+five-layer skeleton README nodes"),
+    ("README.md", "docs_files", r"-\s+(\d+)\s+architecture and flow documents"),
+    ("README.md", "examples_files", r"-\s+(\d+)\s+synthetic examples"),
+    ("README.md", "pseudocode_files", r"-\s+(\d+)\s+pseudocode sketches"),
+    ("README.md", "diagram_files", r"-\s+(\d+)\s+Mermaid diagrams"),
+    ("docs/export-coverage.md", "source_files", r"Source-shaped retained module placeholders:\s+(\d+)"),
+    ("docs/export-coverage.md", "redacted_files", r"Sanitized capability boundary placeholders:\s+(\d+)"),
+    ("docs/export-coverage.md", "skeleton_readmes", r"Five-layer Research OS skeleton nodes:\s+(\d+)"),
+    ("docs/export-coverage.md", "docs_files", r"Architecture and flow documents:\s+(\d+)"),
+    ("docs/export-coverage.md", "pseudocode_files", r"Pseudocode:\s+(\d+)"),
+    ("docs/export-coverage.md", "examples_files", r"Examples:\s+(\d+)"),
+    ("docs/export-coverage.md", "diagram_files", r"Diagrams:\s+(\d+)"),
+    ("docs/source-inventory.md", "source_files", r"Exported placeholder files:\s+(\d+)"),
+    ("docs/redacted-capability-inventory.md", "redacted_files", r"Redacted placeholder files:\s+(\d+)"),
 )
 
 
@@ -101,6 +175,7 @@ def main() -> int:
         check_sensitive_patterns(root),
         check_tracked_hygiene(root),
         check_inventory(root),
+        check_count_metadata(root),
     ]
     if not args.skip_rust:
         if shutil.which("cargo") is None:
@@ -217,10 +292,15 @@ def check_tracked_hygiene(root: Path) -> CheckResult:
         return CheckResult("tracked hygiene", False, completed.stderr.strip() or "git ls-files failed")
     bad: list[str] = []
     for line in completed.stdout.splitlines():
-        parts = Path(line).parts
+        path = Path(line)
+        parts = tuple(part.lower() for part in path.parts)
+        name = path.name.lower()
+        suffix = path.suffix.lower()
         if any(part in FORBIDDEN_TRACKED_PARTS for part in parts):
             bad.append(line)
-        if line.endswith((".pyc", ".parquet", ".feather", ".duckdb", ".sqlite", ".db", ".csv", ".zip")):
+        if name in FORBIDDEN_TRACKED_NAMES:
+            bad.append(line)
+        if suffix in FORBIDDEN_TRACKED_SUFFIXES:
             bad.append(line)
     if bad:
         return CheckResult("tracked hygiene", False, "; ".join(bad[:10]))
@@ -246,6 +326,59 @@ def check_inventory(root: Path) -> CheckResult:
     if missing:
         return CheckResult("inventory", False, f"missing code capsules: {', '.join(missing)}")
     return CheckResult("inventory", True, f"{source_files} source files, {len(capsule_roots)} code capsule roots")
+
+
+def check_count_metadata(root: Path) -> CheckResult:
+    actual = {
+        "source_files": count_files(root / "source"),
+        "redacted_files": count_files(root / "redacted_capabilities"),
+        "skeleton_readmes": count_files(root / "skeleton", pattern="README.md"),
+        "docs_files": count_files(root / "docs"),
+        "examples_files": count_files(root / "examples"),
+        "pseudocode_files": count_files(root / "pseudocode"),
+        "diagram_files": count_files(root / "diagrams"),
+        "code_capsule_roots": sum(
+            1 for path in (root / "code_capsules").iterdir()
+            if path.is_dir() and not path.name.startswith("__")
+        ),
+    }
+
+    mismatches: list[str] = []
+    for key, expected in EXPECTED_COUNTS.items():
+        observed = actual[key]
+        if observed != expected:
+            mismatches.append(f"{key}: actual {observed}, expected metadata {expected}")
+
+    for relative_path, key, pattern in COUNT_REFERENCE_SPECS:
+        path = root / relative_path
+        if not path.exists():
+            mismatches.append(f"{relative_path}: missing count reference file")
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        match = re.search(pattern, text)
+        if not match:
+            mismatches.append(f"{relative_path}: missing count pattern for {key}")
+            continue
+        declared = int(match.group(1))
+        if declared != actual[key]:
+            mismatches.append(f"{relative_path}: declares {declared} for {key}, actual {actual[key]}")
+
+    if mismatches:
+        return CheckResult("count metadata", False, "; ".join(mismatches[:10]))
+    return CheckResult(
+        "count metadata",
+        True,
+        (
+            f"{actual['source_files']} source, {actual['redacted_files']} redacted, "
+            f"{actual['examples_files']} examples, {actual['code_capsule_roots']} capsule roots"
+        ),
+    )
+
+
+def count_files(path: Path, pattern: str = "*") -> int:
+    if not path.exists():
+        return 0
+    return sum(1 for candidate in path.rglob(pattern) if candidate.is_file())
 
 
 if __name__ == "__main__":

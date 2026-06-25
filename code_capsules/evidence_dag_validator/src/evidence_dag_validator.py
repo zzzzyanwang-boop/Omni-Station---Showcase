@@ -251,11 +251,12 @@ def _validate_gate(node_id: str, node: dict[str, Any], issues: list[ValidationIs
                 "gate_decision must be pass or block",
             )
         )
+        return
+    has_decision_claim = any(
+        isinstance(claim, dict) and claim.get("scope") == DECISION_GRADE
+        for claim in node.get("claims", [])
+    )
     if decision == "pass":
-        has_decision_claim = any(
-            isinstance(claim, dict) and claim.get("scope") == DECISION_GRADE
-            for claim in node.get("claims", [])
-        )
         if not has_decision_claim:
             issues.append(
                 ValidationIssue(
@@ -265,6 +266,15 @@ def _validate_gate(node_id: str, node: dict[str, Any], issues: list[ValidationIs
                     "passing gates must publish at least one supported decision-grade claim",
                 )
             )
+    if decision == "block" and has_decision_claim:
+        issues.append(
+            ValidationIssue(
+                "error",
+                "blocked_gate_with_decision_claim",
+                node_id,
+                "blocked gates cannot publish decision-grade claims",
+            )
+        )
 
 
 def _topological_order(

@@ -5,7 +5,8 @@ Use this checklist to inspect the showcase as a verifiable architecture artifact
 ## Reproducibility Checks
 
 - Run `python scripts/verify_showcase.py`.
-- Confirm Python capsule tests, Rust capsule tests, path-reference checks, redaction scans, and tracked-file hygiene pass.
+- Confirm Python capsule tests, Rust capsule tests, path-reference checks, redaction scans, tracked-file hygiene, inventory checks, and count-metadata checks pass.
+- Confirm the toy source-to-OOF flow matches both pass and blocked golden reports under `examples/`.
 - Confirm examples are synthetic and do not claim production research results.
 
 ## Architecture Checks

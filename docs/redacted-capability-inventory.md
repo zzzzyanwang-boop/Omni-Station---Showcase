@@ -1,6 +1,6 @@
 # Redacted Capability Inventory
 
-Redacted placeholder files: 38
+Redacted placeholder files: 39
 
 These files use neutral capability names for modules whose original paths would over-disclose research direction, strategy posture, vendor detail, execution posture, or unpublished result history.
 

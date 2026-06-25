@@ -45,6 +45,25 @@ class LeakageFoldCheckerTests(unittest.TestCase):
         self.assertFalse(report.ok)
         self.assertIn("backward_label_window", {issue.code for issue in report.issues})
 
+    def test_mixed_timezone_policy_returns_issue_not_exception(self) -> None:
+        rows = json.loads((ROOT / "examples" / "toy_rows.json").read_text(encoding="utf-8"))
+        rows[0]["as_of"] = "2025-01-03T16:00:00Z"
+
+        report = validate_rows(rows)
+
+        self.assertFalse(report.ok)
+        self.assertIn("mixed_timestamp_timezone_policy", {issue.code for issue in report.issues})
+
+    def test_fold_timezone_mismatch_returns_issue_not_exception(self) -> None:
+        rows = json.loads((ROOT / "examples" / "toy_rows.json").read_text(encoding="utf-8"))
+        for field in ("as_of", "feature_available_at", "label_window_start", "label_window_end"):
+            rows[1][field] = rows[1][field] + "+00:00"
+
+        report = validate_rows(rows)
+
+        self.assertFalse(report.ok)
+        self.assertIn("fold_timezone_policy_mismatch", {issue.code for issue in report.issues})
+
 
 if __name__ == "__main__":
     unittest.main()

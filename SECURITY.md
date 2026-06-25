@@ -1,10 +1,10 @@
 # Security and Disclosure Policy
 
-This repository is scoped to architecture documentation, source-shaped placeholder files, sanitized capability placeholders, diagrams, pseudocode, and synthetic contract fixtures.
+This repository is scoped to architecture documentation, source-shaped placeholder files, sanitized capability placeholders, diagrams, pseudocode, synthetic contract fixtures, and compact public-safe code capsules.
 
 ## Disclosure Boundary
 
-- Implementation bodies and production logic stay outside the repository.
+- Production implementation bodies and production logic stay outside the repository.
 - Original filenames are sanitized when they would over-disclose research direction, strategy posture, vendor detail, execution posture, or unpublished result history.
 - Credentials, tokens, certificates, account identifiers, broker configuration, exchange configuration, OMS configuration, and live-execution configuration stay outside the repository.
 - Market data, vendor data, logs, checkpoints, model weights, generated artifacts, and research outputs stay outside the repository.

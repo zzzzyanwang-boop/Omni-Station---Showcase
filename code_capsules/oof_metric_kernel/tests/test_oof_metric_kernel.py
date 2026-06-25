@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from oof_metric_kernel import average_ranks, grouped_oof_metrics, rank_ic
+from oof_metric_kernel import MetricInputError, average_ranks, grouped_oof_metrics, rank_ic
 
 
 class OofMetricKernelTests(unittest.TestCase):
@@ -39,6 +39,15 @@ class OofMetricKernelTests(unittest.TestCase):
 
         self.assertEqual(metrics[0]["row_count"], 2)
         self.assertEqual(metrics[0]["skipped_non_finite_rows"], 1)
+
+    def test_invalid_group_key_fails_closed(self) -> None:
+        rows = [
+            {"fold": "f1", "score": 1.0, "label": 1.0},
+            {"fold": None, "score": 2.0, "label": 2.0},
+        ]
+
+        with self.assertRaises(MetricInputError):
+            grouped_oof_metrics(rows, ("fold",))
 
 
 if __name__ == "__main__":

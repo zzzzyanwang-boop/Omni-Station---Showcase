@@ -37,6 +37,10 @@ class MomentState:
         return cov / sqrt(var_x * var_y)
 
 
+class MetricInputError(ValueError):
+    """Raised when metric input is malformed enough to make the result unsafe."""
+
+
 def grouped_oof_metrics(
     rows: Iterable[dict[str, Any]],
     group_fields: tuple[str, ...],
@@ -50,8 +54,11 @@ def grouped_oof_metrics(
     rank_pairs: dict[tuple[Any, ...], list[tuple[float, float]]] = defaultdict(list)
     skipped_by_group: dict[tuple[Any, ...], int] = defaultdict(int)
 
+    if not group_fields:
+        raise MetricInputError("group_fields must contain at least one field")
+
     for row in rows:
-        key = tuple(row.get(field) for field in group_fields)
+        key = _group_key(row, group_fields)
         score = _finite_float(row.get(score_field))
         label = _finite_float(row.get(label_field))
         if score is None or label is None:
@@ -114,3 +121,15 @@ def _finite_float(value: Any) -> float | None:
     except (TypeError, ValueError):
         return None
     return parsed if isfinite(parsed) else None
+
+
+def _group_key(row: dict[str, Any], group_fields: tuple[str, ...]) -> tuple[str, ...]:
+    key: list[str] = []
+    for field in group_fields:
+        value = row.get(field)
+        if value is None or value == "":
+            raise MetricInputError(f"group field {field!r} is missing or empty")
+        if not isinstance(value, (str, int)):
+            raise MetricInputError(f"group field {field!r} must be a string or integer")
+        key.append(str(value))
+    return tuple(key)

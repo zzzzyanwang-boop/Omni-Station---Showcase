@@ -2,15 +2,25 @@
 
 OmniStation is a quantitative research operating system for turning research intent into governed evidence, reproducible artifacts, and reviewable promotion decisions. This repository presents the architecture surface of the system: retained module paths, sanitized capability boundaries, diagrams, pseudocode, and synthetic contract fixtures.
 
-The repository is designed for technical architecture review, not runtime execution. Implementation bodies are replaced with module-level responsibility summaries so the design can be inspected through ownership, contracts, failure boundaries, validation posture, data lineage, and operational controls.
+The repository is designed for technical architecture review, not production runtime execution or strategy reproduction. In the source-shaped tree, implementation bodies are replaced with module-level responsibility summaries so the design can be inspected through ownership, contracts, failure boundaries, validation posture, data lineage, and operational controls. Compact code capsules are included separately where a public-safe implementation is useful for verification.
+
+## Verify First
+
+Run the same checks used by CI before reviewing the architecture:
+
+```powershell
+python scripts/verify_showcase.py
+```
+
+The verifier runs all public-safe Python code capsules, the toy source-to-OOF gate flow, the Rust capsule tests, markdown path checks, redaction scans, tracked-file hygiene checks, inventory checks, and count-metadata drift checks. The toy end-to-end flow is pinned against both pass and blocked golden reports under `examples/`.
 
 Current review surface:
 
 - 831 source-shaped module placeholders
-- 38 sanitized capability placeholders
+- 39 sanitized capability placeholders
 - 55 five-layer skeleton README nodes
 - 33 architecture and flow documents
-- 21 synthetic examples
+- 23 synthetic examples
 - 12 pseudocode sketches
 - 8 Mermaid diagrams
 - 5 runnable public-safe code capsules plus 1 toy end-to-end verification flow
@@ -113,7 +123,7 @@ These placeholders cover candidate lifecycles, feature/label contracts, source-b
 
 ## Runnable Code Capsules
 
-The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, source-backed label view planning, grouped OOF metric aggregation, a Rust sequence-tensor native-kernel shape, and one toy end-to-end source-to-OOF gate flow.
+The `code_capsules/` tree contains compact public-safe implementations that can be run and tested. They are not production OmniStation source code. They use synthetic inputs to demonstrate evidence-DAG validation, point-in-time/fold leakage checks, source-backed label view planning, grouped OOF metric aggregation, a Rust sequence-tensor native-kernel shape, and one toy end-to-end source-to-OOF gate flow with pass and blocked golden reports.
 
 Run `python scripts/verify_showcase.py` to execute the same checks used by CI.
 

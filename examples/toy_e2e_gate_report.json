@@ -1,0 +1,56 @@
+{
+  "evidence_gate": {
+    "issues": [],
+    "status": "pass",
+    "topological_order": [
+      "source_manifest",
+      "label_plan",
+      "fold_leakage_check",
+      "oof_metric_kernel",
+      "review_gate"
+    ]
+  },
+  "flow_id": "toy_source_to_oof_gate",
+  "label_plan": {
+    "dense_rows_written": 0,
+    "label_id": "toy_forward_return",
+    "policy": "source_backed_view",
+    "projected_columns": [
+      "trade_date",
+      "symbol",
+      "bar_time",
+      "close"
+    ],
+    "view_rows_written": 2
+  },
+  "leakage_report": {
+    "issues": [],
+    "ok": true
+  },
+  "oof_metrics": [
+    {
+      "group": {
+        "fold": "f1",
+        "regime": "calm"
+      },
+      "mean_label": 0.03333333333333333,
+      "mean_score": 0.20000000000000004,
+      "pearson_ic": 0.9819805060619652,
+      "rank_ic": 1.0,
+      "row_count": 3,
+      "skipped_non_finite_rows": 0
+    },
+    {
+      "group": {
+        "fold": "f2",
+        "regime": "volatile"
+      },
+      "mean_label": 0.013333333333333336,
+      "mean_score": 0.11666666666666668,
+      "pearson_ic": 0.9848095097442355,
+      "rank_ic": 1.0,
+      "row_count": 3,
+      "skipped_non_finite_rows": 0
+    }
+  ]
+}

@@ -32,6 +32,8 @@ def validate_rows(rows: list[dict[str, Any]], embargo_seconds: int = 0) -> Leaka
     """
 
     issues: list[LeakageIssue] = []
+    if embargo_seconds < 0:
+        issues.append(LeakageIssue("invalid_embargo", None, None, "embargo_seconds cannot be negative"))
     parsed_rows: list[dict[str, Any]] = []
     for row in rows:
         parsed = _parse_row(row, issues)
@@ -59,6 +61,18 @@ def _parse_row(row: dict[str, Any], issues: list[LeakageIssue]) -> dict[str, Any
         except (KeyError, TypeError, ValueError):
             issues.append(LeakageIssue("invalid_timestamp", row_id, fold_id, f"{field} is invalid"))
             return None
+    timezone_states = {_timezone_state(parsed[field]) for field in fields}
+    if len(timezone_states) != 1:
+        issues.append(
+            LeakageIssue(
+                "mixed_timestamp_timezone_policy",
+                row_id,
+                fold_id,
+                "all timestamps in a row must use the same timezone-awareness policy",
+            )
+        )
+        return None
+    parsed["_timezone_state"] = timezone_states.pop()
     return parsed
 
 
@@ -113,6 +127,17 @@ def _validate_fold_embargo(
         validation_rows = [row for row in fold_rows if row.get("split") == "validation"]
         if not train_rows or not validation_rows:
             continue
+        timezone_states = {row.get("_timezone_state") for row in fold_rows}
+        if len(timezone_states) != 1:
+            issues.append(
+                LeakageIssue(
+                    "fold_timezone_policy_mismatch",
+                    None,
+                    fold_id,
+                    "all rows in a fold must use the same timezone-awareness policy",
+                )
+            )
+            continue
         max_train_label_end = max(row["label_window_end"] for row in train_rows)
         min_validation_as_of = min(row["as_of"] for row in validation_rows)
         if max_train_label_end + embargo > min_validation_as_of:
@@ -130,6 +155,10 @@ def _parse_ts(value: str) -> datetime:
     if not isinstance(value, str):
         raise TypeError("timestamp must be a string")
     return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def _timezone_state(value: datetime) -> str:
+    return "aware" if value.tzinfo is not None and value.utcoffset() is not None else "naive"
 
 
 def _string(value: Any) -> str | None:
