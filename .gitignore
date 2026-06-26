@@ -1,5 +1,5 @@
 # This showcase repository contains architecture review material and public-safe code capsules.
-# Keep private source, data, runtime output, credentials, and generated artifacts out.
+# Keep production source, non-public data, runtime output, credentials, and generated artifacts out.
 
 .env
 .env.*
@@ -21,16 +21,16 @@ dist/
 build/
 target/
 
-data/
-datasets/
-artifacts/
-runs/
-logs/
-checkpoints/
-models/
-output/
-_private/
-_scratch/
+/data/
+/datasets/
+/artifacts/
+/runs/
+/logs/
+/checkpoints/
+/models/
+/output/
+/_private/
+/_scratch/
 *.parquet
 *.feather
 *.duckdb

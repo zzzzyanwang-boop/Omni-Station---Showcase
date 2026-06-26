@@ -150,6 +150,7 @@ def _artifact(artifact_id: str) -> dict[str, str]:
         "artifact_id": artifact_id,
         "schema_hash": f"sha256:{safe_name}-schema",
         "content_hash": f"sha256:{safe_name}-content",
+        "lineage_hash": f"sha256:{safe_name}-lineage",
     }
 
 

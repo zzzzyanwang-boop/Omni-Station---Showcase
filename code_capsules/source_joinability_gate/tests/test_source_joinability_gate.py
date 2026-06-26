@@ -85,6 +85,28 @@ class SourceJoinabilityGateTests(unittest.TestCase):
 
         self.assertTrue(report.ok)
 
+    def test_expected_dataset_ids_are_bound_to_joinability(self) -> None:
+        report = check_source_joinability(
+            [_left_part(dataset_id="toy.other_bars")],
+            [_right_part()],
+            expected_left_dataset_id="toy.bars",
+            expected_right_dataset_id="toy.tbbo",
+        )
+
+        self.assertFalse(report.ok)
+        self.assertIn("left_dataset_mismatch:bars_p0:toy.other_bars", report.issues)
+
+    def test_expected_right_dataset_id_is_bound_to_joinability(self) -> None:
+        report = check_source_joinability(
+            [_left_part()],
+            [_right_part(dataset_id="toy.other_tbbo")],
+            expected_left_dataset_id="toy.bars",
+            expected_right_dataset_id="toy.tbbo",
+        )
+
+        self.assertFalse(report.ok)
+        self.assertIn("right_dataset_mismatch:tbbo_p0:toy.other_tbbo", report.issues)
+
 
 if __name__ == "__main__":
     unittest.main()

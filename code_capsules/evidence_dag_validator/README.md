@@ -6,7 +6,7 @@ What it shows:
 
 - unique evidence node ownership;
 - dependency existence and cycle detection;
-- artifact manifest completeness;
+- artifact manifest completeness, including schema, content, and lineage hashes;
 - claim support through known artifact references;
 - fail-closed behavior when a gate passes without support or a diagnostic node tries to make a decision-grade claim.
 

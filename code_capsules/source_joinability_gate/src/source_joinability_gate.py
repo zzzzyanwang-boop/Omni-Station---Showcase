@@ -27,6 +27,8 @@ def check_source_joinability(
     *,
     require_row_count_proof: bool = True,
     join_policy: str = "asof_backward_or_exact",
+    expected_left_dataset_id: str | None = None,
+    expected_right_dataset_id: str | None = None,
 ) -> JoinabilityReport:
     """Check whether synthetic source parts are joinable at part level."""
 
@@ -35,12 +37,18 @@ def check_source_joinability(
     issues: list[str] = []
     joinable_pairs: list[tuple[str, str]] = []
     for left in parsed_left:
+        if expected_left_dataset_id is not None and left["dataset_id"] != expected_left_dataset_id:
+            issues.append(f"left_dataset_mismatch:{left['part_id']}:{left['dataset_id']}")
+            continue
         same_date = [right for right in parsed_right if right["date"] == left["date"]]
         if not same_date:
-            issues.append(f"missing_right_date:{left['part_id']}")
+            issues.append(f"missing_right_date:{left['dataset_id']}:{left['part_id']}")
             continue
         matched = False
         for right in same_date:
+            if expected_right_dataset_id is not None and right["dataset_id"] != expected_right_dataset_id:
+                issues.append(f"right_dataset_mismatch:{right['part_id']}:{right['dataset_id']}")
+                continue
             if left["publisher"] != right["publisher"]:
                 issues.append(f"publisher_mismatch:{left['part_id']}:{right['part_id']}")
                 continue

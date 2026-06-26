@@ -31,6 +31,15 @@ class EvidenceDagValidatorTests(unittest.TestCase):
         self.assertFalse(report.ok)
         self.assertIn("unknown_supporting_artifact", {issue.code for issue in report.issues})
 
+    def test_blocks_artifact_missing_lineage_hash(self) -> None:
+        packet = json.loads((ROOT / "examples" / "toy_dag.json").read_text(encoding="utf-8"))
+        del packet["nodes"][1]["artifacts"][0]["lineage_hash"]
+
+        report = validate_evidence_dag(packet)
+
+        self.assertFalse(report.ok)
+        self.assertIn("artifact_manifest_incomplete", {issue.code for issue in report.issues})
+
     def test_detects_cycles(self) -> None:
         packet = {
             "nodes": [
@@ -57,6 +66,7 @@ class EvidenceDagValidatorTests(unittest.TestCase):
                             "artifact_id": "toy.diagnostic.v1",
                             "schema_hash": "sha256:schema",
                             "content_hash": "sha256:content",
+                            "lineage_hash": "sha256:lineage",
                         }
                     ],
                     "claims": [
@@ -87,6 +97,7 @@ class EvidenceDagValidatorTests(unittest.TestCase):
                             "artifact_id": "toy.left.v1",
                             "schema_hash": "sha256:schema-left",
                             "content_hash": "sha256:content-left",
+                            "lineage_hash": "sha256:lineage-left",
                         }
                     ],
                     "claims": [],
@@ -100,6 +111,7 @@ class EvidenceDagValidatorTests(unittest.TestCase):
                             "artifact_id": "toy.right.v1",
                             "schema_hash": "sha256:schema-right",
                             "content_hash": "sha256:content-right",
+                            "lineage_hash": "sha256:lineage-right",
                         }
                     ],
                     "claims": [
@@ -130,6 +142,7 @@ class EvidenceDagValidatorTests(unittest.TestCase):
                             "artifact_id": "toy.artifact.v1",
                             "schema_hash": "sha256:schema",
                             "content_hash": "sha256:content",
+                            "lineage_hash": "sha256:lineage",
                         }
                     ],
                     "claims": [],

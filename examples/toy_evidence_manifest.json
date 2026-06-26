@@ -18,11 +18,13 @@
       "format": "json",
       "row_count": 5,
       "schema_hash": "fake_schema_hash_0001",
-      "content_hash": "fake_content_hash_0001"
+      "content_hash": "fake_content_hash_0001",
+      "lineage_hash": "fake_lineage_hash_0001"
     }
   ],
   "lineage": {
     "source_manifest_hash": "fake_source_manifest_hash_0001",
+    "lineage_hash": "fake_evidence_lineage_hash_0001",
     "point_in_time_policy": "toy_declared_not_production"
   },
   "claim_limits": [
@@ -31,4 +33,3 @@
     "not_live_ready"
   ]
 }
-

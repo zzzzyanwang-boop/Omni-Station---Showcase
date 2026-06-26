@@ -2,7 +2,7 @@
 //!
 //! This crate demonstrates the shape of a native boundary: explicit metadata,
 //! deterministic validation errors, bitmap packing, contiguous anchor runs, and
-//! row-major sequence gathering. It contains no private strategy, model, data,
+//! row-major sequence gathering. It contains no strategy, model, non-public data,
 //! or production bridge code.
 
 use std::fmt;

@@ -125,7 +125,7 @@ EXPECTED_COUNTS = {
     "examples_files": 24,
     "pseudocode_files": 12,
     "diagram_files": 8,
-    "code_capsule_roots": 9,
+    "code_capsule_roots": 10,
 }
 
 COUNT_REFERENCE_SPECS = (
@@ -194,6 +194,17 @@ STRONG_TRACEABILITY_PROOF_FILES = {
     "scripts/verify_showcase.py",
 }
 
+TRACEABILITY_REQUIRED_PROOFS = {
+    "source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs": ("code_capsules/rust_native_boundary_proofs/",),
+    "source/rust/omni_features_stream/tests/validate_ir.rs": ("code_capsules/rust_native_boundary_proofs/",),
+    "source/rust/omni_bus_iceoryx2/src/journal.rs": ("code_capsules/rust_native_boundary_proofs/",),
+}
+
+RUST_CAPSULE_MANIFESTS = (
+    "code_capsules/rust_sequence_tensor_kernel/Cargo.toml",
+    "code_capsules/rust_native_boundary_proofs/Cargo.toml",
+)
+
 
 @dataclass(frozen=True)
 class CheckResult:
@@ -222,6 +233,7 @@ def main() -> int:
         check_markdown_path_refs(root),
         check_sensitive_patterns(root),
         check_tracked_hygiene(root),
+        check_tracked_review_coverage(root),
         check_inventory(root),
         check_count_metadata(root),
         check_source_placeholder_schema(root),
@@ -232,13 +244,14 @@ def main() -> int:
         if shutil.which("cargo") is None:
             results.append(CheckResult("rust code capsule tests", False, "cargo is not available"))
         else:
-            results.append(
-                run_command(
-                    "rust code capsule tests",
-                    ["cargo", "test", "--manifest-path", "code_capsules/rust_sequence_tensor_kernel/Cargo.toml"],
-                    root,
+            for manifest_path in RUST_CAPSULE_MANIFESTS:
+                results.append(
+                    run_command(
+                        f"rust code capsule tests ({manifest_path})",
+                        ["cargo", "test", "--manifest-path", manifest_path],
+                        root,
+                    )
                 )
-            )
 
     print("\nShowcase verification")
     print("=====================")
@@ -358,6 +371,21 @@ def check_tracked_hygiene(root: Path) -> CheckResult:
     return CheckResult("tracked hygiene", True, "no generated/cache/data files tracked")
 
 
+def check_tracked_review_coverage(root: Path) -> CheckResult:
+    completed = subprocess.run(["git", "ls-files"], cwd=str(root), text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if completed.returncode != 0:
+        return CheckResult("tracked review coverage", False, completed.stderr.strip() or "git ls-files failed")
+    tracked = {line.strip() for line in completed.stdout.splitlines() if line.strip()}
+    missing = [
+        path.relative_to(root).as_posix()
+        for path in iter_review_files(root)
+        if path.relative_to(root).as_posix() not in tracked
+    ]
+    if missing:
+        return CheckResult("tracked review coverage", False, "; ".join(missing[:10]))
+    return CheckResult("tracked review coverage", True, f"all {len(tracked)} tracked review paths are publishable")
+
+
 def check_inventory(root: Path) -> CheckResult:
     source_files = sum(1 for path in (root / "source").rglob("*") if path.is_file())
     capsule_roots = [
@@ -373,6 +401,7 @@ def check_inventory(root: Path) -> CheckResult:
         "purged_cpcv_splitter",
         "rust_sequence_tensor_kernel",
         "source_joinability_gate",
+        "rust_native_boundary_proofs",
         "e2e_toy_research_flow",
     }
     names = {path.name for path in capsule_roots}
@@ -497,6 +526,13 @@ def check_traceability_matrix(root: Path) -> CheckResult:
             failures.append(f"source path cannot prove itself: {source_path}")
         if not any(_is_strong_traceability_proof(proof_path) for proof_path in proof_paths):
             failures.append(f"missing executable or fixture proof: {source_path}")
+        required_proofs = TRACEABILITY_REQUIRED_PROOFS.get(source_path or "")
+        if required_proofs and not any(
+            proof_path.startswith(required_proof)
+            for required_proof in required_proofs
+            for proof_path in proof_paths
+        ):
+            failures.append(f"missing semantically bound proof for {source_path}: {', '.join(required_proofs)}")
         for proof_path in proof_paths:
             if looks_like_repo_path(proof_path) and not (root / proof_path).exists():
                 failures.append(f"missing proof path: {proof_path}")
@@ -526,6 +562,7 @@ def check_benchmark_smoke(root: Path) -> CheckResult:
         "physical_delta",
         "capsule_coverage",
         "rust_python_parity",
+        "rust_native_boundary_proofs",
         "bounded_timing_smoke",
     }
     missing = sorted(required - set(report))
@@ -545,8 +582,14 @@ def check_benchmark_smoke(root: Path) -> CheckResult:
         return CheckResult("capsule benchmark smoke", False, "dense-row delta does not match baseline")
     if coverage["cpcv_split_count"] != 6 or coverage["joinability_pair_count"] != 1 or coverage["oof_group_count"] != 2:
         return CheckResult("capsule benchmark smoke", False, "capsule coverage counters drifted")
+    if coverage["cpcv_group_purged_rows"] <= 0 or coverage["cpcv_time_purged_rows"] <= 0:
+        return CheckResult("capsule benchmark smoke", False, "CPCV purge paths are not covered")
+    if coverage["joinability_reject_count"] <= 0:
+        return CheckResult("capsule benchmark smoke", False, "joinability reject path is not covered")
     if report["rust_python_parity"] not in {"pass", "skipped_no_cargo"}:
         return CheckResult("capsule benchmark smoke", False, "rust kernel parity smoke failed")
+    if report["rust_native_boundary_proofs"] not in {"pass", "skipped_no_cargo"}:
+        return CheckResult("capsule benchmark smoke", False, "rust native boundary proofs failed")
     timing = report["bounded_timing_smoke"]
     if not isinstance(timing, dict) or timing.get("threshold_enforced") is not False:
         return CheckResult("capsule benchmark smoke", False, "benchmark timing policy is not review-safe")
@@ -588,6 +631,9 @@ def _normalize_benchmark_report(report: dict[str, object]) -> dict[str, object]:
     timing = normalized.get("bounded_timing_smoke")
     if isinstance(timing, dict):
         timing.pop("elapsed_ms", None)
+    for key in ("rust_python_parity", "rust_native_boundary_proofs"):
+        if normalized.get(key) in {"pass", "skipped_no_cargo"}:
+            normalized[key] = "pass_or_skipped"
     return normalized
 
 

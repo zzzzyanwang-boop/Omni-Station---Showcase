@@ -8,7 +8,8 @@
         {
           "artifact_id": "toy.source_manifest.v1",
           "schema_hash": "sha256:source-schema",
-          "content_hash": "sha256:source-content"
+          "content_hash": "sha256:source-content",
+          "lineage_hash": "sha256:source-lineage"
         }
       ],
       "claims": []
@@ -21,7 +22,8 @@
         {
           "artifact_id": "toy.trainable_manifest.v1",
           "schema_hash": "sha256:trainable-schema",
-          "content_hash": "sha256:trainable-content"
+          "content_hash": "sha256:trainable-content",
+          "lineage_hash": "sha256:trainable-lineage"
         }
       ],
       "claims": [

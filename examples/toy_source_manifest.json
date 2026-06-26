@@ -13,7 +13,8 @@
       "logical_name": "toy_observations",
       "format": "json",
       "row_count": 10,
-      "content_hash": "fake_source_content_hash_0001"
+      "content_hash": "fake_source_content_hash_0001",
+      "lineage_hash": "fake_source_lineage_hash_0001"
     }
   ],
   "restrictions": [
@@ -22,4 +23,3 @@
     "not_tradeable"
   ]
 }
-

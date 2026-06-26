@@ -1,6 +1,6 @@
 # Code Capsules
 
-This directory contains small, runnable public-safe implementations that demonstrate technical depth without exposing private OmniStation source code, strategy logic, research data, production configuration, or runtime artifacts.
+This directory contains small, runnable public-safe implementations that demonstrate technical depth without exposing production source code, strategy logic, non-public research data, production configuration, or runtime artifacts.
 
 Each capsule uses synthetic inputs and focuses on one reviewable engineering problem:
 
@@ -12,6 +12,7 @@ Each capsule uses synthetic inputs and focuses on one reviewable engineering pro
 - `artifact_manifest_hasher`: schema/content/lineage hashing and stale or diagnostic artifact support checks.
 - `source_joinability_gate`: part-level source joinability checks that reject date-only coverage claims.
 - `rust_sequence_tensor_kernel`: a Rust toy native kernel for validity bitmap packing, contiguous anchor runs, and sequence batch gathering.
+- `rust_native_boundary_proofs`: Rust-native wire fixture, feature IR, and append-only journal boundary checks.
 - `e2e_toy_research_flow`: an executable toy source-to-OOF gate flow that connects the Python capsules and verifies both pass and blocked gate outcomes against golden reports.
 
 Run the Python capsules:
@@ -22,12 +23,13 @@ python -m code_capsules.e2e_toy_research_flow.src.toy_research_flow
 python scripts/benchmark_capsules.py
 ```
 
-The end-to-end flow is checked against `examples/toy_e2e_gate_report.json` and `examples/toy_e2e_blocked_gate_report.json`, so a reviewer can see both promotion-ready evidence and fail-closed leakage behavior without private data.
+The end-to-end flow is checked against `examples/toy_e2e_gate_report.json` and `examples/toy_e2e_blocked_gate_report.json`, so a reviewer can see both promotion-ready evidence and fail-closed leakage behavior without non-public data.
 
 Run the Rust capsule:
 
 ```powershell
 cargo test --manifest-path code_capsules/rust_sequence_tensor_kernel/Cargo.toml
+cargo test --manifest-path code_capsules/rust_native_boundary_proofs/Cargo.toml
 ```
 
-The code here is intentionally compact. It is meant to show algorithmic and systems judgment: typed boundaries, deterministic validation, fail-closed behavior, physical-plan reasoning, artifact lineage, source joinability, purged validation, and careful edge-case tests.
+The code here is intentionally compact. It is meant to show algorithmic and systems judgment: typed boundaries, deterministic validation, fail-closed behavior, physical-plan reasoning, artifact lineage, source joinability, purged validation, native boundary discipline, and careful edge-case tests.

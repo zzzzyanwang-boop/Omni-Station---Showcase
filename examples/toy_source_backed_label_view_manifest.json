@@ -11,6 +11,7 @@
   "source_part_ledger_ref": "synthetic_source_part_ledger",
   "schema_hash": "synthetic_schema_hash",
   "content_hash": "synthetic_content_hash",
+  "lineage_hash": "synthetic_lineage_hash",
   "claim_limits": {
     "scope": "synthetic_full_scope",
     "evidence_tier": "contract_bound"

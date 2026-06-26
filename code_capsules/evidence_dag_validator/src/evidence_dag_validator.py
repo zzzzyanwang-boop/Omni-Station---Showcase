@@ -2,7 +2,7 @@
 
 The implementation is deliberately small but complete: it validates node
 ownership, artifact references, graph acyclicity, and claim support without
-depending on any OmniStation private source code.
+depending on production OmniStation source code.
 """
 
 from __future__ import annotations
@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from typing import Any, Iterable
 
 
-REQUIRED_ARTIFACT_FIELDS = ("artifact_id", "schema_hash", "content_hash")
+REQUIRED_ARTIFACT_FIELDS = ("artifact_id", "schema_hash", "content_hash", "lineage_hash")
 DECISION_GRADE = "decision_grade"
 
 

@@ -5,8 +5,11 @@
     "threshold_enforced": false
   },
   "capsule_coverage": {
+    "cpcv_group_purged_rows": 2,
     "cpcv_split_count": 6,
+    "cpcv_time_purged_rows": 4,
     "joinability_pair_count": 1,
+    "joinability_reject_count": 1,
     "oof_group_count": 2
   },
   "ci_policy": "correctness_and_shape_only",
@@ -20,6 +23,7 @@
     "dense_materialization_avoided": true,
     "extra_source_scans": 0
   },
+  "rust_native_boundary_proofs": "pass",
   "rust_python_parity": "pass",
   "source_backed_label_plan": {
     "dense_rows_written": 0,
