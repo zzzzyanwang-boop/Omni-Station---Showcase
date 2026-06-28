@@ -5,19 +5,28 @@ Retained module path: omni_station/research_foundry/models/training_job.py
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 4 - Research Applications
-Architecture role: model research boundaries and score artifact policies.
+Architecture role: manifest-bound ML training job contract and fold-local OOF execution owner.
 
 Implementation highlights visible at architecture-review level:
-- model research, training, governance, and promotion checks.
-- separates orchestration contracts from implementation details.
-- emits or consumes manifest-ready artifacts instead of loose files.
-- keeps strategy logic, production parameters, and data outside the review surface.
+- receives only compiled trainable manifests, fold policies, branch specs, and model policy refs.
+- requires fold row-set proof before a branch can emit OOF score-bus evidence.
+- records deterministic seed policy, branch id, model family, input schema hashes, output score schema, and runtime posture.
+- separates training completion from model eligibility; a completed job can still produce a blocked branch.
+- routes stale trainables, missing folds, non-finite predictions, and proxy score artifacts to explicit blockers.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: training work-order ref, trainable manifest, source-boundary ref, fold row-set proof, feature schema hash, label schema hash, branch spec, seed policy, and cache policy.
+- Outputs: OOF prediction manifest, training profile packet, branch candidate state, model-card input packet, EvidenceEnvelope, or fail-closed blocker.
+
+Failure modes and fail-closed conditions:
+- stale trainable manifest, missing fold proof, broad-scope overclaim, non-finite score, unmanifested score file, or diagnostic-only score artifact blocks decision-grade model evidence.
+- a passing sibling branch cannot hide a blocked required branch.
+- runtime posture remains offline-only; no inference, paper, live, broker, or OMS authority is emitted here.
+
+Public proof surface:
+- `code_capsules/toy_model_lifecycle_gate` demonstrates fold proof, OOF prediction manifest, and branch eligibility blockers.
+- `examples/toy_ml_training_manifest.json` shows the public-safe manifest shape.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production source code, model hyperparameters, feature values, score outputs, model weights, dataset roots, cache roots, runtime logs, and unpublished research results.
 """

@@ -21,6 +21,9 @@ Use this checklist to inspect the showcase as a verifiable architecture artifact
 - Feature availability is point-in-time relative to decision timestamps.
 - Label windows are forward-looking and fold embargo rules are explicit.
 - OOF metrics are tied to fold and regime group keys and handle non-finite values deterministically.
+- ML training evidence is tied to a trainable manifest, fold row-set proof, OOF prediction manifest, and model branch id.
+- Model-card eligibility requires calibration/OOD, uncertainty diagnostics, prediction replay compatibility, and pinned schema/content/lineage hashes.
+- Stale trainables, missing fold proof, non-finite predictions, missing calibration, OOD drift, proxy scores, diagnostic support artifacts, and replay schema mismatch fail closed.
 - Purged CPCV splits remove group leakage and time-window overlap before validation rows can support a claim.
 - Manifest-bound artifacts block stale content, schema drift, missing lineage, and diagnostic-only support for decision-grade claims.
 - Source joinability is proven at part/range level rather than by date-level dataset intersection.

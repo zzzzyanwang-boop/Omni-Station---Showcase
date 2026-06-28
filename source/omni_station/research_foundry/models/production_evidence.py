@@ -5,20 +5,26 @@ Retained module path: omni_station/research_foundry/models/production_evidence.p
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 4 - Research Applications
-Architecture role: model research boundaries and score artifact policies.
+Architecture role: decision-grade model evidence packet boundary before productization review.
 
 Implementation highlights visible at architecture-review level:
-- evidence packet assembly and proof-graph references.
-- model research, training, governance, and promotion checks.
-- separates orchestration contracts from implementation details.
-- emits or consumes manifest-ready artifacts instead of loose files.
-- keeps strategy logic, production parameters, and data outside the review surface.
+- packages model card, OOF evidence, calibration/OOD, uncertainty, replay compatibility, and blocker state into a review packet.
+- distinguishes decision-grade research evidence from inference eligibility, live-capable runtime, and promotion authority.
+- requires every supporting artifact to be schema/content/lineage pinned.
+- records unsupported or incomplete claims as blockers rather than publishing partial success.
+- feeds Layer 5 review/read-model surfaces without exposing score vectors or production runtime state.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: model card, branch eligibility report, support artifact manifests, EvidenceDAG refs, replay compatibility manifest, and runtime posture proof.
+- Outputs: model production-evidence packet, promotion input blocker, model registry candidate packet, or closure evidence ref.
+
+Failure modes and fail-closed conditions:
+- missing model card, stale OOF evidence, missing calibration/OOD, unsupported replay schema, diagnostic artifact support, or non-offline posture blocks productization boundary handoff.
+
+Public proof surface:
+- `examples/toy_model_lifecycle_gate_pass.json` and `examples/toy_model_lifecycle_gate_blocked.json` show pass/block packet shape.
+- `code_capsules/toy_model_lifecycle_gate` validates decision-grade support and blocked outcomes.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production source code, score artifacts, model weights, exact review thresholds, runtime configs, and unpublished research decisions.
 """

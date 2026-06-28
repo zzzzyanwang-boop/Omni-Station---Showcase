@@ -1,27 +1,75 @@
 {
   "schema": "omni.showcase.ml_training_manifest.v1",
   "training_run_id": "toy_sequence_model_run_001",
-  "model_family": "toy_sequence_model",
+  "model_family": "toy_linear_ranker",
+  "branch_id": "toy_linear_branch_v1",
+  "input_contracts": {
+    "source_boundary_ref": "synthetic_source_boundary_packet",
+    "stage1_trainable_manifest_ref": "toy.trainable_matrix.v1",
+    "feature_schema_hash": "sha256:toy_feature_schema_hash",
+    "label_schema_hash": "sha256:toy_label_schema_hash",
+    "lineage_hash": "sha256:toy_training_lineage_hash"
+  },
   "fold_policy": {
     "type": "purged_embargoed_folds",
     "fold_count": 3,
     "embargo": "toy_1_day",
-    "feature_selection": "fold_local_only"
+    "feature_selection": "fold_local_only",
+    "row_set_proof_ref": "toy_model_lifecycle_gate_pass.fold_row_set_proof"
+  },
+  "training_policy": {
+    "deterministic_seed": 17,
+    "hyperparameter_policy": "synthetic_public_safe_fixed_policy",
+    "candidate_branches": [
+      "toy_linear_branch_v1"
+    ],
+    "forbidden_inputs": [
+      "future_label_fields",
+      "proxy_score_artifacts",
+      "unmanifested_feature_files"
+    ]
   },
   "artifacts": {
     "oof_predictions": {
-      "manifest_hash": "fake_oof_manifest_hash_0001",
-      "row_count": 15
+      "artifact_id": "toy.oof_predictions.v1",
+      "schema_hash": "sha256:31daef60d228606a97ccf53a5ae2d3fe48dd841ce8c9b0f7b4509c90f3edd0ab",
+      "content_hash": "sha256:06c912ce2ff3c06a7473e5673d0524ec5f07bd623b063660eecbaa155c9e2a6c",
+      "lineage_hash": "sha256:692e58d4c8689f2b0df335be274979ae1157aef4941e988dd82e6c6c84d4687f",
+      "row_count": 6
     },
     "calibration": {
-      "manifest_hash": "fake_calibration_manifest_hash_0001",
-      "status": "toy_complete"
+      "report_ref": "toy_calibration_ood_report",
+      "status": "pass"
+    },
+    "model_card": {
+      "model_card_ref": "toy_model_card_v1",
+      "decision_scope": "decision_grade"
+    },
+    "prediction_replay": {
+      "manifest_ref": "toy_prediction_replay_manifest",
+      "schema_compatible": true
     }
   },
   "promotion": {
     "model_registry_candidate": true,
     "inference_eligible": false,
-    "blocked_reason": "Synthetic showcase run cannot authorize inference."
+    "blocked_reason": "Synthetic showcase run cannot authorize inference.",
+    "required_gate_ref": "toy_model_lifecycle_gate_pass"
+  },
+  "blocked_conditions": [
+    "stale_trainable_manifest",
+    "missing_fold_row_set_proof",
+    "non_finite_prediction",
+    "missing_calibration_report",
+    "ood_score_distribution_drift",
+    "proxy_score_artifact",
+    "prediction_replay_schema_mismatch"
+  ],
+  "runtime_posture": {
+    "offline_only": true,
+    "paper": false,
+    "live": false,
+    "broker": false,
+    "oms": false
   }
 }
-

@@ -5,20 +5,26 @@ Retained module path: omni_station/research_foundry/models/calibration.py
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 4 - Research Applications
-Architecture role: model research boundaries and score artifact policies.
+Architecture role: calibration evidence builder for OOF score reliability.
 
 Implementation highlights visible at architecture-review level:
-- model research, training, governance, and promotion checks.
-- rank/score calibration and reliability controls.
-- separates orchestration contracts from implementation details.
-- emits or consumes manifest-ready artifacts instead of loose files.
-- keeps strategy logic, production parameters, and data outside the review surface.
+- consumes OOF prediction manifests rather than in-memory score arrays or latest files.
+- binds calibration output to branch id, fold policy, score schema, label schema, and source-boundary lineage.
+- records reliability buckets, score/label alignment policy, non-finite handling, and diagnostic-vs-decision scope.
+- keeps calibration evidence separate from model training and separate from promotion authority.
+- blocks model-card eligibility when calibration is absent, stale, unsupported, or diagnostic-only.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: OOF prediction manifest, label alignment policy, calibration policy ref, fold scope, and expected score schema.
+- Outputs: calibration report manifest, reliability packet, EvidenceEnvelope, or calibration blocker.
+
+Failure modes and fail-closed conditions:
+- missing OOF manifest, score/label schema mismatch, non-finite prediction, empty calibration bin, stale hash, or diagnostic-only calibration artifact blocks decision-grade model evidence.
+
+Public proof surface:
+- `examples/toy_calibration_ood_report.json` shows a synthetic reliability/OOD report.
+- `code_capsules/toy_model_lifecycle_gate` tests missing calibration and diagnostic support blockers.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production calibration algorithms, score values, thresholds, model internals, data paths, and unpublished reliability results.
 """

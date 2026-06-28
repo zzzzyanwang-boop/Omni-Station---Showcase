@@ -7,11 +7,11 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Source-shaped retained module placeholders: 831
 - Sanitized capability boundary placeholders: 39
 - Five-layer Research OS skeleton nodes: 55 README files
-- Architecture and flow documents: 35 files
+- Architecture and flow documents: 36 files
 - Pseudocode: 12 language-neutral workflow sketches, including source-backed label views, Stage1 joins, sequence OOF planning, OOF rebinding, gate evaluation, performance physical planning, and closure cases
-- Examples: 24 synthetic contract fixtures for WorkOrders, manifests, gate results, source-backed labels, Stage1 trainable output, OOF specs, sequence batch plans, blocker matrices, performance profiles, capability review packets, closure cases, toy end-to-end pass/block golden reports, and capsule benchmark smoke output
+- Examples: 30 synthetic contract fixtures for WorkOrders, manifests, gate results, source-backed labels, Stage1 trainable output, OOF specs, sequence batch plans, ML training/model-card/calibration/replay evidence, blocker matrices, performance profiles, capability review packets, closure cases, toy end-to-end pass/block golden reports, toy model-lifecycle pass/block golden reports, and capsule benchmark smoke output
 - Diagrams: 8 Mermaid diagrams
-- Runnable code capsule roots: 10
+- Runnable code capsule roots: 11
 
 ## Review Surfaces
 
@@ -28,7 +28,7 @@ This repository is an architecture review package for OmniStation. It is scoped 
 - Risk/economic/replay evidence, freeze decisions, closure state, and runtime boundary contracts.
 - UI gateway and operator-facing read-model surfaces.
 - Tests that demonstrate fail-closed boundaries and validation contracts.
-- Runnable public-safe code capsules covering pass/block evidence gates, leakage, OOF metrics, purged CPCV, manifest hashing, source joinability, source-backed label views, Rust kernel shape, Rust-native wire/IR/journal boundaries, and toy source-to-OOF flow.
+- Runnable public-safe code capsules covering pass/block evidence gates, leakage, OOF metrics, purged CPCV, manifest hashing, source joinability, source-backed label views, Rust kernel shape, Rust-native wire/IR/journal boundaries, toy source-to-OOF flow, and toy train-to-model-card lifecycle gating.
 - Placeholder schema lint and traceability checks that bind representative source-shaped paths to public proof artifacts.
 - Benchmark smoke output that records projection width, scan count, dense rows avoided, and Rust-kernel parity status without asserting production performance.
 - Reviewer navigation material that connects the application catalog, evidence-kernel contracts, engine fabric, source-to-OOF flow, pseudocode, and synthetic manifests.

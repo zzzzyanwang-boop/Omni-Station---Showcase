@@ -1,0 +1,27 @@
+{
+  "schema": "omni.showcase.model_branch_eligibility.v1",
+  "branch_id": "toy_linear_branch_v1",
+  "candidate_state": "eligible",
+  "gate_status": "pass",
+  "inputs": {
+    "trainable_manifest_ref": "toy.trainable_matrix.v1",
+    "fold_policy": "purged_embargoed_fold_rows",
+    "oof_prediction_ref": "toy.oof_predictions.v1",
+    "model_card_ref": "toy_model_card_v1"
+  },
+  "eligibility_checks": {
+    "fold_row_set_proof": "present",
+    "artifact_support": "schema_content_lineage_pinned",
+    "calibration_ood": "present",
+    "uncertainty": "finite_predictions_required",
+    "prediction_replay": "schema_compatible",
+    "runtime_posture": "offline_only"
+  },
+  "blocked_examples": [
+    "stale_trainable_manifest",
+    "missing_fold_row_set_proof",
+    "non_finite_prediction",
+    "ood_score_distribution_drift",
+    "proxy_score_artifact"
+  ]
+}

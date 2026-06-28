@@ -14,16 +14,19 @@ Each capsule uses synthetic inputs and focuses on one reviewable engineering pro
 - `rust_sequence_tensor_kernel`: a Rust toy native kernel for validity bitmap packing, contiguous anchor runs, and sequence batch gathering.
 - `rust_native_boundary_proofs`: Rust-native wire fixture, feature IR, and append-only journal boundary checks.
 - `e2e_toy_research_flow`: an executable toy source-to-OOF gate flow that connects the Python capsules and verifies both pass and blocked gate outcomes against golden reports.
+- `toy_model_lifecycle_gate`: an executable toy train-to-model-card lifecycle gate covering OOF prediction manifests, calibration/OOD, uncertainty, prediction replay compatibility, and branch eligibility blockers.
 
 Run the Python capsules:
 
 ```powershell
 python -m unittest discover code_capsules -p "test_*.py"
 python -m code_capsules.e2e_toy_research_flow.src.toy_research_flow
+python -m code_capsules.toy_model_lifecycle_gate --scenario pass
+python -m code_capsules.toy_model_lifecycle_gate --scenario blocked
 python scripts/benchmark_capsules.py
 ```
 
-The end-to-end flow is checked against `examples/toy_e2e_gate_report.json` and `examples/toy_e2e_blocked_gate_report.json`, so a reviewer can see both promotion-ready evidence and fail-closed leakage behavior without non-public data.
+The end-to-end flow is checked against `examples/toy_e2e_gate_report.json` and `examples/toy_e2e_blocked_gate_report.json`. The model lifecycle gate is checked against `examples/toy_model_lifecycle_gate_pass.json` and `examples/toy_model_lifecycle_gate_blocked.json`, so a reviewer can see both complete evidence and fail-closed model blockers without non-public data.
 
 Run the Rust capsule:
 

@@ -5,20 +5,26 @@ Retained module path: tests/research/models/test_two_stage_tradeable_edge_model.
 Original source content is intentionally omitted.
 
 Architecture layer: Validation Evidence - Test Contracts
-Architecture role: model research boundaries and score artifact policies.
+Architecture role: test contract for two-stage model branch eligibility and productization boundary blocking.
 
 Implementation highlights visible at architecture-review level:
-- model research, training, governance, and promotion checks.
+- verifies that Stage1 trainable evidence and model-branch OOF evidence remain separately manifest-bound.
+- checks that calibration, OOD, uncertainty, model card, and replay compatibility must pass before a branch becomes review-eligible.
 - regression test for fail-closed behavior and boundary invariants.
-- separates orchestration contracts from implementation details.
-- emits or consumes manifest-ready artifacts instead of loose files.
+- blocks inference eligibility when the evidence is synthetic, diagnostic, stale, or incomplete.
 - keeps strategy logic, production parameters, and data outside the review surface.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: Stage1 trainable manifest, branch spec, OOF prediction manifest, model card, calibration/OOD report, uncertainty report, replay manifest, and runtime posture proof.
+- Outputs: sanitized branch eligibility assertion, productization-boundary blocker, model-card support assertion, or gate result.
+
+Failure modes and fail-closed conditions:
+- missing OOF evidence, missing calibration/OOD, OOD drift, non-finite score, stale trainable manifest, proxy score artifact, or replay schema mismatch blocks the branch.
+
+Public proof surface:
+- `code_capsules/toy_model_lifecycle_gate` covers pass and blocked outcomes for the lifecycle.
+- `examples/toy_model_lifecycle_gate_pass.json` and `examples/toy_model_lifecycle_gate_blocked.json` show the synthetic gate outputs.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production source code, feature definitions, model internals, score values, execution rules, and unpublished research outcomes.
 """

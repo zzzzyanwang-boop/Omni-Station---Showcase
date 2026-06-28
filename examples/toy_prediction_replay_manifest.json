@@ -1,0 +1,41 @@
+{
+  "manifest_id": "toy_prediction_replay_manifest",
+  "status": "pass",
+  "compatibility_policy": "prediction_replay_schema_must_match_oof_manifest",
+  "expected_schema": [
+    "row_id",
+    "fold",
+    "branch_id",
+    "score",
+    "label"
+  ],
+  "observed_schema": [
+    "row_id",
+    "fold",
+    "branch_id",
+    "score",
+    "label"
+  ],
+  "sample_rows": [
+    {
+      "row_id": "r0",
+      "fold": "f0",
+      "branch_id": "toy_linear_branch_v1",
+      "score": -0.3135,
+      "label": 0.15
+    },
+    {
+      "row_id": "r1",
+      "fold": "f0",
+      "branch_id": "toy_linear_branch_v1",
+      "score": -0.0475,
+      "label": 0.3
+    }
+  ],
+  "blocked_if": [
+    "prediction_replay_schema_mismatch",
+    "missing_branch_id",
+    "missing_label_alignment",
+    "unmanifested_score_file"
+  ]
+}

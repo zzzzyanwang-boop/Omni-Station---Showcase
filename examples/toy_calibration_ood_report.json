@@ -1,0 +1,32 @@
+{
+  "report_id": "toy_calibration_ood_report",
+  "status": "pass",
+  "calibration_policy": "synthetic_two_bucket_reliability",
+  "ood_policy": "synthetic_score_distribution_shift",
+  "calibration_bins": [
+    {
+      "bucket": "low_score",
+      "count": 3,
+      "mean_score": -0.001853,
+      "mean_label": 0.29,
+      "absolute_gap": 0.291853
+    },
+    {
+      "bucket": "high_score",
+      "count": 3,
+      "mean_score": 0.971186,
+      "mean_label": 0.683333,
+      "absolute_gap": 0.287853
+    }
+  ],
+  "ood": {
+    "status": "pass",
+    "mean_shift": 0.05,
+    "threshold": 0.5
+  },
+  "blocked_if": [
+    "calibration_report_missing",
+    "score_distribution_shift_exceeds_threshold",
+    "non_finite_prediction_count_above_zero"
+  ]
+}

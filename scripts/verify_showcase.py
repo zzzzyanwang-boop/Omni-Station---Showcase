@@ -121,11 +121,11 @@ EXPECTED_COUNTS = {
     "source_files": 831,
     "redacted_files": 39,
     "skeleton_readmes": 55,
-    "docs_files": 35,
-    "examples_files": 24,
+    "docs_files": 36,
+    "examples_files": 30,
     "pseudocode_files": 12,
     "diagram_files": 8,
-    "code_capsule_roots": 10,
+    "code_capsule_roots": 11,
 }
 
 COUNT_REFERENCE_SPECS = (
@@ -198,11 +198,44 @@ TRACEABILITY_REQUIRED_PROOFS = {
     "source/rust/omni_wire/tests/test_sbe_cross_lang_fixture.rs": ("code_capsules/rust_native_boundary_proofs/",),
     "source/rust/omni_features_stream/tests/validate_ir.rs": ("code_capsules/rust_native_boundary_proofs/",),
     "source/rust/omni_bus_iceoryx2/src/journal.rs": ("code_capsules/rust_native_boundary_proofs/",),
+    "source/omni_station/research_foundry/models/training_job.py": ("code_capsules/toy_model_lifecycle_gate",),
+    "source/omni_station/research_foundry/models/model_factory.py": ("code_capsules/toy_model_lifecycle_gate",),
+    "source/omni_station/research_foundry/models/model_card.py": ("examples/toy_model_card.json",),
+    "source/omni_station/research_foundry/models/calibration.py": ("examples/toy_calibration_ood_report.json",),
+    "source/omni_station/research_foundry/models/ood.py": ("examples/toy_model_lifecycle_gate_blocked.json",),
+    "source/omni_station/research_foundry/models/uncertainty.py": ("code_capsules/toy_model_lifecycle_gate",),
+    "source/omni_station/research_foundry/models/model_multiplicity.py": ("code_capsules/toy_model_lifecycle_gate",),
+    "source/omni_station/research_foundry/models/production_evidence.py": ("examples/toy_model_lifecycle_gate_pass.json",),
 }
 
 RUST_CAPSULE_MANIFESTS = (
     "code_capsules/rust_sequence_tensor_kernel/Cargo.toml",
     "code_capsules/rust_native_boundary_proofs/Cargo.toml",
+)
+
+ML_REQUIRED_EXAMPLES = (
+    "examples/toy_ml_training_manifest.json",
+    "examples/toy_model_card.json",
+    "examples/toy_model_branch_eligibility.json",
+    "examples/toy_calibration_ood_report.json",
+    "examples/toy_prediction_replay_manifest.json",
+    "examples/toy_model_lifecycle_gate_pass.json",
+    "examples/toy_model_lifecycle_gate_blocked.json",
+)
+
+ML_REQUIRED_TRACEABILITY_PATHS = (
+    "source/omni_station/research_foundry/models/training_job.py",
+    "source/omni_station/research_foundry/models/model_factory.py",
+    "source/omni_station/research_foundry/models/model_card.py",
+    "source/omni_station/research_foundry/models/calibration.py",
+    "source/omni_station/research_foundry/models/ood.py",
+    "source/omni_station/research_foundry/models/uncertainty.py",
+    "source/omni_station/research_foundry/models/model_multiplicity.py",
+    "source/omni_station/research_foundry/models/production_evidence.py",
+    "source/omni_station/research_foundry/model_zoo/evidence/branch_eligibility.py",
+    "source/omni_station/research_foundry/model_zoo/evidence/calibration_ood.py",
+    "source/omni_station/research_foundry/model_zoo/evidence/calibration_reliability.py",
+    "source/omni_station/research_foundry/model_zoo/evidence/score_distribution_drift.py",
 )
 
 
@@ -230,6 +263,7 @@ def main() -> int:
             [sys.executable, "-m", "code_capsules.e2e_toy_research_flow.src.toy_research_flow"],
             root,
         ),
+        check_ml_lifecycle_proof(root),
         check_markdown_path_refs(root),
         check_sensitive_patterns(root),
         check_tracked_hygiene(root),
@@ -403,6 +437,7 @@ def check_inventory(root: Path) -> CheckResult:
         "source_joinability_gate",
         "rust_native_boundary_proofs",
         "e2e_toy_research_flow",
+        "toy_model_lifecycle_gate",
     }
     names = {path.name for path in capsule_roots}
     missing = sorted(required - names)
@@ -598,6 +633,68 @@ def check_benchmark_smoke(root: Path) -> CheckResult:
     if _normalize_benchmark_report(report) != _normalize_benchmark_report(golden):
         return CheckResult("capsule benchmark smoke", False, "generated benchmark report does not match golden shape")
     return CheckResult("capsule benchmark smoke", True, "source-backed physical-plan smoke report is valid")
+
+
+def check_ml_lifecycle_proof(root: Path) -> CheckResult:
+    missing_examples = [path for path in ML_REQUIRED_EXAMPLES if not (root / path).exists()]
+    if missing_examples:
+        return CheckResult("ML lifecycle proof", False, f"missing examples: {', '.join(missing_examples)}")
+
+    traceability = (root / "docs" / "review-traceability.md").read_text(encoding="utf-8", errors="ignore")
+    missing_traceability = [path for path in ML_REQUIRED_TRACEABILITY_PATHS if path not in traceability]
+    if missing_traceability:
+        return CheckResult("ML lifecycle proof", False, f"missing traceability paths: {', '.join(missing_traceability[:5])}")
+
+    pass_report = _run_ml_lifecycle_scenario(root, "pass")
+    blocked_report = _run_ml_lifecycle_scenario(root, "blocked")
+    if isinstance(pass_report, str):
+        return CheckResult("ML lifecycle proof", False, pass_report)
+    if isinstance(blocked_report, str):
+        return CheckResult("ML lifecycle proof", False, blocked_report)
+
+    pass_golden = json.loads((root / "examples" / "toy_model_lifecycle_gate_pass.json").read_text(encoding="utf-8"))
+    blocked_golden = json.loads((root / "examples" / "toy_model_lifecycle_gate_blocked.json").read_text(encoding="utf-8"))
+    if pass_report != pass_golden:
+        return CheckResult("ML lifecycle proof", False, "pass scenario does not match golden report")
+    if blocked_report != blocked_golden:
+        return CheckResult("ML lifecycle proof", False, "blocked scenario does not match golden report")
+    if pass_report["eligibility_gate"]["status"] != "pass":
+        return CheckResult("ML lifecycle proof", False, "pass scenario did not pass")
+    if blocked_report["eligibility_gate"]["status"] != "block":
+        return CheckResult("ML lifecycle proof", False, "blocked scenario did not block")
+    posture = pass_report.get("runtime_posture", {})
+    if posture.get("offline_only") is not True or any(posture.get(key) is not False for key in ("paper", "live", "broker", "oms")):
+        return CheckResult("ML lifecycle proof", False, "runtime posture is not offline-only")
+    checked_modes = set(pass_report["eligibility_gate"].get("failure_modes_checked", []))
+    required_modes = {
+        "stale_trainable_manifest",
+        "missing_fold_row_set_proof",
+        "non_finite_prediction",
+        "missing_calibration",
+        "ood_drift",
+        "proxy_score_artifact",
+        "diagnostic_support_artifact",
+        "prediction_replay_schema_mismatch",
+    }
+    if not required_modes.issubset(checked_modes):
+        return CheckResult("ML lifecycle proof", False, "ML lifecycle failure-mode coverage is incomplete")
+    return CheckResult("ML lifecycle proof", True, "pass/block model lifecycle reports match golden fixtures")
+
+
+def _run_ml_lifecycle_scenario(root: Path, scenario: str) -> dict[str, object] | str:
+    completed = subprocess.run(
+        [sys.executable, "-m", "code_capsules.toy_model_lifecycle_gate", "--scenario", scenario],
+        cwd=str(root),
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+    if completed.returncode != 0:
+        return f"scenario {scenario} failed: {completed.stdout.strip()[-500:]}"
+    try:
+        return json.loads(completed.stdout)
+    except json.JSONDecodeError as exc:
+        return f"scenario {scenario} did not emit JSON: {exc}"
 
 
 def _first_backtick_value(text: str) -> str | None:

@@ -47,9 +47,16 @@ The `source/` tree contains source-shaped placeholders. This guide highlights re
 | --- | --- |
 | `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py` | full-manifest OOF executor and fixed-shape sequence batch planning |
 | `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py` | Python contract wrapper for native sequence tensor assembly |
+| `source/omni_station/research_foundry/models/training_job.py` | manifest-bound train-to-OOF job boundary with fold row-set proof and blocker propagation |
+| `source/omni_station/research_foundry/models/model_factory.py` | model branch-spec creation and unsupported/proxy branch blocking |
+| `source/omni_station/research_foundry/models/model_card.py` | model-card support refs, decision scope, runtime posture, and blocked reasons |
+| `source/omni_station/research_foundry/models/calibration.py` | calibration report support boundary for OOF score reliability |
+| `source/omni_station/research_foundry/models/ood.py` | OOD score-distribution drift gate for branch eligibility |
+| `source/omni_station/research_foundry/models/uncertainty.py` | non-finite score and uncertainty diagnostic boundary |
 | `source/omni_station/research_foundry/model_zoo/evidence/calibration_ood.py` | calibration and out-of-distribution evidence |
 | `source/omni_station/research_foundry/model_zoo/evidence/branch_eligibility.py` | model branch eligibility and blocker reasoning |
 | `source/tests/research/pipeline/test_model_branch_oof_run_spec.py` | fail-closed tests for formal OOF scope binding |
+| `source/tests/research/models/test_two_stage_tradeable_edge_model.py` | test contract for complete OOF/calibration/replay support before branch eligibility |
 
 ## Runtime, Replay, and Promotion Boundary
 

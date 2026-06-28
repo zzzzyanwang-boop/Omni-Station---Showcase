@@ -5,20 +5,26 @@ Retained module path: omni_station/research_foundry/model_zoo/evidence/score_dis
 Original source content is intentionally omitted.
 
 Architecture layer: Layer 4 - Research Applications
-Architecture role: proof graph, invalidation graph, evidence packets, and decision-grade guards.
+Architecture role: score-distribution drift blocker for replay or holdout compatibility.
 
 Implementation highlights visible at architecture-review level:
-- evidence packet assembly and proof-graph references.
-- model research, training, governance, and promotion checks.
-- separates orchestration contracts from implementation details.
-- emits or consumes manifest-ready artifacts instead of loose files.
-- keeps strategy logic, production parameters, and data outside the review surface.
+- compares model score distribution evidence across declared OOF and replay/holdout scopes.
+- binds the drift result to branch id, prediction schema, source-boundary lineage, and model-card support refs.
+- emits a blocker when the model is statistically complete but score distribution is outside the declared review scope.
+- keeps drift evidence separate from calibration reliability and separate from replay economics.
+- surfaces drift state to productization review without exposing production score vectors.
 
 Contract shape:
-- Inputs: sanitized work-order, contract, manifest, fold, artifact, or read-model references.
-- Outputs: sanitized evidence packet, manifest update, gate decision, report view, or test assertion.
+- Inputs: OOF prediction manifest, replay compatibility manifest, source scope ref, branch id, score schema, and drift policy ref.
+- Outputs: score-drift report, OOD blocker, EvidenceEnvelope, or diagnostic-only drift packet.
+
+Failure modes and fail-closed conditions:
+- missing comparison manifest, schema mismatch, stale prediction artifact, unsupported drift policy, or drift beyond policy blocks branch eligibility.
+
+Public proof surface:
+- `examples/toy_model_lifecycle_gate_blocked.json` shows `ood_score_distribution_drift` as a hard blocker.
+- `code_capsules/toy_model_lifecycle_gate` tests the drift block path.
 
 Implementation details intentionally omitted:
-- production source code, implementation algorithms, strategy parameters, data paths, credentials, and runtime state.
-- exact formulas, thresholds, vendor schemas, run identifiers, and unpublished research results.
+- production score vectors, drift thresholds, exact statistical tests, data paths, and unpublished model outcomes.
 """

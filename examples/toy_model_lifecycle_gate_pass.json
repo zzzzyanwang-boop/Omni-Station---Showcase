@@ -1,0 +1,244 @@
+{
+  "branch": {
+    "branch_id": "toy_linear_branch_v1",
+    "calibration_ood_report": {
+      "calibration_bins": [
+        {
+          "absolute_gap": 0.291853,
+          "bucket": "low_score",
+          "count": 3,
+          "mean_label": 0.29,
+          "mean_score": -0.001853
+        },
+        {
+          "absolute_gap": 0.287853,
+          "bucket": "high_score",
+          "count": 3,
+          "mean_label": 0.683333,
+          "mean_score": 0.971186
+        }
+      ],
+      "policy": "synthetic_two_bucket_reliability",
+      "report_id": "toy_calibration_ood_report",
+      "status": "pass"
+    },
+    "candidate_state": "eligible",
+    "deterministic_seed": 17,
+    "model_card": {
+      "blocked_reasons": [],
+      "branch_id": "toy_linear_branch_v1",
+      "decision_scope": "decision_grade",
+      "inference_eligible": false,
+      "model_card_id": "toy_model_card_v1",
+      "model_family": "toy_linear_ranker",
+      "runtime_posture": {
+        "broker": false,
+        "live": false,
+        "offline_only": true,
+        "oms": false,
+        "paper": false
+      },
+      "supported_by": [
+        "toy.trainable_matrix.v1",
+        "toy.oof_predictions.v1",
+        "toy.calibration_ood_report.v1",
+        "toy.prediction_replay_manifest.v1"
+      ]
+    },
+    "model_family": "toy_linear_ranker",
+    "ood_report": {
+      "mean_shift": 0.05,
+      "policy": "synthetic_score_distribution_shift",
+      "status": "pass",
+      "threshold": 0.5
+    },
+    "oof_metrics": [
+      {
+        "group": {
+          "fold": "f0"
+        },
+        "mean_label": 0.22499999999999998,
+        "mean_score": -0.1805,
+        "pearson_ic": 0.9999999999999993,
+        "rank_ic": 1.0,
+        "row_count": 2,
+        "skipped_non_finite_rows": 0
+      },
+      {
+        "group": {
+          "fold": "f1"
+        },
+        "mean_label": 0.485,
+        "mean_score": 0.4875,
+        "pearson_ic": 1.0000000000000013,
+        "rank_ic": 1.0,
+        "row_count": 2,
+        "skipped_non_finite_rows": 0
+      },
+      {
+        "group": {
+          "fold": "f2"
+        },
+        "mean_label": 0.75,
+        "mean_score": 1.1469999999999998,
+        "pearson_ic": 0.9999999999999918,
+        "rank_ic": 1.0,
+        "row_count": 2,
+        "skipped_non_finite_rows": 0
+      }
+    ],
+    "oof_prediction_manifest": {
+      "artifact_id": "toy.oof_predictions.v1",
+      "artifact_role": "decision",
+      "content_hash": "sha256:06c912ce2ff3c06a7473e5673d0524ec5f07bd623b063660eecbaa155c9e2a6c",
+      "diagnostic_only": false,
+      "lineage_hash": "sha256:692e58d4c8689f2b0df335be274979ae1157aef4941e988dd82e6c6c84d4687f",
+      "schema_hash": "sha256:31daef60d228606a97ccf53a5ae2d3fe48dd841ce8c9b0f7b4509c90f3edd0ab"
+    },
+    "training_policy": "fold_local_oof_only",
+    "uncertainty": {
+      "non_finite_prediction_count": 0,
+      "policy": "finite_oof_scores_required",
+      "score_max": 1.279,
+      "score_min": -0.3135,
+      "status": "pass"
+    }
+  },
+  "eligibility_gate": {
+    "blockers": [],
+    "failure_modes_checked": [
+      "stale_trainable_manifest",
+      "missing_fold_row_set_proof",
+      "non_finite_prediction",
+      "missing_calibration",
+      "ood_drift",
+      "proxy_score_artifact",
+      "diagnostic_support_artifact",
+      "prediction_replay_schema_mismatch"
+    ],
+    "status": "pass",
+    "supported_artifacts": [
+      "toy.trainable_matrix.v1",
+      "toy.oof_predictions.v1",
+      "toy.calibration_ood_report.v1",
+      "toy.prediction_replay_manifest.v1"
+    ]
+  },
+  "flow_id": "toy_model_lifecycle_gate",
+  "fold_row_set_proof": [
+    {
+      "group_purged_row_ids": [],
+      "path_key": "folds:0",
+      "purged_row_ids": [],
+      "split_id": "cpcv_00",
+      "train_row_ids": [
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "validation_folds": [
+        0
+      ],
+      "validation_row_ids": [
+        "r0",
+        "r1"
+      ]
+    },
+    {
+      "group_purged_row_ids": [],
+      "path_key": "folds:1",
+      "purged_row_ids": [],
+      "split_id": "cpcv_01",
+      "train_row_ids": [
+        "r0",
+        "r1",
+        "r4",
+        "r5"
+      ],
+      "validation_folds": [
+        1
+      ],
+      "validation_row_ids": [
+        "r2",
+        "r3"
+      ]
+    },
+    {
+      "group_purged_row_ids": [],
+      "path_key": "folds:2",
+      "purged_row_ids": [],
+      "split_id": "cpcv_02",
+      "train_row_ids": [
+        "r0",
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "validation_folds": [
+        2
+      ],
+      "validation_row_ids": [
+        "r4",
+        "r5"
+      ]
+    }
+  ],
+  "prediction_replay": {
+    "compatibility_policy": "prediction_replay_schema_must_match_oof_manifest",
+    "expected_schema": [
+      "row_id",
+      "fold",
+      "branch_id",
+      "score",
+      "label"
+    ],
+    "manifest_id": "toy_prediction_replay_manifest",
+    "observed_schema": [
+      "row_id",
+      "fold",
+      "branch_id",
+      "score",
+      "label"
+    ],
+    "sample_rows": [
+      {
+        "branch_id": "toy_linear_branch_v1",
+        "fold": "f0",
+        "label": 0.15,
+        "row_id": "r0",
+        "score": -0.3135
+      },
+      {
+        "branch_id": "toy_linear_branch_v1",
+        "fold": "f0",
+        "label": 0.3,
+        "row_id": "r1",
+        "score": -0.0475
+      }
+    ],
+    "status": "pass"
+  },
+  "runtime_posture": {
+    "broker": false,
+    "live": false,
+    "offline_only": true,
+    "oms": false,
+    "paper": false
+  },
+  "trainable_manifest": {
+    "artifact_id": "toy.trainable_matrix.v1",
+    "artifact_role": "decision",
+    "content_hash": "sha256:e20229a865f3eedf2f2f3cc58d3312561a51be3543906f992ec88d9e4297fe19",
+    "diagnostic_only": false,
+    "feature_fields": [
+      "toy_feature_a",
+      "toy_feature_b"
+    ],
+    "label_policy": "source_backed_forward_label",
+    "lineage_hash": "sha256:a08c338429bd799131d0b1964f94d244f3b660963d08e3a8fd05b87caebcf804",
+    "row_count": 6,
+    "schema_hash": "sha256:4e3a684eae6514a420ba066465fc2ce5e7168dacdef33beee9c923352b579ec1",
+    "source_boundary_ref": "synthetic_source_boundary_packet"
+  }
+}

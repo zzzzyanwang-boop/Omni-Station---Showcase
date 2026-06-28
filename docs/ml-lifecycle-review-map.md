@@ -1,0 +1,23 @@
+# ML Lifecycle Review Map
+
+This map is the compact review path for the public-safe machine-learning lifecycle surface.
+
+| Stage | Source-shaped paths | Proof artifact | Rejection condition | Verifier coverage |
+|---|---|---|---|---|
+| Source and label binding | `source/omni_station/research/data/full_market_source_contract.py`; `source/omni_station/research/pipeline/full_market_source_label_panel_materialization.py` | `examples/toy_source_manifest.json`; `code_capsules/source_backed_label_view` | stale source scope, direct label-part glob, dense label write required for active path | `scripts/verify_showcase.py` runs source-backed label and benchmark smoke checks |
+| Feature and factor admission | `source/omni_station/research/features/fold_local_factor_selector.py`; `source/tests/research/features/test_fold_local_factor_selector_train_only.py` | `code_capsules/purged_cpcv_splitter`; `code_capsules/leakage_fold_checker` | future fields, fold contamination, missing full-scope factor manifest | Python capsule tests and traceability matrix |
+| Trainable matrix construction | `source/omni_station/research/pipeline/high_frequency_factor_line_stage1_active_boundary.py`; `source/omni_station/research_foundry/compiler/trainable_matrix_compiler.py` | `examples/toy_stage1_trainable_manifest.json`; `pseudocode/stage1_trainable_join.md` | missing part-level joinability, hidden reject rows, unmanifested trainable output | source placeholder schema and traceability checks |
+| Fold policy and leakage control | `source/omni_station/research/finml/cv/purged_kfold.py`; `source/omni_station/research/finml/cv/cpcv.py`; `source/omni_station/research_os/data_plane/folds.py` | `code_capsules/purged_cpcv_splitter`; `code_capsules/leakage_fold_checker` | missing fold range, group leakage, embargo overlap, mixed timestamp policy | Python capsule tests |
+| OOF model training | `source/omni_station/research_foundry/models/training_job.py`; `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py` | `code_capsules/toy_model_lifecycle_gate`; `examples/toy_ml_training_manifest.json` | stale trainable manifest, missing fold row-set proof, non-finite prediction, unmanifested score file | ML lifecycle proof gate and capsule tests |
+| Calibration, OOD, and uncertainty | `source/omni_station/research_foundry/models/calibration.py`; `source/omni_station/research_foundry/models/ood.py`; `source/omni_station/research_foundry/models/uncertainty.py` | `examples/toy_calibration_ood_report.json`; `examples/toy_model_lifecycle_gate_blocked.json` | missing calibration, empty reliability bins, OOD score shift, non-finite score | ML lifecycle blocked golden and tests |
+| Model card and branch eligibility | `source/omni_station/research_foundry/models/model_card.py`; `source/omni_station/research_foundry/model_zoo/evidence/branch_eligibility.py` | `examples/toy_model_card.json`; `examples/toy_model_branch_eligibility.json` | diagnostic support artifact, proxy score artifact, incomplete support hashes, blocked branch hidden by sibling branch | ML lifecycle proof and traceability checks |
+| Prediction replay compatibility | `source/tests/research/models/test_model_artifact_prediction_replay.py`; `source/omni_station/research_foundry/decision_runtime/replay_plan.py` | `examples/toy_prediction_replay_manifest.json`; `code_capsules/toy_model_lifecycle_gate` | prediction schema mismatch, missing branch id, label alignment drift, latest-style score ref | ML lifecycle replay mismatch test |
+| Promotion boundary | `source/omni_station/research_foundry/models/production_evidence.py`; `source/web/omni-console/src/components/pages/ui009-promotion.tsx` | `examples/toy_model_lifecycle_gate_pass.json`; `examples/toy_capability_review_packet.json` | model evidence tries to authorize inference, paper, live, broker, or OMS without higher gates | redaction scan, runtime posture checks, traceability matrix |
+| Fail-closed cases | `source/tests/research/models/test_no_proxy_score_artifacts.py`; `source/tests/research/models/test_two_stage_tradeable_edge_model.py` | `code_capsules/toy_model_lifecycle_gate/tests/test_toy_model_lifecycle_gate.py` | stale trainable, missing fold proof, non-finite prediction, missing calibration, OOD drift, proxy score, diagnostic support, replay mismatch | `python -m unittest discover code_capsules -p "test_*.py"` |
+
+Review interpretation:
+
+- The source-shaped paths show ownership and boundary placement.
+- The code capsule shows executable public-safe mechanics.
+- The examples show stable pass and blocked packet shape.
+- The verifier ensures the ML lifecycle proof remains present, runnable, and linked from the traceability matrix.

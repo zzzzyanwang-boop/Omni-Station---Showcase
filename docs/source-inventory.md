@@ -23,6 +23,9 @@ Reviewer note: the long inventory is a navigation surface, not a proof claim. Hi
 - `source/omni_station/research_os/applications/setup_d_confirmation_readiness.py` - coordinates readiness gates, blocker posture, OOF-before-CPCV sequencing, and allowed next actions.
 - `source/omni_station/research_os/model_training/model_branch_oof_full_executor.py` - captures batch-shape stability, fixed-shape sequence planning, and fail-closed non-finite handling.
 - `source/omni_station/research_os/model_training/sequence_tensor_native_kernel.py` - marks the Python contract boundary around Rust/PyO3 tensor assembly and parity evidence.
+- `source/omni_station/research_foundry/models/training_job.py` - anchors manifest-bound ML training, fold row-set proof, and OOF prediction manifest emission.
+- `source/omni_station/research_foundry/models/model_card.py` - anchors model-card support refs, blocked reasons, and offline-only decision scope.
+- `source/omni_station/research_foundry/model_zoo/evidence/branch_eligibility.py` - records branch eligibility and hard blockers for stale trainables, proxy scores, OOD drift, and replay mismatch.
 - `source/omni_station/research_os/data_plane/manifest.py` - represents schema hash, content hash, lineage hash, cache policy, and stale artifact rejection.
 - `source/omni_station/research_os/semantic_kernel/evidence.py` - represents evidence-DAG ancestry, support closure, and unsupported-claim blocking.
 - `source/omni_station/research_os/semantic_kernel/gates.py` - shows pass/block decision semantics and fail-closed claim evaluation.

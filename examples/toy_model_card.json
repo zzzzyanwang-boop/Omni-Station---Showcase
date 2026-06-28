@@ -1,0 +1,37 @@
+{
+  "model_card_id": "toy_model_card_v1",
+  "branch_id": "toy_linear_branch_v1",
+  "model_family": "toy_linear_ranker",
+  "decision_scope": "decision_grade",
+  "supported_by": [
+    "toy.trainable_matrix.v1",
+    "toy.oof_predictions.v1",
+    "toy.calibration_ood_report.v1",
+    "toy.prediction_replay_manifest.v1"
+  ],
+  "required_evidence": [
+    "fold_row_set_proof",
+    "oof_prediction_manifest",
+    "calibration_ood_report",
+    "uncertainty_report",
+    "prediction_replay_compatibility"
+  ],
+  "inference_eligible": false,
+  "runtime_posture": {
+    "offline_only": true,
+    "paper": false,
+    "live": false,
+    "broker": false,
+    "oms": false
+  },
+  "blocked_if": [
+    "stale_trainable_manifest",
+    "missing_fold_row_set_proof",
+    "non_finite_prediction",
+    "missing_calibration_report",
+    "ood_score_distribution_drift",
+    "proxy_score_artifact",
+    "diagnostic_artifact_support",
+    "prediction_replay_schema_mismatch"
+  ]
+}
